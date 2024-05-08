@@ -1,24 +1,29 @@
 "use client";
 
 import React from "react";
+import { useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 
 export default function ResumeModal() {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const [size, setSize] = React.useState('5xl')
 
-    const handleOpen = (size: any) => {
+    // opaque or blur
+    const modalBackDrop = `opaque`
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [size, setSize] = useState<string>('5xl')
+    const handleOpen = (size: string) => {
         setSize(size)
         onOpen();
     }
 
     return (
         <>
-            <Button key={size} onPress={() => handleOpen(size)} color="secondary" variant="flat">View Resume</Button>
+            <Button key={size} onPress={() => handleOpen(size)} color="secondary" variant="solid">View Resume</Button>
             <Modal
                 size={'5xl'}
                 isOpen={isOpen}
                 onClose={onClose}
+                backdrop={modalBackDrop}
             >
                 <ModalContent>
                     {(onClose) => (

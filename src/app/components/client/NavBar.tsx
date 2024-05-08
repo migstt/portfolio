@@ -27,14 +27,19 @@ export default function NavBar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">miguel.dev</p>
+          <p className="font-bold text-inherit text-xl md:text-2xl">miguel.dev</p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive>
+        {/* <NavbarItem isActive>
           <Link href="/" aria-current="page" color="secondary">
             About
+          </Link>
+        </NavbarItem> */}
+        <NavbarItem>
+          <Link color="foreground" href="/">
+            Projects
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -44,27 +49,30 @@ export default function NavBar() {
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="/">
-            Projects
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/">
             Experience
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="lg:flex">
+
+        {/* Theme Switcher */}
+        {/* <NavbarItem className="lg:flex">
           < ThemeSwitcher />
-        </NavbarItem>
-        <NavbarItem>
+        </NavbarItem> */}
+
+        {/* Resume Modal Button */}
+        <NavbarItem className="hidden md:block">
           <ResumeModal />
         </NavbarItem>
+
+        {/* GitHub Icon Link */}
         <NavbarItem className="lg:flex">
           <Link color="foreground" href="https://github.com/migstt" target="_blank" rel="noopener noreferrer">
             < GitHubIcon />
           </Link>
         </NavbarItem>
+
+        {/* Linkedin Icon Link */}
         <NavbarItem className="lg:flex">
           <Link color="foreground" href="https://www.linkedin.com/in/miguel-franco-trinidad-3a919b253/" target="_blank" rel="noopener noreferrer">
             < LinkedInIcon />
