@@ -4,7 +4,6 @@ export const LinkedInIcon = (props: any) => (
   <svg
     aria-hidden="true"
     focusable="false"
-    height="1em"
     role="img"
     viewBox="0 0 24 24"
     width="1em"

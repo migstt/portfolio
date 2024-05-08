@@ -2,9 +2,10 @@
 
 import React from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
-import ThemeSwitcher from "./switcher";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { GitHubIcon } from "./icons/GitHubIcon";
 import { LinkedInIcon } from "./icons/LinkedInIcon";
+import ResumeModal from "./ResumeModal";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -32,7 +33,7 @@ export default function NavBar() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem isActive>
-          <Link href="/" aria-current="page">
+          <Link href="/" aria-current="page" color="secondary">
             About
           </Link>
         </NavbarItem>
@@ -48,13 +49,16 @@ export default function NavBar() {
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="/">
-            Resume
+            Experience
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="lg:flex">
           < ThemeSwitcher />
+        </NavbarItem>
+        <NavbarItem>
+          <ResumeModal />
         </NavbarItem>
         <NavbarItem className="lg:flex">
           <Link color="foreground" href="https://github.com/migstt" target="_blank" rel="noopener noreferrer">

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 export const MoonIcon = (props: any) => (
   <svg
