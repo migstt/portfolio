@@ -12,9 +12,9 @@ export default function NavBar() {
 
   const menuItems = [
     "About",
-    "Articles",
     "Projects",
-    "Resume",
+    "Articles",
+    "Experience",
     "GitHub",
     "LinkedIn",
   ];
@@ -32,11 +32,11 @@ export default function NavBar() {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        {/* <NavbarItem isActive>
+        <NavbarItem isActive>
           <Link href="/" aria-current="page" color="secondary">
             About
           </Link>
-        </NavbarItem> */}
+        </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="/">
             Projects
@@ -45,11 +45,6 @@ export default function NavBar() {
         <NavbarItem>
           <Link color="foreground" href="/">
             Articles
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/">
-            Experience
           </Link>
         </NavbarItem>
       </NavbarContent>
