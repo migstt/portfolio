@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
-import NavBar from "./components/client/NavBar";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { cn } from "@/lib/utils"
+import { NavBar } from "@/components/general/NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
 
 export const metadata: Metadata = {
   title: "miguel.dev",
@@ -18,18 +22,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
-        <Providers>
-          <header>
-            <NavBar />
-          </header>
-          <main>
-            {children}
-          </main>
-          <footer>
-            {/* To do */}
-          </footer>
-        </Providers>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NavBar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
