@@ -1,5 +1,5 @@
 import React from "react";
-import {Image} from "@nextui-org/react";
+import {Image} from "@nextui-org/image";
 
 export default function MyImage() {
   return (

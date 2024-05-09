@@ -7,8 +7,8 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 
-    // NextUI
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    // NextUI Individual Components
+    "./node_modules/@nextui-org/theme/dist/components/(button|image|link|modal|navbar|ripple|spinner).js"
   ],
   theme: {
     extend: {

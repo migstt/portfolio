@@ -2,7 +2,8 @@
 
 import React from "react";
 import { useState } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/modal";
+import { Button } from "@nextui-org/button";
 
 export default function ResumeModal() {
 
