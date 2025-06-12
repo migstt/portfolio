@@ -79,7 +79,7 @@ const Experience = () => {
             Experience
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-            Professional Journey
+            Experience
           </h2>
           <p className="text-muted-foreground mt-2 sm:mt-4 text-lg">
             A timeline of my professional growth and key achievements
