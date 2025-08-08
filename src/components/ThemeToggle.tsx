@@ -9,6 +9,8 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  const isLight = theme === "light";
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -16,11 +18,8 @@ export function ThemeToggle() {
   if (!mounted) return null;
 
   return (
-    <Button
-      size="icon"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-    >
-      {theme === "light" ? <Moon /> : <Sun />}
+    <Button size="icon" onClick={() => setTheme(isLight ? "dark" : "light")}>
+      {isLight ? <Moon /> : <Sun />}
     </Button>
   );
 }

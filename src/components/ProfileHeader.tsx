@@ -30,9 +30,9 @@ export function ProfileHeader({
           height={150}
           className="rounded-xl object-cover"
         />
-        <div className="gap-2 flex flex-col">
+        <div className="gap-1 flex flex-col">
           <div className="flex items-center gap-2">
-            <h1 className="text-3xl font-bold">{name}</h1>
+            <h1 className="text-2xl font-bold">{name}</h1>
             {verified && <CircleCheck className="text-blue-500 w-5 h-5" />}
           </div>
           <div className="flex items-center text-sm text-muted-foreground gap-1">
