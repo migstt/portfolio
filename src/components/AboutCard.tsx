@@ -11,7 +11,7 @@ export function AboutCard({ about }: AboutCardProps) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <CircleUserRound className="w-4 h-4" />
-          About Me
+          About
         </CardTitle>
       </CardHeader>
       <CardContent>
