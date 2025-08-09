@@ -3,12 +3,14 @@ import { ProfileHeader } from "@/components/ProfileHeader";
 import { AboutCard } from "@/components/AboutCard";
 import { TechStackCard } from "@/components/TechStackCard";
 import { ExperienceCard } from "@/components/ExperienceCard";
+import { ProjectsCard } from "@/components/ProjectsCard";
 
 import {
   aboutText,
   techCategories,
   experiences,
   profile,
+  projects,
 } from "@/data/portfolioData";
 
 export default function Home() {
@@ -27,11 +29,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-2">
-            <div className="lg:col-span-3">
+          <div className="grid grid-cols-1 lg:grid-cols-6 gap-2 items-stretch">
+            <div className="lg:col-span-3 h-full min-h-0">
               <TechStackCard categories={techCategories} />
             </div>
-            <div className="lg:col-span-3"></div>
+
+            <div className="lg:col-span-3 h-full min-h-0">
+              <ProjectsCard projects={projects} />
+            </div>
           </div>
         </div>
       </section>

@@ -13,26 +13,27 @@ interface TechStackCardProps {
 
 export function TechStackCard({ categories }: TechStackCardProps) {
   return (
-    <Card>
-      <CardHeader>
+    <Card className="h-full flex flex-col">
+      <CardHeader className="flex items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <Layers className="w-4 h-4" />
           Tech Stack
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-2 mt-1">
-        {categories.map(({ label, items }) => (
-          <div key={label}>
-            <h3 className="text-sm font-semibold mb-2">
-              {label}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {items.map((tech) => (
-                <Badge key={tech}>{tech}</Badge>
-              ))}
+
+      <CardContent className="flex-1 overflow-auto">
+        <div className="grid grid-cols-1 gap-2">
+          {categories.map(({ label, items }) => (
+            <div key={label}>
+              <h3 className="text-sm font-semibold mb-2">{label}</h3>
+              <div className="flex flex-wrap gap-2">
+                {items.map((tech) => (
+                  <Badge key={tech}>{tech}</Badge>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </CardContent>
     </Card>
   );

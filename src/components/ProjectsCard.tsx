@@ -1,0 +1,61 @@
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
+import { Package, CircleChevronRight } from "lucide-react";
+
+interface Project {
+  title: string;
+  description: string;
+  link: string;
+}
+
+interface ProjectsCardProps {
+  projects: Project[];
+}
+
+export function ProjectsCard({ projects }: ProjectsCardProps) {
+  return (
+    <Card className="h-full flex flex-col">
+      <CardHeader className="flex items-center justify-between">
+        <CardTitle className="flex items-center gap-2">
+          <Package className="w-4 h-4" />
+          Projects
+        </CardTitle>
+
+        <a
+          href="/projects"
+          className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+        >
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <CircleChevronRight className="w-4 h-4 stroke-[2] align-middle" />
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>See more</p>
+            </TooltipContent>
+          </Tooltip>
+        </a>
+      </CardHeader>
+
+      <CardContent className="flex-1 mt-1">
+        <div className="grid grid-cols-1 gap-2 h-full">
+          {projects.slice(0, 4).map((project) => (
+            <a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block transition-transform transform hover:scale-[1.01] border rounded-lg p-2 h-full"
+            >
+              <h3 className="text-sm font-semibold mb-2">{project.title}</h3>
+              <p className="text-sm">{project.description}</p>
+            </a>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}

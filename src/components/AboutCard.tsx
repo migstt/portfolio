@@ -8,7 +8,7 @@ interface AboutCardProps {
 export function AboutCard({ about }: AboutCardProps) {
   return (
     <Card>
-      <CardHeader>
+      <CardHeader  className="flex items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <CircleUserRound className="w-4 h-4" />
           About

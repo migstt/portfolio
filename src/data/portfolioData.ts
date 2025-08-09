@@ -43,3 +43,24 @@ export const experiences = [
     end: "2024",
   },
 ];
+
+export const projects = [
+  {
+    title: "Portfolio Website",
+    description:
+      "Built with Next.js, TypeScript, and shadcn/ui.",
+    link: "https://github.com/migstt/portfolio",
+  },
+  {
+    title: "Tech Article Platform",
+    description:
+      "Platform for publishing tech articles with Firebase auth and NewsData.io API.",
+    link: "https://github.com/migstt/tech_content_platform",
+  },
+  {
+    title: "Inventory Management System",
+    description:
+      "For stock, suppliers, and office location transfers.",
+    link: "https://github.com/migstt/ci_system",
+  },
+];

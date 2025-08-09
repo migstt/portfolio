@@ -1,6 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-// experience icon
 import { BriefcaseBusiness } from "lucide-react";
 
 interface Experience {
@@ -17,7 +16,7 @@ interface ExperienceCardProps {
 export function ExperienceCard({ experiences }: ExperienceCardProps) {
   return (
     <Card className="h-full">
-      <CardHeader>
+      <CardHeader className="flex items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <BriefcaseBusiness className="w-4 h-4" />
           Experience
