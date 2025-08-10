@@ -9,6 +9,7 @@ import { Activity, ArrowUpDown, SquareArrowUpRight } from "lucide-react";
 
 type Activity = {
   id: number;
+  activityId: number;
   date: string;
   type: string;
   distance: number;
