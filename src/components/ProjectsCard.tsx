@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Tooltip,
@@ -25,7 +26,7 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
           Projects
         </CardTitle>
 
-        <a
+        <Link
           href="/projects"
           className="flex items-center text-muted-foreground hover:text-primary transition-colors"
         >
@@ -37,7 +38,7 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
               <p>See more</p>
             </TooltipContent>
           </Tooltip>
-        </a>
+        </Link>
       </CardHeader>
 
       <CardContent className="flex-1 mt-1">
