@@ -1,4 +1,4 @@
-name: Deploy Next.js to EC2
+name: Deploy Next.js Static Export to Server
 
 on:
   push:
