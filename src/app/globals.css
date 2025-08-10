@@ -119,4 +119,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  :root {
+    --strava-hover-light: rgba(252, 76, 2, 0.08);
+    --strava-hover-dark: rgba(252, 76, 2, 0.15);
+  }
 }

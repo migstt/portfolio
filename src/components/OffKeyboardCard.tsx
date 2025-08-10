@@ -1,11 +1,16 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Activity as ActivityIcon, CircleChevronRight } from "lucide-react";
 import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip";
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Activity as ActivityIcon } from "lucide-react";
 import stravaActivities from "@/data/stravaActivities.json";
 
 function formatDistance(meters: number) {
@@ -24,8 +29,12 @@ function formatDate(dateStr: string) {
   return date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
-export function OffKeyboardCard() {
 
+
+
+
+
+export function OffKeyboardCard() {
   return (
     <Card className="h-90">
       <CardHeader className="flex items-center justify-between">
@@ -43,60 +52,72 @@ export function OffKeyboardCard() {
       </CardHeader>
 
       <CardContent className="max-h-[400px] overflow-y-auto text-sm">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-700">
-              <th className="text-left py-2 px-3 text-sm font-semibold">Date</th>
-              <th className="text-left py-2 px-3 text-sm font-semibold">Type</th>
-              <th className="text-left py-2 px-3 text-sm font-semibold">Distance</th>
-              <th className="text-left py-2 px-3 text-sm font-semibold">Time</th>
-              {/* <th className="py-2 px-3" /> */}
-            </tr>
-          </thead>
-          <tbody>
+        <Table className="w-full">
+          <TableHeader>
+            <TableRow className="border-b border-gray-200 dark:border-gray-700">
+              <TableHead className="text-left text-sm font-semibold">
+                Date
+              </TableHead>
+              <TableHead className="text-center text-sm font-semibold">
+                Type
+              </TableHead>
+              <TableHead className="text-left text-sm font-semibold">
+                Distance
+              </TableHead>
+              <TableHead className="text-left text-sm font-semibold">
+                Time
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+
+          <TableBody>
             {stravaActivities.map((activity) => (
-              <tr
+              <TableRow
                 key={activity.id}
-                className="border-b border-gray-100 dark:border-gray-800 hover:bg-orange-50 dark:hover:bg-orange-900"
+                onClick={() =>
+                  window.open(
+                    `https://www.strava.com/activities/${activity.id}`,
+                    "_blank"
+                  )
+                }
+                className="border-b border-gray-100 dark:border-gray-800 cursor-pointer 
+                  hover:bg-[rgba(252,76,2,0.1)] dark:hover:bg-[rgba(252,76,2,0.3)] transition-colors"
+                // Accessible: keyboard focus + screen readers
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    window.open(
+                      `https://www.strava.com/activities/${activity.id}`,
+                      "_blank"
+                    );
+                  }
+                }}
+                role="link"
+                aria-label={`View Strava activity ${
+                  activity.type
+                } on ${formatDate(activity.start_date_local)}`}
               >
-                <td className="py-2 px-3 text-muted-foreground">
+                <TableCell className="py-2 px-3 text-muted-foreground">
                   {formatDate(activity.start_date_local)}
-                </td>
-                <td className="py-2 px-3">
+                </TableCell>
+
+                <TableCell className="py-2 px-3">
                   <Badge className="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
                     {activity.type}
                   </Badge>
-                </td>
-                <td className="py-2 px-3 text-left font-medium text-gray-900 dark:text-gray-100">
+                </TableCell>
+
+                <TableCell className="py-2 px-3 font-medium text-gray-900 dark:text-gray-100">
                   {formatDistance(activity.distance)}
-                </td>
-                <td className="py-2 px-3 text-left text-gray-700 dark:text-gray-300">
+                </TableCell>
+
+                <TableCell className="py-2 px-3 text-gray-700 dark:text-gray-300">
                   {formatTime(activity.moving_time)}
-                </td>
-                {/* <td className="py-2 px-3 text-center">
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <a
-                        href={`https://www.strava.com/activities/${activity.id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`View details for ${
-                          activity.type
-                        } on ${formatDate(activity.start_date_local)}`}
-                        className="text-[#FC4C02] hover:text-[#e04402] transition-colors inline-flex items-center"
-                      >
-                        <CircleChevronRight className="w-5 h-5 stroke-[2]" />
-                      </a>
-                    </TooltipTrigger>
-                    <TooltipContent side="top">
-                      <p>View full activity on Strava</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </td> */}
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </CardContent>
     </Card>
   );
