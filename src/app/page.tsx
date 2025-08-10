@@ -4,7 +4,8 @@ import { AboutCard } from "@/components/AboutCard";
 import { TechStackCard } from "@/components/TechStackCard";
 import { ExperienceCard } from "@/components/ExperienceCard";
 import { ProjectsCard } from "@/components/ProjectsCard";
-import { OffKeyboardCard2 } from "@/components/OffKeyboardCard2";
+import { OffKeyboardCard } from "@/components/OffKeyboardCard";
+import { DevLogCard } from "@/components/DevLogCard";
 
 import {
   aboutText,
@@ -12,6 +13,7 @@ import {
   experiences,
   profile,
   projects,
+  devLogEntries
 } from "@/data/portfolioData";
 
 export default function Home() {
@@ -30,19 +32,24 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-2 items-stretch">
-            <div className="lg:col-span-3 h-full min-h-0">
+          <div className="grid grid-cols-1 lg:grid-cols-6 md:grid-cols-2 gap-2 items-stretch">
+            <div className="lg:col-span-3 md:col-span-1 h-full min-h-0">
               <TechStackCard categories={techCategories} />
             </div>
 
-            <div className="lg:col-span-3 h-full min-h-0">
+            <div className="lg:col-span-3 md:col-span-1 h-full min-h-0">
               <ProjectsCard projects={projects} />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2">
-            <div className="lg:col-span-2 flex flex-col gap-4">
-              <OffKeyboardCard2 />
+          <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-2">
+            <div className="lg:col-span-2 md:col-span-1 flex flex-col gap-4">
+              <OffKeyboardCard />
+            </div>
+            <div className="lg:col-span-3 md:col-span-1 flex flex-col">
+              <DevLogCard
+                devLogEntries={devLogEntries}
+              />
             </div>
           </div>
         </div>
