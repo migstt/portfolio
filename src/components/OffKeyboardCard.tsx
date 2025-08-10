@@ -5,7 +5,7 @@ import { DataTable } from "@/components/DataTable";
 import stravaActivities from "@/data/stravaActivities.json";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Activity, ArrowUpDown } from "lucide-react";
+import { Activity, ArrowUpDown, SquareArrowUpRight } from "lucide-react";
 
 type Activity = {
   id: number;
@@ -102,13 +102,13 @@ const columns: ColumnDef<Activity>[] = [
         className="flex items-center justify-start cursor-pointer select-none gap-2"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        <span className="text-sm font-semibold">Distance</span>
+        <span className="text-sm font-semibold">Km</span>
         <ArrowUpDown className="h-3 w-3 opacity-70 text-[#FC4C02] dark:text-[#FF7F50]" />
       </div>
     ),
     cell: ({ getValue }) => {
       const meters = getValue() as number;
-      return (meters / 1000).toFixed(1) + " km";
+      return (meters / 1000).toFixed(1);
     },
   },
   {
@@ -130,12 +130,30 @@ const columns: ColumnDef<Activity>[] = [
       return [h, m, s].map((v) => v.toString().padStart(2, "0")).join(":");
     },
   },
+  {
+    id: "link",
+    header: () => <div className="text-left text-sm font-semibold"></div>,
+    cell: ({ row }) => {
+      const activity = row.original;
+      return (
+        <a
+          href={`https://www.strava.com/activities/${activity.activityId}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center text-[#FC4C02] hover:text-[#e04402] transition-colors"
+        >
+          <SquareArrowUpRight className="w-4 h-4" />
+        </a>
+      );
+    },
+  },
 ];
 
 const data = stravaActivities.map(
   (activity: StravaActivity, index: number) =>
     ({
       id: index + 1,
+      activityId: activity.id,
       date: activity.start_date_local,
       type: activity.type,
       distance: activity.distance,

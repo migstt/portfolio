@@ -43,7 +43,7 @@ export function DevLogCard({ devLogEntries }: DevLogCardProps) {
       </CardHeader>
 
       <CardContent className="flex-1 mt-1 space-y-4">
-        {devLogEntries.slice(0, 4).map((entry) => (
+        {devLogEntries.slice(0, 3).map((entry) => (
           <a
             key={entry.title}
             href={entry.link}
