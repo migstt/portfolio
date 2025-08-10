@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
-import { Package, CircleChevronRight } from "lucide-react";
+import { Package, SquareArrowRight } from "lucide-react";
 
 interface Project {
   title: string;
@@ -32,7 +32,7 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
         >
           <Tooltip>
             <TooltipTrigger asChild>
-              <CircleChevronRight className="w-4 h-4 stroke-[2] align-middle" />
+              <SquareArrowRight className="w-5 h-5 stroke-[2] align-middle" />
             </TooltipTrigger>
             <TooltipContent side="top">
               <p>See more</p>

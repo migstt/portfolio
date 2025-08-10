@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
-import { Notebook, CircleChevronRight } from "lucide-react";
+import { Notebook, SquareArrowRight } from "lucide-react";
 
 interface DevLogEntry {
   date: string;
@@ -18,28 +19,28 @@ interface DevLogCardProps {
   devLogEntries: DevLogEntry[];
 }
 
-export function DevLogCard({ devLogEntries }: DevLogCardProps) {
+export function TechBlogCard({ devLogEntries }: DevLogCardProps) {
   return (
     <Card className="h-full flex flex-col bg-muted/30 border border-border">
       <CardHeader className="flex items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <Notebook className="w-4 h-4" />
-          Dev Log
+          Tech Blog
         </CardTitle>
 
-        <a
-          href="/dev-log"
+        <Link
+          href="/blog"
           className="flex items-center text-muted-foreground hover:text-primary transition-colors"
         >
           <Tooltip>
             <TooltipTrigger asChild>
-              <CircleChevronRight className="w-4 h-4 stroke-[2]" />
+              <SquareArrowRight className="w-5 h-5 stroke-[2]" />
             </TooltipTrigger>
             <TooltipContent side="top">
               <p>See more</p>
             </TooltipContent>
           </Tooltip>
-        </a>
+        </Link>
       </CardHeader>
 
       <CardContent className="flex-1 mt-1 space-y-4">

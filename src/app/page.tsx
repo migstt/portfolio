@@ -5,7 +5,7 @@ import { TechStackCard } from "@/components/TechStackCard";
 import { ExperienceCard } from "@/components/ExperienceCard";
 import { ProjectsCard } from "@/components/ProjectsCard";
 import { OffKeyboardCard } from "@/components/OffKeyboardCard";
-import { DevLogCard } from "@/components/DevLogCard";
+import { TechBlogCard } from "@/components/TechBlogCard";
 
 import {
   aboutText,
@@ -13,7 +13,7 @@ import {
   experiences,
   profile,
   projects,
-  devLogEntries
+  devLogEntries,
 } from "@/data/portfolioData";
 
 export default function Home() {
@@ -47,9 +47,7 @@ export default function Home() {
               <OffKeyboardCard />
             </div>
             <div className="lg:col-span-3 md:col-span-1 flex flex-col">
-              <DevLogCard
-                devLogEntries={devLogEntries}
-              />
+              <TechBlogCard devLogEntries={devLogEntries} />
             </div>
           </div>
         </div>
