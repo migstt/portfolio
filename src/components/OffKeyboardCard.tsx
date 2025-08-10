@@ -6,7 +6,6 @@ import stravaActivities from "@/data/stravaActivities.json";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Activity, ArrowUpDown } from "lucide-react";
-import { Button } from "./ui/button";
 
 type Activity = {
   id: number;
