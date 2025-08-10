@@ -34,7 +34,7 @@ export function ExperienceCard({ experiences }: ExperienceCardProps) {
                 >
                   <div className="flex items-start gap-5">
                     <div>
-                      <h3 className="font-semibold text-sm">{exp.title}</h3>
+                      <h2 className="font-semibold text-sm">{exp.title}</h2>
                       <p className="text-xs text-muted-foreground">
                         {exp.company}
                       </p>
