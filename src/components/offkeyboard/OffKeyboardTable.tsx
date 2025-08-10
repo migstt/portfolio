@@ -1,77 +1,17 @@
-"use client";
-
+import { useEffect, useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/DataTable";
-import stravaActivities from "@/data/stravaActivities.json";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Activity, ArrowUpDown, SquareArrowUpRight } from "lucide-react";
+import { ArrowUpDown, SquareArrowUpRight } from "lucide-react";
 
 type Activity = {
   id: number;
   activityId: number;
-  date: string;
+  start_date_local: string;
   type: string;
-  distance: number;
-  time: number;
-};
-
-interface StravaActivity {
-  resource_state: number;
-  athlete: {
-    id: number;
-    resource_state: number;
-  };
-  name: string;
   distance: number;
   moving_time: number;
-  elapsed_time: number;
-  total_elevation_gain: number;
-  type: string;
-  sport_type: string;
-  workout_type: number;
-  id: number;
-  start_date: string;
-  start_date_local: string;
-  timezone: string;
-  utc_offset: number;
-  location_city: string | null;
-  location_state: string | null;
-  location_country: string | null;
-  achievement_count: number;
-  kudos_count: number;
-  comment_count: number;
-  athlete_count: number;
-  photo_count: number;
-  map: {
-    id: string;
-    summary_polyline: string;
-    resource_state: number;
-  };
-  trainer: boolean;
-  commute: boolean;
-  manual: boolean;
-  private: boolean;
-  visibility: string;
-  flagged: boolean;
-  gear_id: string | null;
-  start_latlng: number[];
-  end_latlng: number[];
-  average_speed: number;
-  max_speed: number;
-  has_heartrate: boolean;
-  heartrate_opt_out: boolean;
-  display_hide_heartrate_option: boolean;
-  elev_high: number;
-  elev_low: number;
-  upload_id: number;
-  upload_id_str: string;
-  external_id: string;
-  from_accepted_tag: boolean;
-  pr_count: number;
-  total_photo_count: number;
-  has_kudoed: boolean;
-}
+};
 
 const columns: ColumnDef<Activity>[] = [
   {
@@ -150,18 +90,6 @@ const columns: ColumnDef<Activity>[] = [
   },
 ];
 
-const data = stravaActivities.map(
-  (activity: StravaActivity, index: number) =>
-    ({
-      id: index + 1,
-      activityId: activity.id,
-      date: activity.start_date_local,
-      type: activity.type,
-      distance: activity.distance,
-      time: activity.moving_time,
-    } as Activity)
-);
-
 const customPagination = {
   pageIndex: 0,
   pageSize: 5,
@@ -169,31 +97,44 @@ const customPagination = {
 
 const botLeftMessage = "Last 30 Activities";
 
-export function OffKeyboardCard() {
+export function OffKeyboardTable() {
+  const [data, setData] = useState<Activity[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/data/stravaActivities.json")
+      .then((res) => res.json())
+      .then((activities) => {
+        const mapped = activities.map((activity: Activity, index: number) => ({
+          id: index + 1,
+          activityId: activity.id,
+          date: activity.start_date_local,
+          type: activity.type,
+          distance: activity.distance,
+          time: activity.moving_time,
+        }));
+        setData(mapped);
+      })
+      .catch((e) => {
+        console.error("Failed to load Strava activities", e);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return <div className="p-4 text-center text-sm">Loading activities...</div>;
+  }
+
+  if (!data.length) {
+    return <div className="p-4 text-center text-sm">No activities found.</div>;
+  }
+
   return (
-    <Card>
-      <CardHeader className="flex items-center justify-between">
-        <CardTitle className="flex items-center gap-2">
-          <Activity className="w-4 h-4" />
-          Off the Keyboard
-        </CardTitle>
-
-        <Badge
-          variant="secondary"
-          className="bg-[#FC4C02] text-white hover:bg-[#e04402] transition-colors"
-        >
-          Strava
-        </Badge>
-      </CardHeader>
-
-      <CardContent className="max-h-[400px] overflow-y-auto text-sm">
-        <DataTable
-          columns={columns}
-          data={data}
-          customPagination={customPagination}
-          botLeftMessage={botLeftMessage}
-        />
-      </CardContent>
-    </Card>
+    <DataTable
+      columns={columns}
+      data={data}
+      customPagination={customPagination}
+      botLeftMessage={botLeftMessage}
+    />
   );
 }

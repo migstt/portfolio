@@ -1,11 +1,14 @@
+"use client";
+
 import { Layout } from "@/components/Layout";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { AboutCard } from "@/components/AboutCard";
 import { TechStackCard } from "@/components/TechStackCard";
 import { ExperienceCard } from "@/components/ExperienceCard";
 import { ProjectsCard } from "@/components/ProjectsCard";
-import { OffKeyboardCard } from "@/components/OffKeyboardCard";
+import { OffKeyboardCard } from "@/components/offkeyboard/OffKeyboardCard";
 import { TechBlogCard } from "@/components/TechBlogCard";
+import dynamic from "next/dynamic";
 
 import {
   aboutText,
@@ -17,6 +20,21 @@ import {
 } from "@/data/portfolioData";
 
 export default function Home() {
+  const DynamicOffKeyboardTable = dynamic(
+    () =>
+      import("@/components/offkeyboard/OffKeyboardTable").then(
+        (mod) => mod.OffKeyboardTable
+      ),
+    {
+      ssr: false,
+      loading: () => (
+        <div className="flex items-center justify-center h-full text-sm mt-1">
+          Loading...
+        </div>
+      ),
+    }
+  );
+
   return (
     <Layout>
       <section className="space-y-6">
@@ -44,7 +62,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-2">
             <div className="lg:col-span-2 md:col-span-1 flex flex-col gap-4">
-              <OffKeyboardCard />
+              <OffKeyboardCard>
+                <DynamicOffKeyboardTable />
+              </OffKeyboardCard>
             </div>
             <div className="lg:col-span-3 md:col-span-1 flex flex-col">
               <TechBlogCard devLogEntries={devLogEntries} />
