@@ -23,7 +23,7 @@ export function Projects() {
         >
           <Tooltip>
             <TooltipTrigger asChild>
-              <CircleArrowRight className="w-4 h-4 stroke-[2] align-middle" />
+              <CircleArrowRight className="w-5 h-5 stroke-[2] align-middle" />
             </TooltipTrigger>
             <TooltipContent side="top">
               <p>See more</p>

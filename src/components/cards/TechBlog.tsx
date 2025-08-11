@@ -23,7 +23,7 @@ export function TechBlog() {
         >
           <Tooltip>
             <TooltipTrigger asChild>
-              <CircleArrowRight className="w-4 h-4 stroke-[2]" />
+              <CircleArrowRight className="w-5 h-5 stroke-[2]" />
             </TooltipTrigger>
             <TooltipContent side="top">
               <p>See more</p>
@@ -39,7 +39,7 @@ export function TechBlog() {
             href={entry.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group"
+            className="block group hover:transform hover:scale-[1.01]"
           >
             <div className="flex flex-col space-y-1">
               <h3 className="text-sm font-semibold truncate group-hover:text-primary transition-colors">
