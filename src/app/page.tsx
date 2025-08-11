@@ -6,11 +6,9 @@ import { TechStack } from "@/components/cards/TechStack";
 import { Experience } from "@/components/cards/Experience";
 import { Projects } from "@/components/cards/Projects";
 import { OffKeyboard } from "@/components/cards/offkeyboard/OffKeyboard";
-import { OffKeyboardTable } from "@/components/cards/offkeyboard/OffKeyboardTable";
 import { TechBlog } from "@/components/cards/TechBlog";
 
 export default function Home() {
-
   return (
     <Layout>
       <section className="space-y-6">
@@ -36,9 +34,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-2">
             <div className="lg:col-span-2 md:col-span-1 flex flex-col gap-4">
-              <OffKeyboard>
-                <OffKeyboardTable />
-              </OffKeyboard>
+              <OffKeyboard />
             </div>
             <div className="lg:col-span-3 md:col-span-1 flex flex-col">
               <TechBlog />

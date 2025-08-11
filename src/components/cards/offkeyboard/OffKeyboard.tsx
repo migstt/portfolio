@@ -1,13 +1,9 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Activity } from "lucide-react";
-import { ReactNode } from "react";
+import { OffKeyboardTable } from "./OffKeyboardTable";
 
-interface OffKeyboardCardProps {
-  children?: ReactNode;
-}
-
-export function OffKeyboard({ children }: OffKeyboardCardProps) {
+export function OffKeyboard() {
   return (
     <Card>
       <CardHeader className="flex items-center justify-between">
@@ -25,7 +21,7 @@ export function OffKeyboard({ children }: OffKeyboardCardProps) {
       </CardHeader>
 
       <CardContent className="max-h-[400px] overflow-y-auto text-sm">
-        {children}
+        <OffKeyboardTable />
       </CardContent>
     </Card>
   );
