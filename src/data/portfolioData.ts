@@ -11,7 +11,7 @@ export const profile: Profile = {
   name: "Miguel Trinidad",
   verified: true,
   location: "Cebu, Philippines",
-  role: "Full Stack Developer",
+  role: "Full Stack Web Developer",
   profileImage: "/images/migueltrinidad.jpg",
   achievement: "",
 };

@@ -14,7 +14,7 @@ export function MainHeader() {
   );
 
   const Actions = () => (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 w-full">
       <a
         href={`mailto:${email}?subject=${subject}&body=${body}`}
         className="inline-flex"
@@ -47,7 +47,7 @@ export function MainHeader() {
             <MapPin className="w-4 h-4" />
             {location}
           </div>
-          <p className="text-muted-foreground">{role}</p>
+          <p className="text-muted-foreground text-sm font-semibold">{role}</p>
 
           <div className="mt-3 lg:hidden">
             <Actions />
