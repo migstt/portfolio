@@ -15,7 +15,7 @@ export function Experience() {
 
       <CardContent>
         <div>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {experiences.map((exp, idx) => {
               return (
                 <div
@@ -23,7 +23,7 @@ export function Experience() {
                   className="flex items-center justify-between relative"
                 >
                   <div className="flex items-start gap-5">
-                    <div>
+                    <div className="flex flex-col space-y-1">
                       <h2 className="font-semibold text-sm">{exp.title}</h2>
                       <p className="text-xs text-muted-foreground">
                         {exp.company}

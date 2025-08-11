@@ -1,6 +1,6 @@
 import { ReactNode, CSSProperties } from "react";
 import { MainHeader } from "./MainHeader";
-import { MainFooter } from "./MainFooter";
+import { Footer } from "./Footer";
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,7 +17,7 @@ export function Layout({ children, className = "", style }: LayoutProps) {
       <div className={`mx-auto max-w-5xl sm:px-12 lg:px-20 ${className}`}>
         <MainHeader />
         <main className="p-4">{children}</main>
-        <MainFooter />
+        <Footer />
       </div>
     </div>
   );

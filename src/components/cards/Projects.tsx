@@ -33,7 +33,7 @@ export function Projects() {
       </CardHeader>
 
       <CardContent className="flex-1 mt-1">
-        <div className="grid grid-cols-1 gap-2 h-full">
+        <div className="grid grid-cols-1 gap-2">
           {projects.slice(0, 4).map((project) => (
             <a
               key={project.title}
@@ -42,8 +42,12 @@ export function Projects() {
               rel="noopener noreferrer"
               className="block transition-transform transform hover:scale-[1.01] border rounded-lg p-2 h-full"
             >
-              <h3 className="text-sm font-semibold mb-2">{project.title}</h3>
-              <p className="text-sm">{project.description}</p>
+              <div className="flex flex-col space-y-1">
+                <h3 className="text-sm font-semibold">{project.title}</h3>
+                <p className="text-xs text-muted-foreground line-clamp-2">
+                  {project.description}
+                </p>
+              </div>
             </a>
           ))}
         </div>

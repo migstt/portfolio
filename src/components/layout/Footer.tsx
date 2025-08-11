@@ -1,6 +1,6 @@
 import { Socials } from "@/components/socials/Socials";
 
-export function MainFooter() {
+export function Footer() {
   const year = new Date().getFullYear();
 
   return (
