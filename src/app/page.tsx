@@ -1,34 +1,15 @@
 "use client";
 
-import { Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { About } from "@/components/cards/About";
 import { TechStack } from "@/components/cards/TechStack";
 import { Experience } from "@/components/cards/Experience";
 import { Projects } from "@/components/cards/Projects";
 import { OffKeyboard } from "@/components/cards/offkeyboard/OffKeyboard";
+import { OffKeyboardTable } from "@/components/cards/offkeyboard/OffKeyboardTable";
 import { TechBlog } from "@/components/cards/TechBlog";
-import dynamic from "next/dynamic";
 
 export default function Home() {
-  const DynamicOffKeyboardTable = dynamic(
-    () =>
-      import("@/components/cards/offkeyboard/OffKeyboardTable").then(
-        (mod) => mod.OffKeyboardTable
-      ),
-    {
-      ssr: false,
-      loading: () => (
-        <div className="flex items-center justify-center h-full p-5 text-lg">
-          <Loader2
-            className="strava-spinner"
-            size={24}
-            aria-label="Loading spinner"
-          />
-        </div>
-      ),
-    }
-  );
 
   return (
     <Layout>
@@ -56,7 +37,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-2">
             <div className="lg:col-span-2 md:col-span-1 flex flex-col gap-4">
               <OffKeyboard>
-                <DynamicOffKeyboardTable />
+                <OffKeyboardTable />
               </OffKeyboard>
             </div>
             <div className="lg:col-span-3 md:col-span-1 flex flex-col">

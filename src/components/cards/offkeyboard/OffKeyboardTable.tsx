@@ -3,6 +3,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/tables/DataTable";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpDown, SquareArrowUpRight } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 type Activity = {
   id: number;
@@ -95,6 +96,16 @@ const customPagination = {
   pageSize: 5,
 };
 
+const Loader = () => (
+  <div className="flex items-center justify-center h-full p-5 text-lg">
+    <Loader2
+      className="strava-spinner"
+      size={24}
+      aria-label="Loading spinner"
+    />
+  </div>
+);
+
 const botLeftMessage = "Last 30 Activities";
 
 export function OffKeyboardTable() {
@@ -122,7 +133,7 @@ export function OffKeyboardTable() {
   }, []);
 
   if (loading) {
-    return <div className="p-4 text-center text-sm">Loading activities...</div>;
+    return <Loader />;
   }
 
   if (!data.length) {

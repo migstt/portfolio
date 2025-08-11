@@ -29,7 +29,7 @@ export function MainHeader() {
   );
 
   return (
-    <header className="flex lg:flex-row lg:items-center justify-between gap-6 px-4 pt-4">
+    <header className="flex lg:flex-row lg:items-center md:flex-row md:items-center justify-between gap-6 px-4 pt-4">
       <div className="flex flex-row flex-wrap items-center xs:items-start gap-4 flex-1 min-w-0">
         <Image
           src={profileImage}
