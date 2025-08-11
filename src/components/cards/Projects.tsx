@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
-import { Package, SquareArrowRight } from "lucide-react";
+import { Package, CircleArrowRight } from "lucide-react";
 import { projects } from "@/data/portfolioData";
 
 export function Projects() {
@@ -23,7 +23,7 @@ export function Projects() {
         >
           <Tooltip>
             <TooltipTrigger asChild>
-              <SquareArrowRight className="w-5 h-5 stroke-[2] align-middle" />
+              <CircleArrowRight className="w-4 h-4 stroke-[2] align-middle" />
             </TooltipTrigger>
             <TooltipContent side="top">
               <p>See more</p>

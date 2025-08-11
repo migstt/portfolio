@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
-import { Notebook, SquareArrowRight } from "lucide-react";
+import { Notebook, CircleArrowRight } from "lucide-react";
 import { devLogEntries } from "@/data/portfolioData";
 
 export function TechBlog() {
@@ -23,7 +23,7 @@ export function TechBlog() {
         >
           <Tooltip>
             <TooltipTrigger asChild>
-              <SquareArrowRight className="w-5 h-5 stroke-[2]" />
+              <CircleArrowRight className="w-4 h-4 stroke-[2]" />
             </TooltipTrigger>
             <TooltipContent side="top">
               <p>See more</p>

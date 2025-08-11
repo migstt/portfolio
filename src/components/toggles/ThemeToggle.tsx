@@ -31,7 +31,7 @@ export function ThemeToggle() {
             variant="secondary"
             aria-label={label}
             onClick={() => setTheme(isLight ? "dark" : "light")}
-            className="transition-transform duration-150 hover:scale-105 cursor-pointer"
+            className="transition-transform duration-150 hover:scale-105 cursor-pointer h-8 w-8"
           >
             {isLight ? (
               <Moon className="text-slate-800 dark:text-slate-200 transition-colors duration-200" />
