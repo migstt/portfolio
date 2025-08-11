@@ -1,19 +1,9 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BriefcaseBusiness } from "lucide-react";
+import { experiences } from "@/data/portfolioData";
 
-interface Experience {
-  title: string;
-  company: string;
-  start: string;
-  end: string;
-}
-
-interface ExperienceCardProps {
-  experiences: Experience[];
-}
-
-export function ExperienceCard({ experiences }: ExperienceCardProps) {
+export function Experience() {
   return (
     <Card className="h-full">
       <CardHeader className="flex items-center justify-between">

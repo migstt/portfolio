@@ -1,29 +1,19 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import { Layout } from "@/components/Layout";
-import { ProfileHeader } from "@/components/ProfileHeader";
-import { AboutCard } from "@/components/AboutCard";
-import { TechStackCard } from "@/components/TechStackCard";
-import { ExperienceCard } from "@/components/ExperienceCard";
-import { ProjectsCard } from "@/components/ProjectsCard";
-import { OffKeyboardCard } from "@/components/offkeyboard/OffKeyboardCard";
-import { TechBlogCard } from "@/components/TechBlogCard";
+import { Layout } from "@/components/layout/Layout";
+import { About } from "@/components/cards/About";
+import { TechStack } from "@/components/cards/TechStack";
+import { Experience } from "@/components/cards/Experience";
+import { Projects } from "@/components/cards/Projects";
+import { OffKeyboard } from "@/components/cards/offkeyboard/OffKeyboard";
+import { TechBlog } from "@/components/cards/TechBlog";
 import dynamic from "next/dynamic";
-
-import {
-  aboutText,
-  techCategories,
-  experiences,
-  profile,
-  projects,
-  devLogEntries,
-} from "@/data/portfolioData";
 
 export default function Home() {
   const DynamicOffKeyboardTable = dynamic(
     () =>
-      import("@/components/offkeyboard/OffKeyboardTable").then(
+      import("@/components/cards/offkeyboard/OffKeyboardTable").then(
         (mod) => mod.OffKeyboardTable
       ),
     {
@@ -43,36 +33,34 @@ export default function Home() {
   return (
     <Layout>
       <section className="space-y-6">
-        <ProfileHeader {...profile} />
-
         <div className="space-y-2">
           <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-2">
             <div className="lg:col-span-3 md:col-span-1 flex flex-col gap-4">
-              <AboutCard about={aboutText} />
+              <About />
             </div>
             <div className="lg:col-span-2 md:col-span-1 flex flex-col">
-              <ExperienceCard experiences={experiences} />
+              <Experience />
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-6 md:grid-cols-2 gap-2 items-stretch">
             <div className="lg:col-span-3 md:col-span-1 h-full min-h-0">
-              <TechStackCard categories={techCategories} />
+              <TechStack />
             </div>
 
             <div className="lg:col-span-3 md:col-span-1 h-full min-h-0">
-              <ProjectsCard projects={projects} />
+              <Projects />
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-2">
             <div className="lg:col-span-2 md:col-span-1 flex flex-col gap-4">
-              <OffKeyboardCard>
+              <OffKeyboard>
                 <DynamicOffKeyboardTable />
-              </OffKeyboardCard>
+              </OffKeyboard>
             </div>
             <div className="lg:col-span-3 md:col-span-1 flex flex-col">
-              <TechBlogCard devLogEntries={devLogEntries} />
+              <TechBlog />
             </div>
           </div>
         </div>

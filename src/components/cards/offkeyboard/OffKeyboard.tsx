@@ -7,7 +7,7 @@ interface OffKeyboardCardProps {
   children?: ReactNode;
 }
 
-export function OffKeyboardCard({ children }: OffKeyboardCardProps) {
+export function OffKeyboard({ children }: OffKeyboardCardProps) {
   return (
     <Card>
       <CardHeader className="flex items-center justify-between">

@@ -6,18 +6,9 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 import { Package, SquareArrowRight } from "lucide-react";
+import { projects } from "@/data/portfolioData";
 
-interface Project {
-  title: string;
-  description: string;
-  link: string;
-}
-
-interface ProjectsCardProps {
-  projects: Project[];
-}
-
-export function ProjectsCard({ projects }: ProjectsCardProps) {
+export function Projects() {
   return (
     <Card className="h-full flex flex-col">
       <CardHeader className="flex items-center justify-between">

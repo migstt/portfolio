@@ -1,27 +1,15 @@
 import Image from "next/image";
 import { MapPin, CircleCheck, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "@/components/toggles/ThemeToggle";
+import { profile } from "@/data/portfolioData";
 
-interface ProfileHeaderProps {
-  name: string;
-  verified?: boolean;
-  location: string;
-  role: string;
-  profileImage: string;
-  achievement?: string;
-}
+export function MainHeader() {
 
-export function ProfileHeader({
-  name,
-  verified,
-  location,
-  role,
-  profileImage,
-  achievement,
-}: ProfileHeaderProps) {
+  const { name, verified, location, role, profileImage, achievement } = profile;
+
   return (
-    <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+    <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 px-4 pt-4">
       <div className="flex items-center gap-4">
         <Image
           src={profileImage}
@@ -44,7 +32,6 @@ export function ProfileHeader({
       </div>
 
       <div className="flex flex-col items-end gap-3">
-
         {achievement && (
           <div className="flex items-center bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full shadow-md">
             <Trophy className="w-4 h-4 mr-1" />

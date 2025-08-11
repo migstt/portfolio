@@ -1,21 +1,18 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { CircleUserRound } from "lucide-react";
+import { aboutText } from "@/data/portfolioData";
 
-interface AboutCardProps {
-  about: string;
-}
-
-export function AboutCard({ about }: AboutCardProps) {
+export function About() {
   return (
     <Card>
-      <CardHeader  className="flex items-center justify-between">
+      <CardHeader className="flex items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <CircleUserRound className="w-4 h-4" />
           About
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-sm">{about}</p>
+        <p className="text-sm">{aboutText}</p>
       </CardContent>
     </Card>
   );

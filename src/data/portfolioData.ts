@@ -1,4 +1,13 @@
-export const profile = {
+import {
+  Profile,
+  AboutText,
+  TechCategory,
+  Experience,
+  Project,
+  DevLogEntry,
+} from "@/app/types/portfolio";
+
+export const profile: Profile = {
   name: "Miguel Trinidad",
   verified: true,
   location: "Cebu, Philippines",
@@ -7,10 +16,10 @@ export const profile = {
   achievement: "",
 };
 
-export const aboutText =
+export const aboutText: AboutText =
   "Developer with experience in JavaScript and PHP applications using Laravel and CodeIgniter. In my recent role, I maintained and developed internal systems to support company operations. I’m actively exploring DevOps and have a strong interest in automating processes and improving development workflows.";
 
-export const techCategories = [
+export const techCategories: TechCategory[] = [
   {
     label: "Languages",
     items: ["PHP", "JavaScript", "TypeScript"],
@@ -29,7 +38,7 @@ export const techCategories = [
   },
 ];
 
-export const experiences = [
+export const experiences: Experience[] = [
   {
     title: "Web Developer",
     company: "Web2 Inc.",
@@ -44,7 +53,7 @@ export const experiences = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     title: "Portfolio Website",
     description: "Built with Next.js, TypeScript, and shadcn/ui.",
@@ -63,7 +72,7 @@ export const projects = [
   },
 ];
 
-export const devLogEntries = [
+export const devLogEntries: DevLogEntry[] = [
   {
     date: "Aug 10, 2025",
     title: "Automate GitHub Releases with GitHub Actions",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { DataTable } from "@/components/DataTable";
+import { DataTable } from "@/components/tables/DataTable";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpDown, SquareArrowUpRight } from "lucide-react";
 

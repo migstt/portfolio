@@ -6,20 +6,9 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 import { Notebook, SquareArrowRight } from "lucide-react";
+import { devLogEntries } from "@/data/portfolioData";
 
-interface DevLogEntry {
-  date: string;
-  title: string;
-  link: string;
-  description: string;
-  readTime: string;
-}
-
-interface DevLogCardProps {
-  devLogEntries: DevLogEntry[];
-}
-
-export function TechBlogCard({ devLogEntries }: DevLogCardProps) {
+export function TechBlog() {
   return (
     <Card className="h-full flex flex-col bg-muted/30 border border-border">
       <CardHeader className="flex items-center justify-between">
@@ -53,17 +42,14 @@ export function TechBlogCard({ devLogEntries }: DevLogCardProps) {
             className="block group"
           >
             <div className="flex flex-col space-y-1">
-              {/* Title */}
               <h3 className="text-sm font-medium truncate group-hover:text-primary transition-colors">
                 {entry.title}
               </h3>
 
-              {/* Description */}
               <p className="text-xs text-muted-foreground line-clamp-2">
                 {entry.description}
               </p>
 
-              {/* Meta info */}
               <div className="flex items-center text-xs text-muted-foreground mt-1">
                 <span>{entry.readTime}</span>
                 <span className="mx-2">•</span>
