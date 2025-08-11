@@ -1,5 +1,6 @@
 "use client";
 
+import { Loader2 } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { AboutCard } from "@/components/AboutCard";
@@ -28,8 +29,12 @@ export default function Home() {
     {
       ssr: false,
       loading: () => (
-        <div className="flex items-center justify-center h-full text-sm mt-1">
-          Loading...
+        <div className="flex items-center justify-center h-full p-5 text-lg">
+          <Loader2
+            className="strava-spinner"
+            size={24}
+            aria-label="Loading spinner"
+          />
         </div>
       ),
     }

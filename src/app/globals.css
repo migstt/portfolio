@@ -122,5 +122,11 @@
   :root {
     --strava-hover-light: rgba(252, 76, 2, 0.08);
     --strava-hover-dark: rgba(252, 76, 2, 0.15);
+    --strava-orange: #fc4c02;
+  }
+
+  .strava-spinner {
+    color: var(--strava-orange);
+    animation: spin 1s linear infinite;
   }
 }
