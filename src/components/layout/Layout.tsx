@@ -16,7 +16,7 @@ export function Layout({ children, className = "", style }: LayoutProps) {
     >
       <div className={`mx-auto max-w-5xl sm:px-12 lg:px-20 ${className}`}>
         <MainHeader />
-        <main className="lg:py-6 p-4">{children}</main>
+        <main className="p-4">{children}</main>
         <MainFooter />
       </div>
     </div>

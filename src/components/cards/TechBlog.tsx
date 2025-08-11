@@ -42,7 +42,7 @@ export function TechBlog() {
             className="block group"
           >
             <div className="flex flex-col space-y-1">
-              <h3 className="text-sm font-medium truncate group-hover:text-primary transition-colors">
+              <h3 className="text-sm font-semibold truncate group-hover:text-primary transition-colors">
                 {entry.title}
               </h3>
 

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Socials } from "@/components/socials/Socials";
 
 export function MainFooter() {
   const year = new Date().getFullYear();
@@ -10,33 +10,7 @@ export function MainFooter() {
           © {year} Miguel Trinidad. All rights reserved.
         </p>
 
-        <div className="flex items-center gap-4">
-          <a
-            href="mailto:mft.trinidad@gmail.com"
-            className="hover:text-primary transition-colors"
-            aria-label="Email Miguel"
-          >
-            <Mail className="w-4 h-4" />
-          </a>
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary transition-colors"
-            aria-label="GitHub Profile"
-          >
-            <Github className="w-4 h-4" />
-          </a>
-          <a
-            href="https://linkedin.com/in/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary transition-colors"
-            aria-label="LinkedIn Profile"
-          >
-            <Linkedin className="w-4 h-4" />
-          </a>
-        </div>
+        <Socials button={false} className="gap-5" />
       </div>
     </footer>
   );

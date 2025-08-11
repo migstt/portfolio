@@ -1,94 +1,11 @@
 import Image from "next/image";
-import {
-  MapPin,
-  CircleCheck,
-  Trophy,
-  Mail,
-  MailPlus,
-  Linkedin,
-  Github,
-  Instagram,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MapPin, CircleCheck, Trophy } from "lucide-react";
 import { ThemeToggle } from "@/components/toggles/ThemeToggle";
 import { profile } from "@/data/portfolioData";
+import { Socials } from "@/components/socials/Socials";
 
 export function MainHeader() {
   const { name, verified, location, role, profileImage, achievement } = profile;
-
-  const email = "mft.trinidad@gmail.com";
-  const subject = encodeURIComponent("Inquiry from your portfolio");
-  const body = encodeURIComponent(
-    "Hello Miguel,\n\nI saw your portfolio and would like to connect regarding..."
-  );
-
-  const SocialLink = ({
-    href,
-    icon,
-  }: {
-    href: string;
-    icon: React.ReactNode;
-  }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      <Button
-        size="sm"
-        variant="outline"
-        className="w-7 h-7 md:w-8 md:h-8 transition-all duration-300"
-      >
-        {icon}
-      </Button>
-    </a>
-  );
-
-  const Actions = () => (
-    <div className="flex flex-wrap items-center gap-2 w-full transition-all duration-300">
-      {/* Email Button */}
-      <a
-        href={`mailto:${email}?subject=${subject}&body=${body}`}
-        className="inline-flex"
-      >
-        <Button
-          variant="outline"
-          size="sm"
-          className="h-8 text-xs md:h-9 md:text-sm transition-all duration-300"
-        >
-          <MailPlus className="w-4 h-4 mr-1" />
-          Email
-        </Button>
-      </a>
-
-      <SocialLink
-        href="https://linkedin.com/in/mfttrinidad"
-        icon={<Linkedin className="w-4 h-4 text-[#0A66C2]" />} // LinkedIn Blue
-      />
-
-      <SocialLink
-        href="https://github.com/migstt"
-        icon={<Github className="w-4 h-4 text-[#181717] dark:text-white" />} // GitHub Black
-      />
-
-      <SocialLink
-        href="https://instagram.com/miguelftt"
-        icon={
-          <Instagram className="w-4 h-4 text-[#E4405F]" /> // Instagram Pink
-        }
-      />
-
-      <SocialLink
-        href="https://www.strava.com/athletes/115133923"
-        icon={
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4 h-4 text-[#FC4C02]" // Strava Orange
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M15.9 0L12 8.4 8.1 0H0l12 24L24 0h-8.1z" />
-          </svg>
-        }
-      />
-    </div>
-  );
 
   return (
     <header className="relative px-4 pt-4 transition-all duration-300">
@@ -125,7 +42,7 @@ export function MainHeader() {
             </p>
 
             <div className="lg:hidden mt-2">
-              <Actions />
+              <Socials />
             </div>
           </div>
         </div>
@@ -137,7 +54,7 @@ export function MainHeader() {
               {achievement}
             </div>
           )}
-          <Actions />
+          <Socials />
         </div>
       </div>
     </header>

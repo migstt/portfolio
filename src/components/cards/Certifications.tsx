@@ -12,7 +12,7 @@ export function Certifications() {
       </CardHeader>
 
       <CardContent className="flex-1 flex items-center justify-center">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs text-muted-foreground">
           No certifications yet — check back soon.
         </p>
       </CardContent>
