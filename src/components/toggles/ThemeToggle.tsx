@@ -27,7 +27,7 @@ export function ThemeToggle() {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
-            size="icon"
+            size="sm"
             variant="secondary"
             aria-label={label}
             onClick={() => setTheme(isLight ? "dark" : "light")}

@@ -19,7 +19,7 @@ export function MainHeader() {
         href={`mailto:${email}?subject=${subject}&body=${body}`}
         className="inline-flex"
       >
-        <Button variant="secondary" className="cursor-pointer">
+        <Button variant="outline" size="sm" className="cursor-pointer">
           <Mail className="w-4 h-4 mr-1" />
           Send Email
         </Button>
