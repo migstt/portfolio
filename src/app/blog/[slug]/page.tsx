@@ -1,18 +1,21 @@
 import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 
-export async function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
+type Params = Promise<{ slug: string }>;
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  const posts = await Promise.resolve(getAllPosts());
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const post = await getPostBySlug(params.slug);
-  const allPosts = getAllPosts();
-  const index = allPosts.findIndex((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: { params: Params }) {
+  const { slug } = await params;
+
+  const post = await getPostBySlug(slug);
+
+  const allPosts = await Promise.resolve(getAllPosts());
+
+  const index = allPosts.findIndex((p) => p.slug === slug);
   const prevPost = index < allPosts.length - 1 ? allPosts[index + 1] : null;
   const nextPost = index > 0 ? allPosts[index - 1] : null;
 
