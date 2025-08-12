@@ -11,7 +11,7 @@ export function Projects() {
           <Package className="w-4 h-4" />
           Projects
         </CardTitle>
-        <SeemoreButton href="projects" label="Projects" />
+        <SeemoreButton href="projects" label="Projects" page="projects" />
       </CardHeader>
 
       <CardContent className="flex-1 mt-1">

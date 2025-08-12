@@ -18,7 +18,6 @@ export function Socials({
   size = "sm",
   className = "",
 }: SocialsProps) {
-
   if (!button) {
     return (
       <div className={`flex items-center gap-2 ${className}`}>
@@ -50,7 +49,9 @@ export function Socials({
   }
 
   return (
-    <div className={`grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-2 gap-2 w-full ${className}`}>
+    <div
+      className={`grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-2 gap-2 w-full ${className}`}
+    >
       {SocialLinks.map(({ name, href, Icon, className: iconClass }) => (
         <a
           key={name}
@@ -65,7 +66,9 @@ export function Socials({
             className={`w-full gap-2 flex items-left justify-center transition-all duration-200 cursor-pointer`}
           >
             <Icon className={`w-4 h-4 ${iconClass ?? ""}`} />
-            <span className="text-sm">{name === "Email" ? "Send email" : name}</span>
+            <span className={`text-xs ${name === "LinkedIn" ? "mt-1" : "mt-0.5"}`}>
+              {name === "Email" ? "Send email" : name}
+            </span>
           </Button>
         </a>
       ))}
