@@ -15,7 +15,7 @@ export function SeemoreButton({ href, label , page }: SeemoreButtonProps) {
       aria-label={`See more ${label || href}`}
     >
       <div className="flex items-center gap-1">
-        <span className="text-xs font-medium leading-none">See more {page}</span>
+        <span className="text-xs font-medium leading-none">See more <span className="sr-only">projects</span></span>
         <CircleArrowRight
           className="w-4 h-4 stroke-[2] mt-[1px]"
           aria-hidden="true"
