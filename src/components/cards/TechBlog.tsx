@@ -11,7 +11,7 @@ export function TechBlog() {
           <Notebook className="w-4 h-4" />
           Tech Blog
         </CardTitle>
-        <SeemoreButton href="blog" label="Tech Blog" page="blog post" />
+        <SeemoreButton href="blog" label="Tech Blog" page="blog posts" />
       </CardHeader>
 
       <CardContent className="flex-1 mt-1 space-y-4">
