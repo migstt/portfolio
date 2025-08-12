@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Package, CircleArrowRight } from "lucide-react";
+import { Package } from "lucide-react";
 import { projects } from "@/data/portfolioData";
+import { SeemoreButton } from "@/components/general/SeemoreButton";
 
 export function Projects() {
   return (
@@ -11,20 +11,7 @@ export function Projects() {
           <Package className="w-4 h-4" />
           Projects
         </CardTitle>
-
-        <Link
-          href="/projects"
-          className="text-muted-foreground hover:text-primary transition-colors"
-          aria-label="See more projects"
-        >
-          <div className="flex items-center gap-1">
-            <span className="text-xs font-medium leading-none">See more</span>
-            <CircleArrowRight
-              className="w-4 h-4 stroke-[2] mt-[1px]"
-              aria-hidden="true"
-            />
-          </div>
-        </Link>
+        <SeemoreButton href="projects" label="Projects" />
       </CardHeader>
 
       <CardContent className="flex-1 mt-1">

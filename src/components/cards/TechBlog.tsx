@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Notebook, CircleArrowRight } from "lucide-react";
+import { Notebook } from "lucide-react";
 import { devLogEntries } from "@/data/portfolioData";
+import { SeemoreButton } from "@/components/general/SeemoreButton";
 
 export function TechBlog() {
   return (
@@ -11,20 +11,7 @@ export function TechBlog() {
           <Notebook className="w-4 h-4" />
           Tech Blog
         </CardTitle>
-
-        <Link
-          href="/blog"
-          className="text-muted-foreground hover:text-primary transition-colors"
-          aria-label="See more projects"
-        >
-          <div className="flex items-center gap-1">
-            <span className="text-xs font-medium leading-none">See more</span>
-            <CircleArrowRight
-              className="w-4 h-4 stroke-[2] mt-[1px]"
-              aria-hidden="true"
-            />
-          </div>
-        </Link>
+        <SeemoreButton href="blog" label="Tech Blog" />
       </CardHeader>
 
       <CardContent className="flex-1 mt-1 space-y-4">
