@@ -3,7 +3,7 @@ import { Award } from "lucide-react";
 
 export function Certifications() {
   return (
-    <Card className="h-full flex flex-col bg-muted/30 border border-border">
+    <Card className="h-full flex flex-col">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Award className="w-4 h-4" />

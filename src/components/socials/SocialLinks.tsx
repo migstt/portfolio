@@ -40,13 +40,13 @@ export const SocialLinks: SocialLink[] = [
     ariaLabel: "GitHub profile",
     className: "",
   },
-  {
-    name: "Instagram",
-    href: "https://instagram.com/miguelftt",
-    Icon: Instagram,
-    ariaLabel: "Instagram profile",
-    className: "",
-  },
+  // {
+  //   name: "Instagram",
+  //   href: "https://instagram.com/miguelftt",
+  //   Icon: Instagram,
+  //   ariaLabel: "Instagram profile",
+  //   className: "",
+  // },
   {
     name: "Strava",
     href: "https://www.strava.com/athletes/115133923",

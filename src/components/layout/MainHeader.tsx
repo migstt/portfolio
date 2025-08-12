@@ -41,9 +41,9 @@ export function MainHeader() {
               {role}
             </p>
 
-            <div className="lg:hidden mt-2">
+            {/* <div className="lg:hidden mt-2">
               <Socials />
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -54,7 +54,7 @@ export function MainHeader() {
               {achievement}
             </div>
           )}
-          <Socials />
+          {/* <Socials /> */}
         </div>
       </div>
     </header>
