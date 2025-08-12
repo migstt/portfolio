@@ -118,19 +118,22 @@ export function DataTable<TData, TValue>({
           <Button
             variant="outline"
             size="sm"
-            className="w-8"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
+            className="flex items-center"
           >
             <ChevronLeftIcon className="h-4 w-4" />
+            <span className="text-xs">Previous</span>
           </Button>
+
           <Button
             variant="outline"
             size="sm"
-            className="w-8"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
+            className="flex items-center"
           >
+            <span className="text-xs">Next</span>
             <ChevronRightIcon className="h-4 w-4" />
           </Button>
         </div>

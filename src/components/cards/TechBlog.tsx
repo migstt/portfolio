@@ -1,10 +1,5 @@
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip";
 import { Notebook, CircleArrowRight } from "lucide-react";
 import { devLogEntries } from "@/data/portfolioData";
 
@@ -18,17 +13,17 @@ export function TechBlog() {
         </CardTitle>
 
         <Link
-          href="/blog"
-          className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+          href="/projects"
+          className="text-muted-foreground hover:text-primary transition-colors"
+          aria-label="See more projects"
         >
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <CircleArrowRight className="w-5 h-5 stroke-[2]" />
-            </TooltipTrigger>
-            <TooltipContent side="top">
-              <p>See more</p>
-            </TooltipContent>
-          </Tooltip>
+          <div className="flex items-center gap-1">
+            <span className="text-xs font-medium leading-none">See more</span>
+            <CircleArrowRight
+              className="w-4 h-4 stroke-[2] mt-[1px]"
+              aria-hidden="true"
+            />
+          </div>
         </Link>
       </CardHeader>
 

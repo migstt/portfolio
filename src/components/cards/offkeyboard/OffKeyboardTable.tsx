@@ -82,9 +82,10 @@ const columns: ColumnDef<Activity>[] = [
           href={`https://www.strava.com/activities/${activity.activityId}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center text-[#FC4C02] hover:text-[#e04402] transition-colors"
+          className="flex items-center justify-center text-[#FC4C02] hover:text-[#e04402] transition-colors text-xs"
         >
-          <SquareArrowUpRight className="w-4 h-4" />
+          View
+          <SquareArrowUpRight className="w-4 h-4 ml-1" />
         </a>
       );
     },
