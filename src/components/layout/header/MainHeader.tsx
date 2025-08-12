@@ -2,7 +2,7 @@ import Image from "next/image";
 import { MapPin, CircleCheck, Trophy } from "lucide-react";
 import { ThemeToggle } from "@/components/toggles/ThemeToggle";
 import { profile } from "@/data/portfolioData";
-import { Socials } from "@/components/socials/Socials";
+import { HeaderActions } from "@/components/layout/header/HeaderActions";
 
 export function MainHeader() {
   const { name, verified, location, role, profileImage, achievement } = profile;
@@ -41,9 +41,9 @@ export function MainHeader() {
               {role}
             </p>
 
-            {/* <div className="lg:hidden mt-2">
-              <Socials />
-            </div> */}
+            <div className="lg:hidden">
+              <HeaderActions />
+            </div>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ export function MainHeader() {
               {achievement}
             </div>
           )}
-          {/* <Socials /> */}
+          <HeaderActions />
         </div>
       </div>
     </header>

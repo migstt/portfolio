@@ -1,6 +1,6 @@
 import { ReactNode, CSSProperties } from "react";
-import { MainHeader } from "./MainHeader";
-import { Footer } from "./Footer";
+import { MainHeader } from "@/components/layout/header/MainHeader";
+import { Footer } from "@/components/layout/Footer";
 
 interface LayoutProps {
   children: ReactNode;
