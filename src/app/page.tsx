@@ -1,6 +1,6 @@
 "use client";
 
-import { Layout } from "@/components/layout/Layout";
+import { Layout } from "@/components/layout/MainLayout";
 import { About } from "@/components/cards/About";
 import { TechStack } from "@/components/cards/TechStack";
 import { Experience } from "@/components/cards/Experience";

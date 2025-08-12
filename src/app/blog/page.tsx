@@ -1,37 +1,28 @@
+import { SubpageLayout } from "@/components/layout/SubpageLayout";
+import { getAllPosts } from "@/lib/blog";
 import Link from "next/link";
-import { Layout } from "@/components/layout/Layout";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-  BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
 
 export default function ProjectsPage() {
-  return (
-    <Layout>
-      <Breadcrumb>
-        <BreadcrumbList className="flex items-center">
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator className="relative top-[1.4px]" />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Blog</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+  const posts = getAllPosts();
 
-      <div className="flex flex-col items-center justify-center h-[60vh] text-center">
-        <h1 className="text-3xl font-bold mb-4">Blog</h1>
-        <p className="text-muted-foreground max-w-md">
-          This page is under construction. Please check back soon.
-        </p>
+  return (
+    <SubpageLayout>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <div key={post.slug} className="p-4 border rounded">
+            <h2 className="text-xl font-semibold">
+              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+            </h2>
+            <p className="text-sm text-gray-500">
+              {post.readingTime} •{" "}
+              {post.date
+                ? new Date(post.date).toLocaleDateString()
+                : "Unknown date"}
+            </p>
+            <p>{post.description}</p>
+          </div>
+        ))}
       </div>
-    </Layout>
+    </SubpageLayout>
   );
 }

@@ -12,19 +12,19 @@ import { SocialLinks } from "@/components/socials/SocialLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+export const pages = [
+  { name: "Home", href: "/", description: "Main page" },
+  { name: "Projects", href: "/projects", description: "Browse projects" },
+  {
+    name: "Tech Blog",
+    href: "/blog",
+    description: "Read articles and guides",
+  },
+];
+
 export function HeaderActions() {
   const emailLink = SocialLinks[0]?.href || "#";
   const pathname = usePathname();
-
-  const pages = [
-    { name: "Home", href: "/", description: "Main page" },
-    { name: "Projects", href: "/projects", description: "Browse projects" },
-    {
-      name: "Tech Blog",
-      href: "/blog",
-      description: "Read articles and guides",
-    },
-  ];
 
   const selectedPage = pages.find((p) => p.href === pathname)?.name || "Home";
 

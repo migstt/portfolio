@@ -1,37 +1,43 @@
-import Link from "next/link";
-import { Layout } from "@/components/layout/Layout";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-  BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
+"use client";
+import { SubpageLayout } from "@/components/layout/SubpageLayout";
+
+const projects = [
+  {
+    id: 1,
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio built with Next.js, Tailwind CSS, and TypeScript to showcase my projects and blogs.",
+  },
+  {
+    id: 2,
+    title: "CI/CD Pipeline Automation",
+    description:
+      "Automated build, test, and deployment workflows using GitHub Actions for a production web app.",
+  },
+  {
+    id: 3,
+    title: "Cloud Infrastructure Setup",
+    description:
+      "Provisioned scalable infrastructure on AWS using Terraform and Dockerized services for deployment.",
+  },
+];
 
 export default function ProjectsPage() {
   return (
-    <Layout>
-      <Breadcrumb>
-        <BreadcrumbList className="flex items-center">
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator className="relative top-[1.4px]" />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Projects</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-
-      <div className="flex flex-col items-center justify-center h-[60vh] text-center">
-        <h1 className="text-3xl font-bold mb-4">Projects</h1>
-        <p className="text-muted-foreground max-w-md">
-          This page is under construction. Please check back soon.
-        </p>
+    <SubpageLayout>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="border rounded-lg p-4 bg-card shadow-sm hover:shadow-md transition-shadow"
+          >
+            <h2 className="text-lg font-semibold mb-2">{project.title}</h2>
+            <p className="text-sm text-muted-foreground">
+              {project.description}
+            </p>
+          </div>
+        ))}
       </div>
-    </Layout>
+    </SubpageLayout>
   );
 }
