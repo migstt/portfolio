@@ -90,14 +90,6 @@ export const devLogEntries: DevLogEntry[] = [
     readTime: "7 min read",
   },
   {
-    date: "Aug 5, 2025",
-    title: "Static Sites and Dynamic Sites - A Contrast",
-    link: "/dev-log/static-vs-dynamic",
-    description:
-      "Understand the differences between static and dynamic websites, their pros, and best use cases.",
-    readTime: "4 min read",
-  },
-  {
     date: "Aug 3, 2025",
     title: "PHPStan & PHPUnit GitHub Actions Workflow",
     link: "/dev-log/phpstan-phpunit-actions",

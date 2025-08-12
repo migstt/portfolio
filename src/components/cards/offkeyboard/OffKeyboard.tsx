@@ -5,7 +5,7 @@ import { OffKeyboardTable } from "./OffKeyboardTable";
 
 export function OffKeyboard() {
   return (
-    <Card>
+    <Card className="h-full">
       <CardHeader className="flex items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <Activity className="w-4 h-4" />

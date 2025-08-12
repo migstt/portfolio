@@ -5,7 +5,7 @@ import { devLogEntries } from "@/data/portfolioData";
 
 export function TechBlog() {
   return (
-    <Card className="h-full flex flex-col bg-muted/30 border border-border">
+    <Card className="h-full">
       <CardHeader className="flex items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <Notebook className="w-4 h-4" />
@@ -28,7 +28,7 @@ export function TechBlog() {
       </CardHeader>
 
       <CardContent className="flex-1 mt-1 space-y-4">
-        {devLogEntries.slice(0, 3).map((entry) => (
+        {devLogEntries.map((entry) => (
           <a
             key={entry.title}
             href={entry.link}
@@ -45,7 +45,7 @@ export function TechBlog() {
                 {entry.description}
               </p>
 
-              <div className="flex items-center text-xs text-muted-foreground mt-1">
+              <div className="flex items-center text-xs text-muted-foreground">
                 <span>{entry.readTime}</span>
                 <span className="mx-2">•</span>
                 <span>{entry.date}</span>
