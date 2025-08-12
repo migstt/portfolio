@@ -41,7 +41,7 @@ export function MainHeader() {
               {role}
             </p>
 
-            <div className="lg:hidden">
+            <div className="lg:hidden mt-1">
               <HeaderActions />
             </div>
           </div>

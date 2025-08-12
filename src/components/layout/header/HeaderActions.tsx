@@ -37,7 +37,7 @@ export function HeaderActions() {
         aria-label="Send Email"
         className="w-full sm:w-auto"
       >
-        <Button className="cursor-pointer">
+        <Button className="cursor-pointer" size={"sm"}>
           <MailPlus className="w-4 h-4" />
           <span className="truncate">Send email</span>
         </Button>
@@ -45,7 +45,7 @@ export function HeaderActions() {
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="flex items-center">
+          <Button variant="outline" className="cursor-pointer" size={"sm"}>
             <span className="truncate">{selectedPage}</span>
             <ChevronDown className="w-4 h-4 lg:mt-1" />
           </Button>
@@ -58,7 +58,7 @@ export function HeaderActions() {
         >
           {pages.map((page) => (
             <DropdownMenuItem key={page.name} className="p-1">
-              <Link href={page.href} className="flex flex-col w-full px-3 py-2">
+              <Link href={page.href} className="flex flex-col w-full px-1 py-1">
                 <span className="text-sm font-medium truncate">
                   {page.name}
                 </span>
