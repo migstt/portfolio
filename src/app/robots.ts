@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/private/", "/admin/"], // disallow any private/admin areas you want hidden
       },
       {
-        userAgent: ["Bingbot", "Applebot"],
+        userAgent: ["Applebot"],
         disallow: "/", // block Bing and Apple bots entirely if you prefer
       },
     ],
