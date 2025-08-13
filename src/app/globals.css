@@ -130,3 +130,39 @@
     animation: spin 1s linear infinite;
   }
 }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up-1 {
+  animation: fadeInUp 0.3s ease-out 0.05s both;
+}
+.animate-slide-up-2 {
+  animation: fadeInUp 0.3s ease-out 0.1s both;
+}
+.animate-slide-up-3 {
+  animation: fadeInUp 0.3s ease-out 0.15s both;
+}
+.animate-slide-up-4 {
+  animation: fadeInUp 0.3s ease-out 0.2s both;
+}
+.animate-slide-up-5 {
+  animation: fadeInUp 0.3s ease-out 0.25s both;
+}
+.animate-slide-up-6 {
+  animation: fadeInUp 0.3s ease-out 0.3s both;
+}
+.animate-slide-up-7 {
+  animation: fadeInUp 0.3s ease-out 0.35s both;
+}
+.animate-slide-up-8 {
+  animation: fadeInUp 0.3s ease-out 0.4s both;
+}

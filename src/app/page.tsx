@@ -1,5 +1,4 @@
 "use client";
-
 import { Layout } from "@/components/layout/MainLayout";
 import { About } from "@/components/cards/About";
 import { TechStack } from "@/components/cards/TechStack";
@@ -16,38 +15,34 @@ export default function Home() {
       <section className="space-y-6">
         <div className="space-y-2">
           <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-2">
-            <div className="lg:col-span-3 md:col-span-1 flex flex-col gap-4">
+            <div className="lg:col-span-3 md:col-span-1 flex flex-col gap-4 animate-slide-up-1" >
               <About />
             </div>
-            <div className="lg:col-span-2 md:col-span-1 flex flex-col">
+            <div className="lg:col-span-2 md:col-span-1 flex flex-col animate-slide-up-2">
               <Experience />
             </div>
           </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-6 md:grid-cols-2 gap-2 items-stretch">
-            <div className="lg:col-span-3 md:col-span-1 h-full min-h-0">
+            <div className="lg:col-span-3 md:col-span-1 h-full min-h-0 animate-slide-up-3">
               <TechStack />
             </div>
-
-            <div className="lg:col-span-3 md:col-span-1 h-full min-h-0">
+            <div className="lg:col-span-3 md:col-span-1 h-full min-h-0 animate-slide-up-4">
               <Projects />
             </div>
           </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-7 md:grid-cols-2 gap-2">
-            <div className="lg:col-span-3 md:col-span-1 flex flex-col gap-4">
+            <div className="lg:col-span-3 md:col-span-1 flex flex-col gap-4 animate-slide-up-5">
               <OffKeyboard />
             </div>
-            <div className="lg:col-span-4 md:col-span-1 flex flex-col">
+            <div className="lg:col-span-4 md:col-span-1 flex flex-col animate-slide-up-6">
               <TechBlog />
             </div>
           </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-6 md:grid-cols-3 gap-2">
-            <div className="lg:col-span-2 md:col-span-1">
+            <div className="lg:col-span-2 md:col-span-1 animate-slide-up-7">
               <Connect />
             </div>
-            <div className="lg:col-span-4 md:col-span-2">
+            <div className="lg:col-span-4 md:col-span-2 animate-slide-up-8">
               <Certifications />
             </div>
           </div>
