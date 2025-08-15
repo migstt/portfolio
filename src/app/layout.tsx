@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Miguel Franco Trinidad",
   description:
-    "Showcasing my work as a web developer and aspiring DevOps engineer.",
+    "Building websites and exploring DevOps",
   icons: {
     icon: "/favicon.png",
   },

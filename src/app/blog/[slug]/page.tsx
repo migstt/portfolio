@@ -1,13 +1,36 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { ChevronLeft, ChevronRight, Clock, Calendar } from "lucide-react";
+import { generateBlogMetadata } from "@/lib/metadata";
 
 type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await Promise.resolve(getAllPosts());
   return posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found | Miguel Trinidad",
+      description: "The requested blog post could not be found.",
+    };
+  }
+
+  return generateBlogMetadata({
+    ...post,
+    date: post.date || undefined,
+  });
 }
 
 export default async function BlogPostPage({ params }: { params: Params }) {

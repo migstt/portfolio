@@ -1,12 +1,16 @@
+import { Metadata } from "next";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { getAllPosts } from "@/lib/blog";
+import { generateBlogListingMetadata } from "@/lib/metadata";
 import Link from "next/link";
+
+export const metadata: Metadata = generateBlogListingMetadata();
 
 export default function BlogPostsPage() {
   const posts = getAllPosts();
 
   return (
-    <SubpageLayout>
+    <SubpageLayout pageTitle="Blog">
       <div className="divide-y divide-border animate-slide-up-1 pt-[-4]">
         {posts.map((post) => (
           <Link
