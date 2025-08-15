@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Globe } from "lucide-react";
 import { Input } from "@/components/ui/input";

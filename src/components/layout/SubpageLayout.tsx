@@ -4,17 +4,19 @@ import { Footer } from "@/components/layout/footer/Footer";
 import { DynamicBreadcrumb } from "./DynamicBreadcrumb";
 import { ReactNode, CSSProperties } from "react";
 
-interface LayoutProps {
+interface SubpageLayoutProps {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
+  pageTitle?: string;
 }
 
 export function SubpageLayout({
   children,
   className = "",
   style = {},
-}: LayoutProps) {
+  pageTitle,
+}: SubpageLayoutProps) {
   return (
     <div
       className="min-h-screen bg-background text-foreground flex flex-col"
@@ -22,7 +24,7 @@ export function SubpageLayout({
     >
       <LayoutContainer className={`flex flex-col flex-1 ${className}`}>
         <SubpageHeader />
-        <DynamicBreadcrumb />
+        <DynamicBreadcrumb pageTitle={pageTitle} />
         <main className="p-4 flex-1">{children}</main>
         <Footer />
       </LayoutContainer>

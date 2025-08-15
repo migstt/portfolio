@@ -22,7 +22,7 @@ export const aboutText: AboutText =
 export const techCategories: TechCategory[] = [
   {
     label: "Languages",
-    items: ["PHP", "JavaScript", "TypeScript"],
+    items: ["PHP", "JavaScript"],
   },
   {
     label: "Frameworks & Libraries",

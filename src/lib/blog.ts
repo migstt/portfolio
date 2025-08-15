@@ -5,6 +5,7 @@ import readingTime from "reading-time";
 import { remark } from "remark";
 import html from "remark-html";
 import rehypePrism from "rehype-prism-plus";
+import remarkGfm from "remark-gfm";
 
 const postsDirectory = path.join(process.cwd(), "src/content/blog");
 
@@ -58,6 +59,7 @@ export async function getPostBySlug(slug: string) {
   const frontmatter = data as FrontMatter;
 
   const processedContent = await remark()
+    .use(remarkGfm)
     .use(html, { sanitize: false })
     .use(rehypePrism)
     .process(content);
@@ -69,5 +71,6 @@ export async function getPostBySlug(slug: string) {
     date: data.date ? new Date(data.date).toISOString() : null,
     readingTime: readingTime(content).text,
     contentHtml: processedContent.toString(),
+    plainmd: content
   };
 }

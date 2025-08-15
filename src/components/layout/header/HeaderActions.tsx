@@ -25,8 +25,13 @@ export const pages = [
 export function HeaderActions() {
   const emailLink = SocialLinks[0]?.href || "#";
   const pathname = usePathname();
-
-  const selectedPage = pages.find((p) => p.href === pathname)?.name || "Home";
+  
+  const selectedPage =
+    pages.find((p) =>
+      pathname === "/"
+        ? p.href === "/"
+        : pathname.startsWith(p.href) && p.href !== "/"
+    )?.name || "Home";
 
   return (
     <div className="flex items-center gap-2">

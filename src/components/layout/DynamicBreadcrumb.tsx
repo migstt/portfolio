@@ -1,5 +1,4 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import React from "react";
 import Link from "next/link";
@@ -12,9 +11,13 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 
-export function DynamicBreadcrumb() {
+interface DynamicBreadcrumbProps {
+  pageTitle?: string;
+}
+
+export function DynamicBreadcrumb({ pageTitle }: DynamicBreadcrumbProps) {
   const pathname = usePathname();
-  const segments = pathname.split("/").filter(Boolean); 
+  const segments = pathname.split("/").filter(Boolean);
 
   const labelMap: Record<string, string> = {
     blog: "Blog",
@@ -32,24 +35,24 @@ export function DynamicBreadcrumb() {
             <Link href="/">Home</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
-
         {segments.map((segment, index) => {
           const href = "/" + segments.slice(0, index + 1).join("/");
           const isLast = index === segments.length - 1;
+
+          const displayText =
+            isLast && pageTitle
+              ? pageTitle
+              : labelMap[segment] || decodeURIComponent(segment);
 
           return (
             <React.Fragment key={href}>
               <BreadcrumbSeparator className="relative top-[1.4px]" />
               <BreadcrumbItem>
                 {isLast ? (
-                  <BreadcrumbPage>
-                    {labelMap[segment] || decodeURIComponent(segment)}
-                  </BreadcrumbPage>
+                  <BreadcrumbPage>{displayText}</BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink asChild>
-                    <Link href={href}>
-                      {labelMap[segment] || decodeURIComponent(segment)}
-                    </Link>
+                    <Link href={href}>{displayText}</Link>
                   </BreadcrumbLink>
                 )}
               </BreadcrumbItem>

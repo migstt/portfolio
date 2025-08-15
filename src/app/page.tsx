@@ -1,4 +1,3 @@
-"use client";
 import { Layout } from "@/components/layout/MainLayout";
 import { About } from "@/components/cards/About";
 import { TechStack } from "@/components/cards/TechStack";
