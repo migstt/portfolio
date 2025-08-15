@@ -24,15 +24,6 @@ jobs:
       - name: Build (Next.js static export)
         run: npm run build
 
-      - name: Verify static export
-        run: |
-          if [ ! -d "./out" ]; then
-            echo "Error: ./out directory not found. Build did not produce static export."
-            exit 1
-          fi
-          echo "./out directory found:"
-          ls -lah ./out
-
       - name: Deploy to EC2 using Rsync
         uses: burnett01/rsync-deployments@7.0.2
         with:
