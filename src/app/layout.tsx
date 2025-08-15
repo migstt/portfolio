@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Miguel Trinidad",
+  title: "Miguel Franco Trinidad",
   description:
     "Showcasing my work as a web developer and aspiring DevOps engineer.",
   icons: {
-    icon: "/favicon.jpg",
+    icon: "/favicon.png",
   },
 };
 

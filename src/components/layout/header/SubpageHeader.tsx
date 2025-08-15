@@ -23,8 +23,6 @@ export function SubpageHeader() {
             {name}
           </h1>
         </Link>
-
-        {/* Actions and theme toggle */}
         <div className="flex items-center gap-3">
           <HeaderActions />
           <ThemeToggle />
