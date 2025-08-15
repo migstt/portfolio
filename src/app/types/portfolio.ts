@@ -26,11 +26,3 @@ export interface Project {
   description: string;
   link: string;
 }
-
-export interface DevLogEntry {
-  date: string;
-  title: string;
-  link: string;
-  description: string;
-  readTime: string;
-}

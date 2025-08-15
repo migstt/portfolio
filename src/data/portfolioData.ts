@@ -4,7 +4,6 @@ import {
   TechCategory,
   Experience,
   Project,
-  DevLogEntry,
 } from "@/app/types/portfolio";
 
 export const profile: Profile = {
@@ -69,32 +68,5 @@ export const projects: Project[] = [
     title: "Inventory Management System",
     description: "For stock, suppliers, and office location transfers.",
     link: "https://github.com/migstt/ci_system",
-  },
-];
-
-export const devLogEntries: DevLogEntry[] = [
-  {
-    date: "Aug 10, 2025",
-    title: "Automate GitHub Releases with GitHub Actions",
-    link: "/dev-log/github-releases-actions",
-    description:
-      "Learn how to streamline your release workflow using GitHub Actions automation.",
-    readTime: "5 min read",
-  },
-  {
-    date: "Aug 8, 2025",
-    title: "Deploying Laravel App to Shared Hosting Using GitHub Actions",
-    link: "/dev-log/deploy-laravel-shared-hosting",
-    description:
-      "Step-by-step guide to deploying Laravel applications to shared hosting without manual FTP uploads.",
-    readTime: "7 min read",
-  },
-  {
-    date: "Aug 3, 2025",
-    title: "PHPStan & PHPUnit GitHub Actions Workflow",
-    link: "/dev-log/phpstan-phpunit-actions",
-    description:
-      "Set up automated PHPStan and PHPUnit tests in GitHub Actions for robust PHP projects.",
-    readTime: "6 min read",
   },
 ];
