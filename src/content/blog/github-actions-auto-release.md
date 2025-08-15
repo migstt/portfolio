@@ -1,6 +1,6 @@
 ---
 title: "Automating GitHub Releases with GitHub Actions"
-date: "2025-08-15"
+date: "2025-08-13"
 description: "Set up a GitHub Actions workflow to create releases automatically when pushing version tags."
 ---
 

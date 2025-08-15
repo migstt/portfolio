@@ -1,6 +1,6 @@
 ---
 title: "Laravel Deployment with GitHub Actions"
-date: "2025-08-13"
+date: "2025-08-12"
 description: "Learn how to automatically deploy your Laravel application to shared hosting using GitHub Actions. This guide covers both tag-based and branch-based deployment methods."
 ---
 
