@@ -22,7 +22,7 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: "Post Not Found | Miguel Trinidad",
+      title: "Post Not Found | Miguel Franco Trinidad",
       description: "The requested blog post could not be found.",
     };
   }
