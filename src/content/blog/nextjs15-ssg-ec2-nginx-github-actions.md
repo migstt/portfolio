@@ -130,7 +130,7 @@ Add:
 - `EC2_SSH_KEY` — Private SSH key content.
 
 
-## 4. Configure Nginx for Static Site
+## 4. Configure Nginx for Static Site (No SSL)
 
 File: `/etc/nginx/sites-available/example`
 
@@ -162,27 +162,8 @@ server {
         deny all;
     }
 
-    listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-}
-
-server {
-    if ($host = www.example.com) {
-        return 301 https://$host$request_uri;
-    }
-
-    if ($host = example.com) {
-        return 301 https://$host$request_uri;
-    }
-
     listen 80;
     listen [::]:80;
-
-    server_name example.com www.example.com;
-    return 404;
 }
 ```
 
@@ -193,6 +174,21 @@ sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
+
+### Optional: Enable HTTPS with Certbot
+
+If you want SSL, you can use Certbot with the Nginx plugin:
+
+```bash
+sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d example.com -d www.example.com
+```
+
+Certbot will:
+
+- Install SSL certificates.
+- Update your Nginx config automatically.
+- Set up auto-renewal.
 
 ## 5. Deploy Workflow
 
