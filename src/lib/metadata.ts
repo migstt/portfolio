@@ -9,6 +9,9 @@ export interface PageMetadata {
   modifiedTime?: string;
   section?: string;
   tags?: string[];
+  image?: string;
+  imageAlt?: string;
+  url?: string;
 }
 
 export interface MetadataConfig {
@@ -18,16 +21,21 @@ export interface MetadataConfig {
   defaultAuthor: string;
   siteUrl: string;
   twitterHandle?: string;
+  defaultImage: string;
+  defaultImageAlt: string;
 }
 
 export const metadataConfig: MetadataConfig = {
   siteName: "Miguel Franco Trinidad",
   defaultTitle: "Miguel Franco Trinidad",
   defaultDescription:
-    "Building websites and exploring DevOps",
+    "Full-stack web developer with experience in PHP and JavaScript, actively exploring DevOps.",
   defaultAuthor: "Miguel Franco Trinidad",
   siteUrl: "https://migueltrinidad.com",
   twitterHandle: "@yourtwitterhandle",
+  defaultImage: "https://migueltrinidad.com/og-image.jpg",
+  defaultImageAlt:
+    "Miguel Franco Trinidad - Full Stack Developer"
 };
 
 export function generatePageMetadata(
@@ -43,6 +51,7 @@ export function generatePageMetadata(
     modifiedTime,
     section,
     tags,
+    image,
   } = pageData;
 
   const {
@@ -51,11 +60,13 @@ export function generatePageMetadata(
     defaultAuthor,
     siteUrl,
     twitterHandle,
+    defaultImage,
   } = config;
 
   const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
   const metaDescription = description || defaultDescription;
   const metaAuthor = author || defaultAuthor;
+  const metaImage = image || defaultImage;
 
   return {
     title: fullTitle,
@@ -72,6 +83,14 @@ export function generatePageMetadata(
       locale: "en_US",
       type: publishedTime ? "article" : "website",
       url: siteUrl,
+      images: [
+        {
+          url: metaImage,
+          width: 1200,
+          height: 630,
+          alt: fullTitle,
+        },
+      ],
       ...(publishedTime && {
         publishedTime,
         modifiedTime,
@@ -86,7 +105,23 @@ export function generatePageMetadata(
       title: fullTitle,
       description: metaDescription,
       creator: twitterHandle,
+      images: [metaImage],
     },
+
+    alternates: {
+      canonical: siteUrl,
+    },
+
+    icons: {
+      icon: [
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon.ico", sizes: "any" },
+      ],
+      apple: "/apple-touch-icon.png",
+    },
+
+    manifest: "/site.webmanifest",
 
     ...(publishedTime && {
       other: {
@@ -118,6 +153,7 @@ export function generateBlogMetadata(post: {
   date?: string;
   tags?: string[];
   slug?: string;
+  image?: string;
 }): Metadata {
   return generatePageMetadata({
     title: post.title,
@@ -125,6 +161,7 @@ export function generateBlogMetadata(post: {
     publishedTime: post.date,
     section: "Blog",
     tags: post.tags,
+    image: post.image,
   });
 }
 
@@ -132,7 +169,7 @@ export function generateBlogListingMetadata(): Metadata {
   return generatePageMetadata({
     title: "Blog",
     description:
-      "Latest articles on web development, DevOps, and tech insights by Miguel Franco Trinidad.",
+      "Articles on web development, DevOps, and tech insights.",
     section: "Blog",
   });
 }
