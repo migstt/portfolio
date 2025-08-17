@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { LanguageBadge } from "@/components/general/LanguageBadge";
 import { fetchGitHubRepos } from "@/lib/github";
@@ -11,10 +12,9 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { generateProjectListingMetadata } from "@/lib/metadata";
 import { formatDistanceToNow } from "date-fns";
 
-export const metadata: Metadata = generateProjectListingMetadata();
+export const metadata: Metadata = createPageMetadata.projectListing();
 
 export default async function ProjectsPage() {
   let repos: Array<ProcessedRepo>;

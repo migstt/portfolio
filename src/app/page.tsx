@@ -8,13 +8,14 @@ import { OffKeyboard } from "@/components/cards/offkeyboard/OffKeyboard";
 import { TechBlog } from "@/components/cards/TechBlog";
 import { Certifications } from "@/components/cards/Certifications";
 import { Connect } from "@/components/cards/Connect";
-import { generatePageMetadata } from "@/lib/metadata";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = generatePageMetadata({
+export const metadata: Metadata = createMetadata({
   title: "Miguel Franco Trinidad",
   description:
     "Full-stack web developer with experience in PHP and JavaScript, actively exploring DevOps.",
-  keywords: [
+  path: "/",
+  tags: [
     "full stack web developer",
     "PHP developer",
     "JavaScript developer",
@@ -23,7 +24,6 @@ export const metadata: Metadata = generatePageMetadata({
     "frontend",
     "backend",
   ],
-  url: "/",
 });
 
 export default async function Home() {

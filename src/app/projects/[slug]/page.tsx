@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { fetchGitHubRepos, getRepositoryWithReadme } from "@/lib/github";
@@ -40,26 +41,18 @@ export async function generateMetadata({
     const repo = await getRepositoryWithReadme(slug);
 
     if (!repo) {
-      return {
-        title: "Project Not Found | Miguel Franco Trinidad",
-        description: "The requested project could not be found.",
-      };
+      return createPageMetadata.notFound(`/projects/${slug}`);
     }
 
-    return {
-      title: `${repo.displayName} | Miguel Franco Trinidad`,
+    return createPageMetadata.project({
+      title: repo.displayName,
       description: repo.description,
-      openGraph: {
-        title: `${repo.displayName} | Miguel Franco Trinidad`,
-        description: repo.description,
-        type: "article",
-      },
-    };
+      slug,
+      createdAt: repo.createdAt,
+      updatedAt: repo.updatedAt,
+    });
   } catch (error) {
-    return {
-      title: "Project Not Found | Miguel Franco Trinidad",
-      description: "The requested project could not be found.",
-    };
+    return createPageMetadata.notFound(`/projects/${slug}`);
   }
 }
 
@@ -136,7 +129,6 @@ export default async function ProjectPage({ params }: { params: Params }) {
               repoName={repo.name}
             />
           ) : (
-
             <div className="border rounded-lg p-8 bg-muted/50 text-center mb-12">
               <FileText className="w-10 h-10 mx-auto mb-4 text-muted-foreground" />
               <h3 className="text-sm font-semibold mb-2">

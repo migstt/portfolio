@@ -1,9 +1,9 @@
 import { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { ChevronLeft, ChevronRight, Clock, Calendar } from "lucide-react";
-import { generateBlogMetadata } from "@/lib/metadata";
 import Article from "@/components/general/Article";
 
 type Params = Promise<{ slug: string }>;
@@ -22,15 +22,16 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
 
   if (!post) {
-    return {
-      title: "Post Not Found | Miguel Franco Trinidad",
-      description: "The requested blog post could not be found.",
-    };
+    return createPageMetadata.notFound(`/blog/${slug}`);
   }
 
-  return generateBlogMetadata({
-    ...post,
+  return createPageMetadata.blogPost({
+    title: post.title,
+    description: post.description,
+    slug,
     date: post.date || undefined,
+    tags: post.tags,
+    image: post.image,
   });
 }
 

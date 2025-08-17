@@ -1,10 +1,10 @@
 import { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { getAllPosts } from "@/lib/blog";
-import { generateBlogListingMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = generateBlogListingMetadata();
+export const metadata: Metadata = createPageMetadata.blogListing();
 
 export default function BlogPostsPage() {
   const posts = getAllPosts();

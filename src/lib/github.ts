@@ -9,6 +9,7 @@ export interface GitHubRepo {
   stargazers_count: number;
   forks_count: number;
   updated_at: string;
+  created_at: string;
 }
 
 export interface ProcessedRepo {
@@ -21,6 +22,7 @@ export interface ProcessedRepo {
   stars: number;
   forks: number;
   updatedAt: string;
+  createdAt: string;
 }
 
 export interface DetailedRepo extends ProcessedRepo {
@@ -77,6 +79,7 @@ export function processRepo(repo: GitHubRepo): ProcessedRepo {
     stars: repo.stargazers_count,
     forks: repo.forks_count,
     updatedAt: repo.updated_at,
+    createdAt: repo.created_at,
   };
 }
 

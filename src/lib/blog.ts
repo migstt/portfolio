@@ -68,6 +68,8 @@ export async function getPostBySlug(slug: string) {
     readingTime: readingTime(content).text,
     contentHtml: processedContent.toString(),
     plainmd: content,
+    tags: [],
+    image: "",
   };
 }
 
