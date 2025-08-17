@@ -1,4 +1,4 @@
-import { Socials } from "@/components/socials/Socials";
+import { Socials } from "@/components/general/Socials";
 
 export function Footer() {
   const year = new Date().getFullYear();

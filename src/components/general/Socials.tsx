@@ -1,5 +1,5 @@
 import React from "react";
-import { SocialLinks } from "@/components/socials/SocialLinks";
+import { SocialLinks } from "@/components/general/SocialLinks";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,

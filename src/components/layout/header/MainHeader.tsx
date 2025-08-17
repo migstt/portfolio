@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MapPin, CircleCheck, Trophy } from "lucide-react";
-import { ThemeToggle } from "@/components/toggles/ThemeToggle";
+import { ThemeToggle } from "@/components/general/ThemeToggle";
 import { profile } from "@/data/portfolioData";
 import { HeaderActions } from "@/components/layout/header/HeaderActions";
 

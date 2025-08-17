@@ -1,6 +1,6 @@
 import { processMarkdown } from "@/lib/blog";
 
-export interface GitHubRepo {
+export type GitHubRepo = {
   id: number;
   name: string;
   description: string | null;
@@ -12,7 +12,7 @@ export interface GitHubRepo {
   created_at: string;
 }
 
-export interface ProcessedRepo {
+export type ProcessedRepo = {
   id: number;
   name: string;
   displayName: string;

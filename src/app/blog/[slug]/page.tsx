@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { createPageMetadata } from "@/lib/metadata";
-import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
-import { ChevronLeft, ChevronRight, Clock, Calendar } from "lucide-react";
+import { Clock, Calendar } from "lucide-react";
 import Article from "@/components/general/Article";
+import PaginationNav from "@/components/general/PaginationNav";
 
 type Params = Promise<{ slug: string }>;
 
@@ -79,59 +79,12 @@ export default async function BlogPostPage({ params }: { params: Params }) {
             }}
           />
 
-          {(prevPost || nextPost) && (
-            <nav className="mt-12 pt-8 border-t border-border">
-              <div className="flex flex-row justify-between items-center gap-4">
-                {prevPost ? (
-                  <Link
-                    href={`/blog/${prevPost.slug}`}
-                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200 flex-1 max-w-[45%] py-2"
-                  >
-                    <ChevronLeft className="h-4 w-4 flex-shrink-0 group-hover:-translate-x-0.5 transition-transform duration-200" />
-                    <div className="min-w-0 flex-1">
-                      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors lg:hidden">
-                        Previous Post
-                      </p>
-                      <div className="hidden lg:block">
-                        <p className="text-xs uppercase tracking-wide font-medium">
-                          Previous
-                        </p>
-                        <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
-                          {prevPost.title}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                ) : (
-                  <div className="flex-1 max-w-[45%]"></div>
-                )}
-
-                {nextPost ? (
-                  <Link
-                    href={`/blog/${nextPost.slug}`}
-                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200 flex-1 max-w-[45%] py-2 justify-end"
-                  >
-                    <div className="min-w-0 flex-1 text-right order-1">
-                      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors lg:hidden">
-                        Next Post
-                      </p>
-                      <div className="hidden lg:block">
-                        <p className="text-xs uppercase tracking-wide font-medium">
-                          Next
-                        </p>
-                        <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
-                          {nextPost.title}
-                        </p>
-                      </div>
-                    </div>
-                    <ChevronRight className="h-4 w-4 flex-shrink-0 group-hover:translate-x-0.5 transition-transform duration-200 order-2" />
-                  </Link>
-                ) : (
-                  <div className="flex-1 max-w-[45%]"></div>
-                )}
-              </div>
-            </nav>
-          )}
+          <PaginationNav
+            prevItem={prevPost}
+            nextItem={nextPost}
+            basePath="/blog"
+            itemType="Post"
+          />
         </div>
       </div>
     </SubpageLayout>

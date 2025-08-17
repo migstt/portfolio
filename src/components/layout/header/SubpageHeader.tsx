@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/toggles/ThemeToggle";
+import { ThemeToggle } from "@/components/general/ThemeToggle";
 import { HeaderActions } from "@/components/layout/header/HeaderActions";
 import { profile } from "@/data/portfolioData";
 

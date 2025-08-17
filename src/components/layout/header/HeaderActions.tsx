@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { MailPlus, ChevronDown } from "lucide-react";
-import { SocialLinks } from "@/components/socials/SocialLinks";
+import { SocialLinks } from "@/components/general/SocialLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

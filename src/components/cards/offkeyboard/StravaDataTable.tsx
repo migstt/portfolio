@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { DataTable } from "@/components/tables/DataTable";
+import { DataTable } from "@/components/general/DataTable";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpDown, SquareArrowUpRight } from "lucide-react";
 import { ProcessedActivity } from "@/lib/strava";
