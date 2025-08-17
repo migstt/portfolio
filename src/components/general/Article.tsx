@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export interface Post {
   description?: string;
-  contentHtml: string;
+  contentHtml: string | undefined;
 }
 
 export default function Article({ post }: { post: Post }) {

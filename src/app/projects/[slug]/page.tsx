@@ -1,6 +1,6 @@
-// app/projects/[slug]/page.tsx
 import { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { fetchGitHubRepos, getRepositoryWithReadme } from "@/lib/github";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import {
@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { LanguageBadge } from "@/components/general/LanguageBadge";
 import { formatDistanceToNow } from "date-fns";
-import ReactMarkdown from "react-markdown";
+import Article from "@/components/general/Article";
 import { notFound } from "next/navigation";
 
 type Params = Promise<{ slug: string }>;
@@ -88,11 +88,26 @@ export default async function ProjectPage({ params }: { params: Params }) {
       <div className="animate-slide-up-1 w-full">
         <div className="w-full max-w-none">
           <header>
-            <h1 className="text-2xl sm:text-3xl lg:text-3xl font-bold mb-2 leading-tight text-foreground">
-              {repo.displayName}
-            </h1>
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-3xl font-bold leading-tight text-foreground">
+                {repo.displayName}
+              </h1>
+              <Button asChild size="sm" className="flex-shrink-0">
+                <Link
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span className="hidden sm:inline">View on GitHub</span>
+                  <span className="sm:hidden">GitHub</span>
+                </Link>
+              </Button>
+            </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
+              {repo.language && <LanguageBadge language={repo.language} />}
               <div className="flex items-center gap-2">
                 <Star className="h-4 w-4" />
                 <span>{repo.stars} stars</span>
@@ -110,37 +125,22 @@ export default async function ProjectPage({ params }: { params: Params }) {
                   })}
                 </span>
               </div>
-              {repo.language && <LanguageBadge language={repo.language} />}
-            </div>
-
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              {repo.description}
-            </p>
-
-            <div className="flex gap-4 mb-8">
-              <a
-                href={repo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                <ExternalLink className="w-4 h-4" />
-                View on GitHub
-              </a>
             </div>
           </header>
 
           {repo.hasReadme ? (
-            <article className="prose prose-sm max-w-none dark:prose-invert">
-              <ReactMarkdown>{repo.readme}</ReactMarkdown>
-            </article>
+            <Article
+              post={{
+                contentHtml: repo.readme,
+              }}
+            />
           ) : (
             <div className="border rounded-lg p-8 bg-muted/50 text-center">
-              <FileText className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
-              <h3 className="text-lg font-semibold mb-2">
+              <FileText className="w-10 h-10 mx-auto mb-4 text-muted-foreground" />
+              <h3 className="text-sm font-semibold mb-2">
                 No README available
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-xs">
                 This repository does not have a README file yet.
               </p>
             </div>

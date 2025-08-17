@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 import { Package } from "lucide-react";
 import { SeemoreButton } from "@/components/general/SeemoreButton";
 import { LanguageBadge } from "@/components/general/LanguageBadge";
@@ -29,11 +30,9 @@ export async function Projects() {
       <CardContent className="flex-1 mt-1">
         <div className="grid grid-cols-1 gap-2">
           {featuredRepos.slice(0, 3).map((repo) => (
-            <a
+            <Link
               key={repo.id}
-              href={repo.url}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/projects/${repo.name}`}
               className="block transition-transform transform hover:scale-[1.01] border rounded-lg p-2 h-full"
             >
               <div className="flex flex-col space-y-2">
@@ -45,7 +44,7 @@ export async function Projects() {
                   {repo.description}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </CardContent>

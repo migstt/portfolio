@@ -1,3 +1,5 @@
+import { processMarkdown } from "@/lib/blog";
+
 export interface GitHubRepo {
   id: number;
   name: string;
@@ -202,7 +204,9 @@ export async function getRepositoryWithReadme(
       );
 
       if (readmeResponse.ok) {
-        readme = await readmeResponse.text();
+        const readmeText = await readmeResponse.text();
+        const processedReadme = await processMarkdown(readmeText);
+        readme = processedReadme.toString();
         hasReadme = true;
         console.log(
           `README found for ${repoName} (${readme.length} characters)`

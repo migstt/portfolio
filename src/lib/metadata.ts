@@ -173,3 +173,12 @@ export function generateBlogListingMetadata(): Metadata {
     section: "Blog",
   });
 }
+
+export function generateProjectListingMetadata(): Metadata {
+  return generatePageMetadata({
+    title: "Projects",
+    description:
+      "Projects fetched from my GitHub account using the GitHub REST API.",
+    section: "Projects",
+  });
+}

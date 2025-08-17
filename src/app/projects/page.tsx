@@ -1,4 +1,4 @@
-// app/projects/page.tsx
+import { Metadata } from "next";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { LanguageBadge } from "@/components/general/LanguageBadge";
 import { fetchGitHubRepos } from "@/lib/github";
@@ -11,7 +11,10 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { generateProjectListingMetadata } from "@/lib/metadata";
 import { formatDistanceToNow } from "date-fns";
+
+export const metadata: Metadata = generateProjectListingMetadata();
 
 export default async function ProjectsPage() {
   let repos: Array<ProcessedRepo>;
@@ -35,8 +38,6 @@ export default async function ProjectsPage() {
             <Link
               key={repo.id}
               href={`/projects/${repo.name}`}
-              target="_blank"
-              rel="noopener noreferrer"
               className="block"
             >
               <Card className="p-4 hover:border-muted h-full flex flex-col">

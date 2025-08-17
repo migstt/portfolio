@@ -58,11 +58,7 @@ export async function getPostBySlug(slug: string) {
   const { data, content } = matter(fileContents);
   const frontmatter = data as FrontMatter;
 
-  const processedContent = await remark()
-    .use(remarkGfm)
-    .use(html, { sanitize: false })
-    .use(rehypePrism)
-    .process(content);
+  const processedContent = await processMarkdown(content);
 
   return {
     slug,
@@ -71,6 +67,14 @@ export async function getPostBySlug(slug: string) {
     date: data.date ? new Date(data.date).toISOString() : null,
     readingTime: readingTime(content).text,
     contentHtml: processedContent.toString(),
-    plainmd: content
+    plainmd: content,
   };
+}
+
+export async function processMarkdown(markdown: string) {
+  return await remark()
+    .use(remarkGfm)
+    .use(html, { sanitize: false })
+    .use(rehypePrism)
+    .process(markdown);
 }
