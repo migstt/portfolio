@@ -21,6 +21,11 @@ export interface ProcessedRepo {
   updatedAt: string;
 }
 
+export interface DetailedRepo extends ProcessedRepo {
+  readme?: string;
+  hasReadme: boolean;
+}
+
 export const languageColors: Record<string, string> = {
   JavaScript: "#b7920a",
   TypeScript: "#2b7489",
@@ -55,7 +60,6 @@ export function formatRepoName(name: string): string {
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
-
   console.log(`Formatted "${name}" -> "${formatted}"`);
   return formatted;
 }
@@ -77,7 +81,6 @@ export function processRepo(repo: GitHubRepo): ProcessedRepo {
 export async function fetchGitHubRepos(): Promise<ProcessedRepo[]> {
   const token = process.env.GITHUB_TOKEN;
   const username = process.env.GITHUB_USERNAME;
-
   console.log(`Fetching repos for user: ${username}`);
   console.log(`Token available: ${token ? "Yes" : "No"}`);
 
@@ -144,4 +147,82 @@ export async function getFeaturedRepos(
     `Featured repos found: ${featuredRepos.length}/${repoNames.length}`
   );
   return featuredRepos;
+}
+
+export async function getRepositoryWithReadme(
+  repoName: string
+): Promise<DetailedRepo | null> {
+  const token = process.env.GITHUB_TOKEN;
+  const username = process.env.GITHUB_USERNAME;
+
+  if (!token || !username) {
+    throw new Error(
+      "GitHub token and username must be provided in environment variables"
+    );
+  }
+
+  try {
+    const repoResponse = await fetch(
+      `https://api.github.com/repos/${username}/${repoName}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "User-Agent": "migstt",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+
+    if (!repoResponse.ok) {
+      if (repoResponse.status === 404) {
+        console.log(`Repository ${repoName} not found`);
+        return null;
+      }
+      throw new Error(`GitHub API error: ${repoResponse.status}`);
+    }
+
+    const repoData: GitHubRepo = await repoResponse.json();
+    const processedRepo = processRepo(repoData);
+
+    let readme = "";
+    let hasReadme = false;
+
+    try {
+      console.log(`Fetching README for ${repoName}...`);
+      const readmeResponse = await fetch(
+        `https://api.github.com/repos/${username}/${repoName}/readme`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "User-Agent": "migstt",
+            "X-GitHub-Api-Version": "2022-11-28",
+            Accept: "application/vnd.github.raw",
+          },
+        }
+      );
+
+      if (readmeResponse.ok) {
+        readme = await readmeResponse.text();
+        hasReadme = true;
+        console.log(
+          `README found for ${repoName} (${readme.length} characters)`
+        );
+      } else {
+        console.log(
+          `No README found for ${repoName} (${readmeResponse.status})`
+        );
+      }
+    } catch (readmeError) {
+      console.log(`Error fetching README for ${repoName}:`, readmeError);
+    }
+
+    return {
+      ...processedRepo,
+      readme,
+      hasReadme,
+    };
+  } catch (error) {
+    console.error(`Error fetching repository details for ${repoName}:`, error);
+    throw error;
+  }
 }

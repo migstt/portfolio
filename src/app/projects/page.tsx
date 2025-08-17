@@ -34,7 +34,7 @@ export default async function ProjectsPage() {
           {repos.map((repo) => (
             <Link
               key={repo.id}
-              href={repo.url}
+              href={`/projects/${repo.name}`}
               target="_blank"
               rel="noopener noreferrer"
               className="block"

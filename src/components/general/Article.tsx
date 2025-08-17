@@ -13,7 +13,6 @@ export default function Article({ post }: { post: Post }) {
       if (!code) return;
       if (pre.querySelector(".copy-btn")) return;
 
-      // Detect language
       const lang = (code.className.match(/language-(\w+)/) || [])[1] || "text";
 
       const btn = document.createElement("button");
@@ -34,7 +33,6 @@ export default function Article({ post }: { post: Post }) {
         cursor-pointer
       `;
 
-      // Check if code is single line for button positioning
       const codeLines = code.innerText
         .split("\n")
         .filter((line) => line.trim() !== "");
@@ -54,24 +52,19 @@ export default function Article({ post }: { post: Post }) {
         }
       };
 
-      // Position button - center vertically for single line, top for multi-line
       if (isSingleLine) {
         btn.style.top = "50%";
         btn.style.transform = "translateY(-50%)";
       }
 
-      // Create a wrapper div for better positioning control
       const wrapper = document.createElement("div");
       wrapper.className = "relative w-full";
 
-      // Wrap the pre element
       pre.parentNode?.insertBefore(wrapper, pre);
       wrapper.appendChild(pre);
 
-      // Make pre horizontally scrollable with more aggressive styles
       pre.classList.add("relative");
 
-      // Apply styles with higher specificity and !important
       const preStyles = `
         position: relative !important;
         overflow-x: auto !important;
@@ -88,10 +81,8 @@ export default function Article({ post }: { post: Post }) {
         -webkit-overflow-scrolling: touch !important;
       `;
 
-      // Apply styles using cssText for maximum override power
       pre.style.cssText = (pre.style.cssText || "") + preStyles;
 
-      // Ensure code element also preserves whitespace and doesn't wrap
       if (code) {
         const codeStyles = `
           white-space: pre !important;
@@ -106,7 +97,6 @@ export default function Article({ post }: { post: Post }) {
         code.style.cssText = (code.style.cssText || "") + codeStyles;
       }
 
-      // Append button to the wrapper
       wrapper.appendChild(btn);
     });
   }, [post.contentHtml]);
