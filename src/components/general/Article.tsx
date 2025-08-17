@@ -5,9 +5,34 @@ export interface Post {
   description?: string;
   contentHtml: string | undefined;
 }
+interface ArticleProps {
+  post: Post;
+  repoName?: string;
+}
 
-export default function Article({ post }: { post: Post }) {
+export default function Article({ post, repoName }: ArticleProps) {
   useEffect(() => {
+    if (repoName) {
+      document.querySelectorAll("img").forEach((img) => {
+        const src = img.getAttribute("src");
+        if (src && (src.startsWith("public/") || src.startsWith("./public/"))) {
+          const cleanSrc = src.startsWith("./") ? src.slice(2) : src;
+          const newSrc = `https://github.com/migstt/${repoName}/raw/main/${cleanSrc}`;
+          img.setAttribute("src", newSrc);
+
+          img.className = "rounded-xl max-w-full h-auto";
+          img.style.maxHeight = "600px";
+          img.style.objectFit = "contain";
+          img.loading = "lazy";
+
+          img.onerror = function () {
+            this.style.display = "none";
+            console.warn(`Failed to load image: ${newSrc}`);
+          };
+        }
+      });
+    }
+
     document.querySelectorAll("pre").forEach((pre) => {
       const code = pre.querySelector("code");
       if (!code) return;
@@ -99,7 +124,7 @@ export default function Article({ post }: { post: Post }) {
 
       wrapper.appendChild(btn);
     });
-  }, [post.contentHtml]);
+  }, [post.contentHtml, repoName]);
 
   return (
     <article

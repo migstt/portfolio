@@ -133,17 +133,9 @@ export default async function ProjectPage({ params }: { params: Params }) {
               post={{
                 contentHtml: repo.readme,
               }}
+              repoName={repo.name}
             />
           ) : (
-            // <div className="border rounded-lg p-8 bg-muted/50 text-center">
-            //   <FileText className="w-10 h-10 mx-auto mb-4 text-muted-foreground" />
-            //   <h3 className="text-sm font-semibold mb-2">
-            //     No README available
-            //   </h3>
-            //   <p className="text-muted-foreground text-xs">
-            //     This repository does not have a README file yet.
-            //   </p>
-            // </div>
 
             <div className="border rounded-lg p-8 bg-muted/50 text-center mb-12">
               <FileText className="w-10 h-10 mx-auto mb-4 text-muted-foreground" />
