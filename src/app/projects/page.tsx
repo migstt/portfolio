@@ -26,11 +26,11 @@ export default async function ProjectsPage() {
   return (
     <SubpageLayout>
       {repos.length === 0 ? (
-        <div className="text-center py-12">
+        <div className="text-center py-12 animate-slide-up-1 pt-[-4]">
           <p className="text-muted-foreground">No repositories found.</p>
         </div>
       ) : (
-        <div className="grid gap-2 sm:grid-cols-2">
+        <div className="grid gap-2 sm:grid-cols-2 animate-slide-up-1 pt-[-4]">
           {repos.map((repo) => (
             <Link
               key={repo.id}
