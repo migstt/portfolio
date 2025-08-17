@@ -20,9 +20,3 @@ export interface Experience {
   start: string;
   end: string;
 }
-
-export interface Project {
-  title: string;
-  description: string;
-  link: string;
-}

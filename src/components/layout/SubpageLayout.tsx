@@ -22,7 +22,7 @@ export function SubpageLayout({
       className="min-h-screen bg-background text-foreground flex flex-col"
       style={style}
     >
-      <LayoutContainer className={`flex flex-col flex-1 ${className}`}>
+      <LayoutContainer className={`flex flex-col flex-1 w-full ${className}`}>
         <SubpageHeader />
         <DynamicBreadcrumb pageTitle={pageTitle} />
         <main className="p-4 flex-1">{children}</main>
