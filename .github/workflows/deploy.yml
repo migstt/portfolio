@@ -22,6 +22,9 @@ jobs:
         run: npm ci
 
       - name: Build (Next.js static export)
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
+          GITHUB_USERNAME: migstt
         run: npm run build
 
       - name: Deploy to EC2 using Rsync
