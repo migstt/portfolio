@@ -37,10 +37,10 @@ async function refreshStravaToken(): Promise<StravaTokens> {
   const refreshToken = process.env.STRAVA_REFRESH_TOKEN;
 
   if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error("missing Strava credentials in environment variables");
+    throw new Error("missing strava credentials in environment variables");
   }
 
-  console.log("refreshing Strava access token...");
+  console.log("refreshing strava access token...");
 
   const response = await fetch("https://www.strava.com/oauth/token", {
     method: "POST",
@@ -60,7 +60,7 @@ async function refreshStravaToken(): Promise<StravaTokens> {
     console.error(
       `strava token refresh error: ${response.status} - ${errorText}`
     );
-    throw new Error(`failed to refresh Strava token: ${response.status}`);
+    throw new Error(`failed to refresh strava token: ${response.status}`);
   }
 
   const tokens: StravaTokens = await response.json();
