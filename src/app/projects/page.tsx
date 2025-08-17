@@ -1,43 +1,74 @@
-"use client";
+// app/projects/page.tsx
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
+import { LanguageBadge } from "@/components/general/LanguageBadge";
+import { fetchGitHubRepos } from "@/lib/github";
+import { ProcessedRepo } from "@/lib/github";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import Link from "next/link";
+import { formatDistanceToNow } from "date-fns";
 
-const projects = [
-  {
-    id: 1,
-    title: "Portfolio Website",
-    description:
-      "A personal portfolio built with Next.js, Tailwind CSS, and TypeScript to showcase my projects and blogs.",
-  },
-  {
-    id: 2,
-    title: "CI/CD Pipeline Automation",
-    description:
-      "Automated build, test, and deployment workflows using GitHub Actions for a production web app.",
-  },
-  {
-    id: 3,
-    title: "Cloud Infrastructure Setup",
-    description:
-      "Provisioned scalable infrastructure on AWS using Terraform and Dockerized services for deployment.",
-  },
-];
+export default async function ProjectsPage() {
+  let repos: Array<ProcessedRepo>;
 
-export default function ProjectsPage() {
+  try {
+    repos = await fetchGitHubRepos();
+  } catch (error) {
+    console.error("Failed to fetch repositories:", error);
+    repos = [];
+  }
+
   return (
     <SubpageLayout>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="border rounded-lg p-4 bg-card shadow-sm hover:shadow-md transition-shadow"
-          >
-            <h2 className="text-lg font-semibold mb-2">{project.title}</h2>
-            <p className="text-sm text-muted-foreground">
-              {project.description}
-            </p>
-          </div>
-        ))}
-      </div>
+      {repos.length === 0 ? (
+        <div className="text-center py-12">
+          <p className="text-muted-foreground">No repositories found.</p>
+        </div>
+      ) : (
+        <div className="grid gap-2 sm:grid-cols-2">
+          {repos.map((repo) => (
+            <Link
+              key={repo.id}
+              href={repo.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="p-4 hover:border-muted h-full flex flex-col">
+                <CardHeader className="p-0 flex flex-row items-start justify-start gap-4">
+                  <div className="flex-1 min-w-0">
+                    <CardTitle className="text-lg truncate">
+                      {repo.displayName}
+                    </CardTitle>
+                    <CardDescription>
+                      <span className="text-xs text-muted-foreground">
+                        Updated{" "}
+                        {formatDistanceToNow(new Date(repo.updatedAt), {
+                          addSuffix: true,
+                        })}
+                      </span>
+                    </CardDescription>
+                  </div>
+                  <LanguageBadge language={repo.language} />
+                </CardHeader>
+
+                {repo.description && (
+                  <CardContent className="p-0">
+                    <p className="text-sm/5 text-muted-foreground">
+                      {repo.description}
+                    </p>
+                  </CardContent>
+                )}
+              </Card>
+            </Link>
+          ))}
+        </div>
+      )}
     </SubpageLayout>
   );
 }

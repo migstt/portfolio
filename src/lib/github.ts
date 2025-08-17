@@ -42,7 +42,7 @@ export const languageColors: Record<string, string> = {
   React: "#61DAFB",
   Angular: "#DD0031",
   Svelte: "#ff3e00",
-  Shell: "#89e051",
+  Shell: "#3d802c",
   PowerShell: "#012456",
   Dockerfile: "#384d54",
   YAML: "#cb171e",

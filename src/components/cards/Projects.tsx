@@ -7,46 +7,6 @@ import { ProcessedRepo } from "@/lib/github";
 
 const FEATURED_REPO_NAMES = ["portfolio", "tech-feed", "inventory-system"];
 
-// for display testing
-const mockRepos: ProcessedRepo[] = [
-  {
-    id: 1,
-    name: "portfolio-website",
-    displayName: "Portfolio Website",
-    description:
-      "A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS featuring dynamic GitHub integration and responsive design.",
-    url: "https://github.com/yourusername/portfolio-website",
-    language: "TypeScript",
-    stars: 42,
-    forks: 8,
-    updatedAt: "2024-03-15T10:30:00Z",
-  },
-  {
-    id: 2,
-    name: "react-task-manager",
-    displayName: "React Task Manager",
-    description:
-      "A full-stack task management application with drag-and-drop functionality, real-time updates, and user authentication.",
-    url: "https://github.com/yourusername/react-task-manager",
-    language: "JavaScript",
-    stars: 28,
-    forks: 5,
-    updatedAt: "2024-03-12T14:45:00Z",
-  },
-  {
-    id: 3,
-    name: "python-data-analyzer",
-    displayName: "Python Data Analyzer",
-    description:
-      "Advanced data analysis tool with machine learning capabilities, interactive visualizations, and automated reporting features.",
-    url: "https://github.com/yourusername/python-data-analyzer",
-    language: "Python",
-    stars: 156,
-    forks: 23,
-    updatedAt: "2024-03-10T09:15:00Z",
-  },
-];
-
 export async function Projects() {
   let featuredRepos: Array<ProcessedRepo>;
 
@@ -68,7 +28,7 @@ export async function Projects() {
       </CardHeader>
       <CardContent className="flex-1 mt-1">
         <div className="grid grid-cols-1 gap-2">
-          {mockRepos.slice(0, 3).map((repo) => (
+          {featuredRepos.slice(0, 3).map((repo) => (
             <a
               key={repo.id}
               href={repo.url}
