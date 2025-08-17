@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Linkedin, Instagram, MailPlus } from "lucide-react";
+import { Github, Linkedin, MailPlus } from "lucide-react";
 import { SocialLink } from "@/app/types/social";
 
 export const StravaIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -40,13 +40,6 @@ export const SocialLinks: SocialLink[] = [
     ariaLabel: "GitHub profile",
     className: "",
   },
-  // {
-  //   name: "Instagram",
-  //   href: "https://instagram.com/miguelftt",
-  //   Icon: Instagram,
-  //   ariaLabel: "Instagram profile",
-  //   className: "",
-  // },
   {
     name: "Strava",
     href: "https://www.strava.com/athletes/115133923",

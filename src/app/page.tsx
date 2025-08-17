@@ -26,7 +26,7 @@ export const metadata: Metadata = generatePageMetadata({
   url: "/",
 });
 
-export default function Home() {
+export default async function Home() {
   return (
     <Layout>
       <section className="space-y-6">
