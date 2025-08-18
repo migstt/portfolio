@@ -41,11 +41,14 @@ export default async function ProjectsPage() {
               className="block"
             >
               <Card className="p-4 hover:border-muted h-full flex flex-col">
-                <CardHeader className="p-0 flex flex-row items-start justify-start gap-4">
+                <CardHeader className="p-0 flex flex-row items-start justify-between">
                   <div className="flex-1 min-w-0">
-                    <CardTitle className="text-lg truncate">
-                      {repo.displayName}
-                    </CardTitle>
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-base truncate">
+                        {repo.displayName}
+                      </CardTitle>
+                      <LanguageBadge language={repo.language} />
+                    </div>
                     <CardDescription>
                       <span className="text-xs text-muted-foreground">
                         Updated{" "}
@@ -55,9 +58,7 @@ export default async function ProjectsPage() {
                       </span>
                     </CardDescription>
                   </div>
-                  <LanguageBadge language={repo.language} />
                 </CardHeader>
-
                 {repo.description && (
                   <CardContent className="p-0">
                     <p className="text-sm/5 text-muted-foreground">

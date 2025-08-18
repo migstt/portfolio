@@ -1,9 +1,4 @@
-import {
-  Profile,
-  AboutText,
-  TechCategory,
-  Experience,
-} from "@/app/types";
+import { Profile, AboutText, TechCategory, Experience } from "@/app/types";
 
 export const profile: Profile = {
   name: "Miguel Trinidad",
@@ -24,7 +19,14 @@ export const techCategories: TechCategory[] = [
   },
   {
     label: "Frameworks & Libraries",
-    items: ["Laravel", "CodeIgniter", "React", "Tailwind CSS", "Bootstrap"],
+    items: [
+      "Laravel",
+      "CodeIgniter",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Bootstrap",
+    ],
   },
   {
     label: "Databases & Storage",
