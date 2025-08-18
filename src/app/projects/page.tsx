@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { LanguageBadge } from "@/components/general/LanguageBadge";
 import { fetchGitHubRepos } from "@/lib/github";
-import { ProcessedRepo } from "@/lib/github";
+import { ProcessedRepo } from "@/app/types";
 import {
   Card,
   CardHeader,

@@ -4,7 +4,7 @@ import { Package } from "lucide-react";
 import { SeemoreButton } from "@/components/general/SeemoreButton";
 import { LanguageBadge } from "@/components/general/LanguageBadge";
 import { getFeaturedRepos } from "@/lib/github";
-import { ProcessedRepo } from "@/lib/github";
+import { ProcessedRepo } from "@/app/types";
 
 const FEATURED_REPO_NAMES = ["portfolio", "tech-feed", "inventory-system"];
 

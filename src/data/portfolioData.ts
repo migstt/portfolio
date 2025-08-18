@@ -3,7 +3,7 @@ import {
   AboutText,
   TechCategory,
   Experience,
-} from "@/app/types/portfolio";
+} from "@/app/types";
 
 export const profile: Profile = {
   name: "Miguel Trinidad",

@@ -4,7 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/general/DataTable";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpDown, SquareArrowUpRight } from "lucide-react";
-import { ProcessedActivity } from "@/lib/strava";
+import { ProcessedActivity } from "@/app/types";
 
 const columns: ColumnDef<ProcessedActivity>[] = [
   {

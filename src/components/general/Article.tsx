@@ -1,12 +1,12 @@
 "use client";
 import { useEffect } from "react";
 
-export interface Post {
+export interface PostDisplay {
   description?: string;
   contentHtml: string | undefined;
 }
 interface ArticleProps {
-  post: Post;
+  post: PostDisplay;
   repoName?: string;
 }
 

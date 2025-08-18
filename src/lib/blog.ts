@@ -6,23 +6,9 @@ import { remark } from "remark";
 import html from "remark-html";
 import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
+import { FrontMatter, Post } from "@/app/types";
 
 const postsDirectory = path.join(process.cwd(), "src/content/blog");
-
-type FrontMatter = {
-  title: string;
-  date: string;
-  description: string;
-};
-
-export type Post = {
-  slug: string;
-  title: string;
-  date: string | null;
-  description: string;
-  readingTime: string;
-  content: string;
-};
 
 export function getAllPosts(): Post[] {
   const fileNames = fs.readdirSync(postsDirectory);

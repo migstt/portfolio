@@ -1,6 +1,6 @@
 import React from "react";
 import { Github, Linkedin, MailPlus } from "lucide-react";
-import { SocialLink } from "@/app/types/social";
+import { SocialLink } from "@/app/types";
 
 export const StravaIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg

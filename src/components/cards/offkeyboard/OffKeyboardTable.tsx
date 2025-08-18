@@ -1,4 +1,5 @@
-import { fetchStravaActivities, ProcessedActivity } from "@/lib/strava";
+import { fetchStravaActivities } from "@/lib/strava";
+import { ProcessedActivity } from "@/app/types";
 import { StravaDataTable } from "@/components/cards/offkeyboard/StravaDataTable";
 
 export async function OffKeyboardTable() {

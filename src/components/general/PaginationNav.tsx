@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Post } from "@/lib/blog";
-import { ProcessedRepo } from "@/lib/github";
+import { Post } from "@/app/types";
+import { ProcessedRepo } from "@/app/types";
 
 interface PaginationItem {
   slug?: string;
