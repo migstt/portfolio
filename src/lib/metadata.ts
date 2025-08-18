@@ -161,6 +161,14 @@ export const createPageMetadata = {
       path: "/projects",
     }),
 
+  experience: () =>
+    createMetadata({
+      title: "Experience",
+      description:
+        "Professional experience and career timeline in web development and software engineering.",
+      path: "/experience",
+    }),
+
   notFound: (path: string) =>
     createMetadata({
       title: "Page Not Found",

@@ -16,7 +16,8 @@ export function SeemoreButton({ href, label, page }: SeemoreButtonProps) {
     >
       <div className="flex items-center gap-1">
         <span className="text-xs font-medium leading-none">
-          See more <span className="sr-only">{page}</span>
+          {href === "experience" ? label : "See more"}{" "}
+          <span className="sr-only">{page}</span>
         </span>
         <CircleArrowRight
           className="w-4 h-4 stroke-[2] mt-[1px]"

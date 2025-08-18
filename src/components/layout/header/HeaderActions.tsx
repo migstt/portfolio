@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 
 export const pages = [
   { name: "Home", href: "/", description: "Main page" },
+  { name: "Experience", href: "/experience", description: "Career timeline" },
   { name: "Projects", href: "/projects", description: "Browse projects" },
   {
     name: "Tech Blog",
