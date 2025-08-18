@@ -14,9 +14,9 @@ export function OffKeyboard() {
 
         <Badge
           variant="secondary"
-          className="bg-[#FC4C02] text-white hover:bg-[#e04402] transition-colors"
+          className="bg-[#FC4C02] text-white hover:bg-[#e04402] transition-colors text-xs font-bold"
         >
-          Strava
+          Strava API
         </Badge>
       </CardHeader>
 

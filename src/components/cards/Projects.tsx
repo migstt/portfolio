@@ -26,8 +26,8 @@ export async function Projects() {
             <Package className="w-4 h-4" />
             Projects
           </CardTitle>
-          <Badge className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200">
-            GitHub
+          <Badge className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200 text-xs font-bold">
+            GitHub API
           </Badge>
         </div>
         <SeemoreButton href="projects" label="Projects" page="projects" />
