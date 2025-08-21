@@ -1,6 +1,8 @@
 import { processMarkdown } from "@/lib/blog";
 import { GitHubRepo, ProcessedRepo, DetailedRepo } from "@/app/types";
 
+const USERNAME = "migstt";
+
 export const languageColors: Record<string, string> = {
   JavaScript: "#b7920a",
   TypeScript: "#2b7489",
@@ -56,11 +58,10 @@ export function processRepo(repo: GitHubRepo): ProcessedRepo {
 
 export async function fetchGitHubRepos(): Promise<ProcessedRepo[]> {
   const token = process.env.GITHUB_TOKEN;
-  const username = process.env.GITHUB_USERNAME;
-  console.log(`Fetching repos for user: ${username}`);
+  console.log(`Fetching repos for user: ${USERNAME}`);
   console.log(`Token available: ${token ? "Yes" : "No"}`);
 
-  if (!token || !username) {
+  if (!token || !USERNAME) {
     const error =
       "GitHub token and username must be provided in environment variables";
     console.error(`${error}`);
@@ -68,13 +69,13 @@ export async function fetchGitHubRepos(): Promise<ProcessedRepo[]> {
   }
 
   try {
-    const url = `https://api.github.com/users/${username}/repos?type=public&sort=updated&per_page=100`;
+    const url = `https://api.github.com/users/${USERNAME}/repos?type=public&sort=updated&per_page=100`;
     console.log(`Fetching: ${url}`);
 
     const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${token}`,
-        "User-Agent": "migstt",
+        "User-Agent": USERNAME
       },
     });
 
@@ -129,9 +130,8 @@ export async function getRepositoryWithReadme(
   repoName: string
 ): Promise<DetailedRepo | null> {
   const token = process.env.GITHUB_TOKEN;
-  const username = process.env.GITHUB_USERNAME;
 
-  if (!token || !username) {
+  if (!token || !USERNAME) {
     throw new Error(
       "GitHub token and username must be provided in environment variables"
     );
@@ -139,11 +139,11 @@ export async function getRepositoryWithReadme(
 
   try {
     const repoResponse = await fetch(
-      `https://api.github.com/repos/${username}/${repoName}`,
+      `https://api.github.com/repos/${USERNAME}/${repoName}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          "User-Agent": "migstt",
+          "User-Agent": USERNAME,
           "X-GitHub-Api-Version": "2022-11-28",
         },
       }
@@ -166,11 +166,11 @@ export async function getRepositoryWithReadme(
     try {
       console.log(`Fetching README for ${repoName}...`);
       const readmeResponse = await fetch(
-        `https://api.github.com/repos/${username}/${repoName}/readme`,
+        `https://api.github.com/repos/${USERNAME}/${repoName}/readme`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "User-Agent": "migstt",
+            "User-Agent": USERNAME,
             "X-GitHub-Api-Version": "2022-11-28",
             Accept: "application/vnd.github.raw",
           },
