@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 1 * * *" # 9:00 am ph (1:00 utc)
+    - cron: "0 0 * * *" # 9:00 am ph (1:00 utc)
   workflow_dispatch:
 
 jobs:
