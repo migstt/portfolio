@@ -58,5 +58,5 @@ jobs:
             --targets "Key=instanceIds,Values=${{ secrets.EC2_INSTANCE_ID }}" \
             --document-name "AWS-RunShellScript" \
             --comment "Pull latest build from S3" \
-            --parameters 'commands=["/home/ubuntu/sync-from-s3.sh"]' \
+            --parameters 'commands=["/home/ubuntu/scripts/sync-from-s3.sh"]' \
             --region ${{ secrets.AWS_REGION }}
