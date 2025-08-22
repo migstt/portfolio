@@ -1,11 +1,11 @@
-name: Build & Upload Next.js Static Export
+name: Build & Upload Next.js Static Export to S3 Bucket
 
 on:
   push:
     branches:
       - main
   schedule:
-    - cron: "0 0 * * *" # 9:00 am ph (1:00 utc)
+    - cron: "0 0 * * *" # 8:00 am ph (1:00 utc)
   workflow_dispatch:
 
 jobs:
