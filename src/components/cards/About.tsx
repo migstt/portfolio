@@ -4,7 +4,7 @@ import { aboutText } from "@/data/portfolioData";
 
 export function About() {
   return (
-    <Card>
+    <Card className="h-full">
       <CardHeader className="flex items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <CircleUserRound className="w-4 h-4" />

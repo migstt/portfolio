@@ -25,7 +25,7 @@ export function SubpageLayout({
       <LayoutContainer className={`flex flex-col flex-1 w-full ${className}`}>
         <SubpageHeader />
         <DynamicBreadcrumb pageTitle={pageTitle} />
-        <main className="p-4 flex-1">{children}</main>
+        <main className="px-4 py-2 mt-3 flex-1">{children}</main>
         <Footer />
       </LayoutContainer>
     </div>

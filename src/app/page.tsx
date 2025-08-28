@@ -31,6 +31,7 @@ export default async function Home() {
     <Layout>
       <section className="space-y-6">
         <div className="space-y-2">
+
           <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-2">
             <div className="lg:col-span-3 md:col-span-1 flex flex-col gap-4 animate-slide-up-1">
               <About />
@@ -39,6 +40,7 @@ export default async function Home() {
               <Experience />
             </div>
           </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-6 md:grid-cols-2 gap-2 items-stretch">
             <div className="lg:col-span-3 md:col-span-1 h-full min-h-0 animate-slide-up-3">
               <TechStack />

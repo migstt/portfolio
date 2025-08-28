@@ -13,7 +13,7 @@ export function LayoutContainer({
 }: LayoutContainerProps) {
   return (
     <div
-      className={`mx-auto max-w-5xl sm:px-12 lg:px-20 ${className}`}
+      className={`mx-auto max-w-5xl sm:px-12 lg:px-2 ${className}`}
       style={style}
     >
       {children}
