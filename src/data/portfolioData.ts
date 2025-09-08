@@ -41,7 +41,7 @@ export const techCategories: TechCategory[] = [
 
 export const experiences: Experience[] = [
   {
-    title: "Web Developer",
+    title: "Full Stack Web Developer",
     company: "Web2 Inc.",
     location: "Cebu City, Philippines",
     workType: "On-site",
