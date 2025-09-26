@@ -41,7 +41,19 @@ export const techCategories: TechCategory[] = [
 
 export const experiences: Experience[] = [
   {
-    title: "Full Stack Web Developer",
+    title: "Full Web Developer",
+    company: "WebriQ",
+    location: "Cebu City, Philippines",
+    workType: "Remote/On-site",
+    start: "2025",
+    end: "Present",
+    startMonth: "September 2025",
+    endMonth: "Present",
+    description:
+      "",
+  },
+  {
+    title: "Full Web Developer",
     company: "Web2 Inc.",
     location: "Cebu City, Philippines",
     workType: "On-site",
