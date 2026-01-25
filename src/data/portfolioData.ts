@@ -16,7 +16,7 @@ export const aboutText: AboutText =
 export const techCategories: TechCategory[] = [
   {
     label: "Languages",
-    items: ["PHP", "JavaScript"],
+    items: ["PHP", "JavaScript", "TypeScript"],
   },
   {
     label: "Frameworks & Libraries",
@@ -25,17 +25,22 @@ export const techCategories: TechCategory[] = [
       "CodeIgniter",
       "Next.js",
       "React",
-      "Tailwind CSS",
+      "jQuery",
       "Bootstrap",
+      "Tailwind CSS",
     ],
   },
   {
     label: "Databases & Storage",
-    items: ["MySQL", "SQL", "Google Cloud Firestore"],
+    items: ["SQL", "MySQL", "PostgreSQL", "Google Cloud Firestore", "AWS S3"],
   },
   {
-    label: "DevOps & Tools",
-    items: ["Git", "GitHub Actions", "Bash", "Linux CLI", "SSH"],
+    label: "Cloud & Infrastructure",
+    items: ["AWS EC2", "Linux (CLI)", "SSH"],
+  },
+  {
+    label: "Tools & Workflow",
+    items: ["Git", "GitHub Actions", "Bash"],
   },
 ];
 
