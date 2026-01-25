@@ -12,6 +12,18 @@ interface ArticleProps {
 
 export default function Article({ post, repoName }: ArticleProps) {
   useEffect(() => {
+    // Add IDs to headings for TOC navigation
+    document.querySelectorAll("article h2, article h3, article h4").forEach((heading) => {
+      if (!heading.id) {
+        const text = heading.textContent || "";
+        const id = text
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, "")
+          .replace(/\s+/g, "-");
+        heading.id = id;
+      }
+    });
+
     if (repoName) {
       document.querySelectorAll("img").forEach((img) => {
         const src = img.getAttribute("src");

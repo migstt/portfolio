@@ -37,6 +37,31 @@ export function getAllPosts(): Post[] {
   });
 }
 
+export type TocHeading = {
+  id: string;
+  text: string;
+  level: number;
+};
+
+export function extractHeadings(markdown: string): TocHeading[] {
+  const headingRegex = /^(#{2,4})\s+(.+)$/gm;
+  const headings: TocHeading[] = [];
+  let match;
+
+  while ((match = headingRegex.exec(markdown)) !== null) {
+    const level = match[1].length;
+    const text = match[2].trim();
+    const id = text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-");
+
+    headings.push({ id, text, level });
+  }
+
+  return headings;
+}
+
 export async function getPostBySlug(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -45,6 +70,7 @@ export async function getPostBySlug(slug: string) {
   const frontmatter = data as FrontMatter;
 
   const processedContent = await processMarkdown(content);
+  const headings = extractHeadings(content);
 
   return {
     slug,
@@ -56,6 +82,7 @@ export async function getPostBySlug(slug: string) {
     plainmd: content,
     tags: [],
     image: "",
+    headings,
   };
 }
 
