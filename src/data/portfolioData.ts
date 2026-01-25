@@ -46,8 +46,8 @@ export const techCategories: TechCategory[] = [
 
 export const experiences: Experience[] = [
   {
-    title: "Full Stack Developer",
-    company: "WebriQ",
+    title: "Full Stack Web Developer",
+    company: "WebriQs Technologies Inc.",
     location: "Cebu City, Philippines",
     workType: "Remote/On-site",
     start: "2025",
@@ -55,7 +55,7 @@ export const experiences: Experience[] = [
     startMonth: "September 2025",
     endMonth: "Present",
     description:
-      "",
+      "Started by maintaining marketing and content websites for clients in the US and Netherlands using Next.js, TypeScript, Sanity CMS, and Tailwind CSS. After a couple of months, began working on a B2C e-commerce platform for a Dutch client, building features with MedusaJS, Supabase, Redis, and ZeptoMail for handling transactions and emails. Also worked with a teammate to create a MedusaJS storefront template for the team to use on future e-commerce projects.",
   },
   {
     title: "Full Stack Developer",
@@ -67,7 +67,7 @@ export const experiences: Experience[] = [
     startMonth: "June 2024",
     endMonth: "July 2025",
     description:
-      "Joined the internal systems team to develop and maintain business applications. Built an SSL certificate tracking module that automated manual processes for 1,000+ client websites, enabling automated task assignments and renewal reminders for client care teams. Co-developed a content generation tool using Laravel, React, DynamoDB, and OpenAI API to streamline email drafting, social media posts creation, and content proofreading for internal teams. Maintained and enhanced HR, Sales, and Inventory systems by resolving bugs and implementing new features using CodeIgniter, jQuery, Bootstrap, and MySQL.",
+      "Joined the internal systems team to help build and maintain business applications. Created an SSL certificate tracking module that automated manual work for over 500 client websites, making it easier for the client care team to manage renewals. Worked with a teammate to build a content generation tool using Laravel, React, DynamoDB, and OpenAI API to help teams draft emails, social media posts, and assist with code generation and debugging. Also maintained HR, Sales, and Inventory systems by fixing bugs and adding new features using CodeIgniter, jQuery, Bootstrap, and MySQL.",
   },
   {
     title: "Software Engineer Intern",
