@@ -2,6 +2,7 @@
 title: "Build & Upload Next.js Static Export to S3 with GitHub Actions"
 date: "2025-08-21"
 description: "Step-by-step guide to build a Next.js 15 static export and upload the output to an S3 bucket using GitHub Actions."
+image: "/images/blog/nextjs-ssg-github-actions-s3.jpg"
 ---
 
 ## Prerequisites

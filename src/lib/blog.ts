@@ -28,6 +28,7 @@ export function getAllPosts(): Post[] {
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
       readingTime: readingTime(content).text,
       content,
+      image: frontmatter.image,
     };
   });
 

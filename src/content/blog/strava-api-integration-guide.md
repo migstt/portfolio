@@ -2,6 +2,7 @@
 title: "How to Fetch Your Strava Activities Using the Strava API"
 date: "2026-01-25"
 description: "A simple guide to integrate the Strava API and fetch your activities using OAuth2 authentication."
+image: "/images/blog/strava-api-integration-guide.jpg"
 ---
 
 ## Prerequisites

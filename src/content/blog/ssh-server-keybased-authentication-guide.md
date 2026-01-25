@@ -2,6 +2,7 @@
 title: "Connecting to a Server with SSH (Key-Based Authentication)"
 date: "2025-08-14"
 description: "A simple guide to connect to a server using SSH key-based authentication with a custom .ssh/config file."
+image: "/images/blog/ssh-server-keybased-authentication-guide.jpg"
 ---
 
 ## Prerequisites

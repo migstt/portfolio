@@ -2,6 +2,7 @@ export type FrontMatter = {
   title: string;
   date: string;
   description: string;
+  image?: string;
 };
 
 export type Post = {
@@ -11,4 +12,5 @@ export type Post = {
   description: string;
   readingTime: string;
   content: string;
+  image?: string;
 };

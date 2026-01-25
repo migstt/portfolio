@@ -3,6 +3,7 @@ import { Notebook } from "lucide-react";
 import { SeemoreButton } from "@/components/general/SeemoreButton";
 import { getAllPosts } from "@/lib/blog";
 import Link from "next/link";
+import Image from "next/image";
 
 export function TechBlog() {
   const posts = getAllPosts().slice(0, 3); // Get latest 3
@@ -22,31 +23,47 @@ export function TechBlog() {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="block group hover:transform hover:scale-[1.01]"
+            className="block group"
           >
-            <div className="flex flex-col space-y-1">
-              <h3 className="text-sm font-semibold truncate group-hover:text-primary transition-colors">
-                {post.title}
-              </h3>
+            <div className="flex gap-3">
+              {/* Image - Left Side */}
+              {post.image && (
+                <div className="w-20 h-16 flex-shrink-0 rounded-md overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={80}
+                    height={64}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
 
-              <p className="text-xs text-muted-foreground line-clamp-2">
-                {post.description}
-              </p>
+              {/* Content - Right Side */}
+              <div className="flex-1 min-w-0 flex flex-col justify-center">
+                <h3 className="text-sm font-semibold truncate group-hover:text-primary transition-colors">
+                  {post.title}
+                </h3>
 
-              <div className="flex items-center text-xs text-muted-foreground">
-                <span>{post.readingTime}</span>
-                {post.date && (
-                  <>
-                    <span className="mx-2">•</span>
-                    <span>
-                      {new Date(post.date).toLocaleDateString(undefined, {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </span>
-                  </>
-                )}
+                <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
+                  {post.description}
+                </p>
+
+                <div className="flex items-center text-xs text-muted-foreground mt-1">
+                  <span>{post.readingTime}</span>
+                  {post.date && (
+                    <>
+                      <span className="mx-2">•</span>
+                      <span>
+                        {new Date(post.date).toLocaleDateString(undefined, {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </span>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </Link>

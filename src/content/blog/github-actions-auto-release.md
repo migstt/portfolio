@@ -2,6 +2,7 @@
 title: "Automating GitHub Releases with GitHub Actions"
 date: "2025-08-13"
 description: "Set up a GitHub Actions workflow to create releases automatically when pushing version tags."
+image: "/images/blog/github-actions-auto-release.jpg"
 ---
 
 This guide shows how to create a GitHub Actions workflow that automatically creates a release whenever you push a version tag.
