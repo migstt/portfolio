@@ -5,7 +5,7 @@ export const profile: Profile = {
   name: "Miguel Trinidad",
   verified: true,
   location: "Cebu, Philippines",
-  role: "Full Stack Web Developer",
+  role: "Full Stack Developer",
   profileImage: "/images/migueltrinidad.jpg",
   achievement: "",
 };
@@ -46,7 +46,7 @@ export const techCategories: TechCategory[] = [
 
 export const experiences: Experience[] = [
   {
-    title: "Full Stack Web Developer",
+    title: "Full Stack Developer",
     company: "WebriQs Technologies Inc.",
     location: "Cebu City, Philippines",
     workType: "Remote/On-site",
