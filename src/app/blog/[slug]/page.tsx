@@ -1,11 +1,12 @@
 import { Metadata } from "next";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata, SITE_CONFIG } from "@/lib/metadata";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { Clock, Calendar } from "lucide-react";
 import Article from "@/components/general/Article";
 import PaginationNav from "@/components/general/PaginationNav";
 import TableOfContents from "@/components/general/TableOfContents";
+import { ShareButtons } from "@/components/general/ShareButtons";
 
 type Params = Promise<{ slug: string }>;
 
@@ -26,13 +27,18 @@ export async function generateMetadata({
     return createPageMetadata.notFound(`/blog/${slug}`);
   }
 
+  // Use absolute URL for OG image
+  const imageUrl = post.image
+    ? `${SITE_CONFIG.url}${post.image}`
+    : undefined;
+
   return createPageMetadata.blogPost({
     title: post.title,
     description: post.description,
     slug,
     date: post.date || undefined,
     tags: post.tags,
-    image: post.image,
+    image: imageUrl,
   });
 }
 
@@ -90,10 +96,14 @@ export default async function BlogPostPage({ params }: { params: Params }) {
             />
           </div>
 
-          {/* Table of Contents - right side, hidden on mobile */}
+          {/* Table of Contents & Share - right side, hidden on mobile */}
           <aside className="hidden lg:block w-72 flex-shrink-0 relative">
-            <div className="sticky top-6">
+            <div className="sticky top-6 space-y-6">
               <TableOfContents headings={post.headings} />
+              <ShareButtons
+                title={post.title}
+                url={`${SITE_CONFIG.url}/blog/${slug}`}
+              />
             </div>
           </aside>
         </div>
