@@ -89,7 +89,7 @@ const customPagination = {
   pageSize: 5,
 };
 
-const botLeftMessage = "Last 30 Activities";
+const botLeftMessage = "Last 60 Activities";
 
 interface StravaDataTableProps {
   data: ProcessedActivity[];

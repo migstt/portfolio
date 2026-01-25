@@ -7,7 +7,7 @@ export async function OffKeyboardTable() {
   let error: string | null = null;
 
   try {
-    const activities = await fetchStravaActivities(30);
+    const activities = await fetchStravaActivities(60);
     
     data = activities.map((activity, index) => ({
       ...activity,
