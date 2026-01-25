@@ -25,7 +25,7 @@ export function TechBlog() {
             href={`/blog/${post.slug}/`}
             className="block group"
           >
-            <div className="flex gap-3">
+            <div className="flex gap-3 items-center">
               {/* Image - Left Side */}
               {post.image && (
                 <div className="w-20 h-16 flex-shrink-0 rounded-md overflow-hidden">

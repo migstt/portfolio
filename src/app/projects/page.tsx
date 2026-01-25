@@ -12,7 +12,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { formatDistanceToNow } from "date-fns";
+import { format } from "date-fns";
 
 export const metadata: Metadata = createPageMetadata.projectListing();
 
@@ -52,9 +52,7 @@ export default async function ProjectsPage() {
                     <CardDescription>
                       <span className="text-xs text-muted-foreground">
                         Updated{" "}
-                        {formatDistanceToNow(new Date(repo.updatedAt), {
-                          addSuffix: true,
-                        })}
+                        {format(new Date(repo.updatedAt), "MMM d, yyyy")}
                       </span>
                     </CardDescription>
                   </div>

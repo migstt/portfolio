@@ -1,13 +1,11 @@
 import { Socials } from "@/components/general/Socials";
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer>
       <div className="mx-auto max-w-5xl px-5 pb-5 mt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
         <p className="text-center md:text-left">
-          © {year} Miguel Franco Trinidad. All rights reserved.
+          © 2026 Miguel Franco Trinidad. All rights reserved.
         </p>
 
         <Socials button={false} className="gap-5" />

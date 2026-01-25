@@ -6,7 +6,7 @@ import { fetchGitHubRepos, getRepositoryWithReadme } from "@/lib/github";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { Star, GitFork, ExternalLink, Calendar, FileText } from "lucide-react";
 import { LanguageBadge } from "@/components/general/LanguageBadge";
-import { formatDistanceToNow } from "date-fns";
+import { format } from "date-fns";
 import Article from "@/components/general/Article";
 import PaginationNav from "@/components/general/PaginationNav";
 import { notFound } from "next/navigation";
@@ -106,10 +106,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
                 <span>
-                  Updated{" "}
-                  {formatDistanceToNow(new Date(repo.updatedAt), {
-                    addSuffix: true,
-                  })}
+                  Updated {format(new Date(repo.updatedAt), "MMM d, yyyy")}
                 </span>
               </div>
             </div>
