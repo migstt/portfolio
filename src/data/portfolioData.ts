@@ -94,7 +94,7 @@ export const experiences: Experience[] = [
       React.createElement(
         "a",
         {
-          href: "/projects/boardgameplay",
+          href: "/projects/boardgameplay/",
           target: "_blank",
           rel: "noopener noreferrer",
           className: "text-blue-600 dark:text-blue-400 hover:underline",
