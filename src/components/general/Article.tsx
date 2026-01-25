@@ -24,6 +24,15 @@ export default function Article({ post, repoName }: ArticleProps) {
       }
     });
 
+    // Open external links in new tab
+    document.querySelectorAll("article a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && (href.startsWith("http://") || href.startsWith("https://"))) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+
     if (repoName) {
       document.querySelectorAll("img").forEach((img) => {
         const src = img.getAttribute("src");
