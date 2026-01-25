@@ -11,7 +11,7 @@ export const profile: Profile = {
 };
 
 export const aboutText: AboutText =
-  "Developer with experience in JavaScript and PHP applications using Laravel and CodeIgniter. In my recent role, I maintained and developed internal systems to support company operations. I’m actively exploring DevOps and have a strong interest in automating processes and improving development workflows.";
+  "Developer with experience building web applications using JavaScript, TypeScript, and PHP. I work on e-commerce platforms with MedusaJS and build marketing websites using Next.js, Sanity CMS, and Tailwind CSS. Previously, I maintained and developed internal business systems using Laravel and CodeIgniter. I enjoy exploring DevOps and finding ways to automate processes and improve development workflows.";
 
 export const techCategories: TechCategory[] = [
   {
