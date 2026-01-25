@@ -45,7 +45,7 @@ export function TechBlog() {
                   {post.title}
                 </h3>
 
-                <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
+                <p className="text-xs text-muted-foreground line-clamp-2 mt-0.5">
                   {post.description}
                 </p>
 
