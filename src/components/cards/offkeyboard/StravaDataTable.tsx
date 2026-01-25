@@ -12,7 +12,7 @@ const columns: ColumnDef<ProcessedActivity>[] = [
     header: () => <div className="text-left text-sm font-semibold">Date</div>,
     cell: ({ getValue }) => {
       const date = new Date(getValue() as string);
-      return date.toLocaleDateString(undefined, {
+      return date.toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
       });

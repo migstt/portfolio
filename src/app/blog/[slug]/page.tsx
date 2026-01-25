@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                   <Calendar className="h-4 w-4" />
                   <span>
                     {post.date
-                      ? new Date(post.date).toLocaleDateString(undefined, {
+                      ? new Date(post.date).toLocaleDateString("en-US", {
                           year: "numeric",
                           month: "long",
                           day: "numeric",

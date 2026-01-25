@@ -55,7 +55,7 @@ export function TechBlog() {
                     <>
                       <span className="mx-2">•</span>
                       <span>
-                        {new Date(post.date).toLocaleDateString(undefined, {
+                        {new Date(post.date).toLocaleDateString("en-US", {
                           year: "numeric",
                           month: "short",
                           day: "numeric",
