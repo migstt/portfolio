@@ -12,7 +12,7 @@ export function About() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-sm">{aboutText}</p>
+        <p className="text-sm leading-relaxed">{aboutText}</p>
       </CardContent>
     </Card>
   );
