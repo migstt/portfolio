@@ -35,12 +35,8 @@ export const techCategories: TechCategory[] = [
     items: ["SQL", "MySQL", "PostgreSQL", "Google Cloud Firestore", "AWS S3"],
   },
   {
-    label: "Cloud & Infrastructure",
-    items: ["AWS EC2", "Linux (CLI)", "SSH"],
-  },
-  {
-    label: "Tools & Workflow",
-    items: ["Git", "GitHub Actions", "Bash"],
+    label: "Infrastructure & Tools",
+    items: ["AWS EC2", "Linux (CLI)", "SSH", "Git", "GitHub Actions", "Bash"],
   },
 ];
 
