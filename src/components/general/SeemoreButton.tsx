@@ -10,7 +10,7 @@ interface SeemoreButtonProps {
 export function SeemoreButton({ href, label, page }: SeemoreButtonProps) {
   return (
     <Link
-      href={`/${href}`}
+      href={`/${href}/`}
       className="text-muted-foreground hover:text-primary transition-colors"
       aria-label={`See more ${label || href}`}
     >

@@ -15,7 +15,7 @@ export default function BlogPostsPage() {
     <SubpageLayout pageTitle="Blog">
       <div className="flex flex-col gap-4 animate-slide-up-1">
         {posts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
+          <Link key={post.slug} href={`/blog/${post.slug}/`} className="group">
             <div className="flex overflow-hidden rounded-lg border border-border bg-card transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5">
               {/* Image - Left Side */}
               {post.image && (

@@ -29,7 +29,7 @@ export default function PaginationNav({
 
   const getItemHref = (item: PaginationItem) => {
     const identifier = item.slug || item.name;
-    return `${basePath}/${identifier}`;
+    return `${basePath}/${identifier}/`;
   };
 
   const getItemTitle = (item: PaginationItem) => {

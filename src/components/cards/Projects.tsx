@@ -37,7 +37,7 @@ export async function Projects() {
           {featuredRepos.slice(0, 3).map((repo) => (
             <Link
               key={repo.id}
-              href={`/projects/${repo.name}`}
+              href={`/projects/${repo.name}/`}
               className="block transition-transform transform hover:scale-[1.01] border rounded-lg p-2 h-full"
             >
               <div className="flex flex-col space-y-2">

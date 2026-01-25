@@ -22,7 +22,7 @@ export function TechBlog() {
         {posts.map((post) => (
           <Link
             key={post.slug}
-            href={`/blog/${post.slug}`}
+            href={`/blog/${post.slug}/`}
             className="block group"
           >
             <div className="flex gap-3">

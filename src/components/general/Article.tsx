@@ -191,7 +191,7 @@ export default function Article({ post, repoName }: ArticleProps) {
       dangerouslySetInnerHTML={{
         __html: `
           ${post.description ? `<p class="mt-4">${post.description}</p>` : ""}
-          ${post.contentHtml}
+          ${post.contentHtml || ""}
         `,
       }}
     />

@@ -37,7 +37,7 @@ export default async function ProjectsPage() {
           {repos.map((repo) => (
             <Link
               key={repo.id}
-              href={`/projects/${repo.name}`}
+              href={`/projects/${repo.name}/`}
               className="block"
             >
               <Card className="p-4 hover:border-muted h-full flex flex-col">

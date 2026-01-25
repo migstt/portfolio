@@ -2,10 +2,12 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
-import { remark } from "remark";
-import html from "remark-html";
-import rehypePrism from "rehype-prism-plus";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import rehypePrism from "rehype-prism-plus";
+import rehypeStringify from "rehype-stringify";
 import { FrontMatter, Post } from "@/app/types";
 
 const postsDirectory = path.join(process.cwd(), "src/content/blog");
@@ -88,9 +90,11 @@ export async function getPostBySlug(slug: string) {
 }
 
 export async function processMarkdown(markdown: string) {
-  return await remark()
+  return await unified()
+    .use(remarkParse)
     .use(remarkGfm)
-    .use(html, { sanitize: false })
-    .use(rehypePrism)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypePrism, { ignoreMissing: true })
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown);
 }
