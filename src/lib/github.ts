@@ -57,6 +57,11 @@ export function processRepo(repo: GitHubRepo): ProcessedRepo {
 }
 
 export async function fetchGitHubRepos(): Promise<ProcessedRepo[]> {
+  if (process.env.MOCK_API === "true") {
+    console.log("MOCK_API enabled, skipping GitHub fetch");
+    return [];
+  }
+
   const token = process.env.GITHUB_TOKEN;
   console.log(`Fetching repos for user: ${USERNAME}`);
   console.log(`Token available: ${token ? "Yes" : "No"}`);
@@ -129,6 +134,11 @@ export async function getFeaturedRepos(
 export async function getRepositoryWithReadme(
   repoName: string
 ): Promise<DetailedRepo | null> {
+  if (process.env.MOCK_API === "true") {
+    console.log("MOCK_API enabled, skipping GitHub README fetch");
+    return null;
+  }
+
   const token = process.env.GITHUB_TOKEN;
 
   if (!token || !USERNAME) {

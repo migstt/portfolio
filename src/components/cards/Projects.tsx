@@ -34,6 +34,9 @@ export async function Projects() {
       </CardHeader>
       <CardContent className="flex-1 mt-1">
         <div className="grid grid-cols-1 gap-2">
+          {featuredRepos.length === 0 && (
+            <div className="p-4 text-center text-sm text-muted-foreground">No repositories found.</div>
+          )}
           {featuredRepos.slice(0, 3).map((repo) => (
             <Link
               key={repo.id}

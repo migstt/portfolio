@@ -19,13 +19,12 @@ export default function BlogPostsPage() {
             <div className="flex overflow-hidden rounded-lg border border-border bg-card transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5">
               {/* Image - Left Side */}
               {post.image && (
-                <div className="hidden sm:block w-48 md:w-56 flex-shrink-0">
+                <div className="hidden sm:block relative w-48 md:w-56 flex-shrink-0">
                   <Image
                     src={post.image}
                     alt={post.title}
-                    width={224}
-                    height={150}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               )}

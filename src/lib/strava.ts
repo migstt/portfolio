@@ -50,6 +50,11 @@ async function getValidAccessToken(): Promise<string> {
 export async function fetchStravaActivities(
   limit: number = 30
 ): Promise<ProcessedActivity[]> {
+  if (process.env.MOCK_API === "true") {
+    console.log("MOCK_API enabled, skipping Strava fetch");
+    return [];
+  }
+
   console.log(`fetching last ${limit} strava activities...`);
 
   try {
