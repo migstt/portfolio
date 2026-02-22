@@ -37,7 +37,7 @@ export async function Projects() {
           {featuredRepos.length === 0 && (
             <div className="p-4 text-center text-sm text-muted-foreground">No repositories found.</div>
           )}
-          {featuredRepos.slice(0, 3).map((repo) => (
+          {featuredRepos.slice(0, 4).map((repo) => (
             <Link
               key={repo.id}
               href={`/projects/${repo.name}/`}
