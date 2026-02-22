@@ -25,5 +25,6 @@ export type ProcessedRepo = {
 
 export interface DetailedRepo extends ProcessedRepo {
   readme?: string;
+  readmeRaw?: string;
   hasReadme: boolean;
 }

@@ -9,6 +9,8 @@ import { LanguageBadge } from "@/components/general/LanguageBadge";
 import { format } from "date-fns";
 import Article from "@/components/general/Article";
 import PaginationNav from "@/components/general/PaginationNav";
+import { TableOfContents } from "@/components/general/TableOfContents";
+import { extractHeadings } from "@/lib/blog";
 import { notFound } from "next/navigation";
 
 type Params = Promise<{ slug: string }>;
@@ -113,30 +115,51 @@ export default async function ProjectPage({ params }: { params: Params }) {
           </header>
 
           {repo.hasReadme ? (
-            <Article
-              post={{
-                contentHtml: repo.readme,
-              }}
-              repoName={repo.name}
-            />
-          ) : (
-            <div className="border rounded-lg p-8 bg-muted/50 text-center mb-12">
-              <FileText className="w-10 h-10 mx-auto mb-4 text-muted-foreground" />
-              <h3 className="text-sm font-semibold mb-2">
-                No README available
-              </h3>
-              <p className="text-muted-foreground text-xs">
-                This repository does not have a README file yet.
-              </p>
-            </div>
-          )}
+            <div className="flex gap-8">
+              <div className="flex-1 min-w-0">
+                <Article
+                  post={{
+                    contentHtml: repo.readme,
+                  }}
+                  repoName={repo.name}
+                />
 
-          <PaginationNav
-            prevItem={prevProject}
-            nextItem={nextProject}
-            basePath="/projects"
-            itemType="Project"
-          />
+                <PaginationNav
+                  prevItem={prevProject}
+                  nextItem={nextProject}
+                  basePath="/projects"
+                  itemType="Project"
+                />
+              </div>
+
+              {repo.readmeRaw && extractHeadings(repo.readmeRaw).length > 0 && (
+                <aside className="hidden lg:block w-72 flex-shrink-0 relative">
+                  <div className="sticky top-6">
+                    <TableOfContents headings={extractHeadings(repo.readmeRaw)} />
+                  </div>
+                </aside>
+              )}
+            </div>
+          ) : (
+            <>
+              <div className="border rounded-lg p-8 bg-muted/50 text-center mb-12">
+                <FileText className="w-10 h-10 mx-auto mb-4 text-muted-foreground" />
+                <h3 className="text-sm font-semibold mb-2">
+                  No README available
+                </h3>
+                <p className="text-muted-foreground text-xs">
+                  This repository does not have a README file yet.
+                </p>
+              </div>
+
+              <PaginationNav
+                prevItem={prevProject}
+                nextItem={nextProject}
+                basePath="/projects"
+                itemType="Project"
+              />
+            </>
+          )}
         </div>
       </div>
     </SubpageLayout>

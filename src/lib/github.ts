@@ -171,6 +171,7 @@ export async function getRepositoryWithReadme(
     const processedRepo = processRepo(repoData);
 
     let readme = "";
+    let readmeRaw = "";
     let hasReadme = false;
 
     try {
@@ -189,6 +190,7 @@ export async function getRepositoryWithReadme(
 
       if (readmeResponse.ok) {
         const readmeText = await readmeResponse.text();
+        readmeRaw = readmeText;
         const processedReadme = await processMarkdown(readmeText);
         readme = processedReadme.toString();
         hasReadme = true;
@@ -207,6 +209,7 @@ export async function getRepositoryWithReadme(
     return {
       ...processedRepo,
       readme,
+      readmeRaw,
       hasReadme,
     };
   } catch (error) {
