@@ -9,7 +9,7 @@ import { LanguageBadge } from "@/components/general/LanguageBadge";
 import { format } from "date-fns";
 import Article from "@/components/general/Article";
 import PaginationNav from "@/components/general/PaginationNav";
-import { TableOfContents } from "@/components/general/TableOfContents";
+import TableOfContents from "@/components/general/TableOfContents";
 import { extractHeadings } from "@/lib/blog";
 import { notFound } from "next/navigation";
 
