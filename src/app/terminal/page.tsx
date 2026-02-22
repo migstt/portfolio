@@ -10,11 +10,11 @@ type Line = { type: "input" | "output"; text: string };
 const COMMANDS: Record<string, string> = {
   help: "List available commands",
   about: "About me",
-  "exp|experience": "Work experience",
-  "ts|techstack": "Technologies I use",
+  experience: "Work experience",
+  techstack: "Technologies I use",
   socials: "Social links",
   clear: "Clear terminal",
-  "exit|home": "Go back to homepage",
+  home: "Go back to homepage",
 };
 
 const ALIASES: Record<string, string> = {
@@ -78,7 +78,7 @@ function processCommand(cmd: string): string[] {
     return [];
   }
 
-  const allCommands = [...Object.keys(ALIASES), "help", "about", "experience", "techstack", "socials", "clear", "home"];
+  const allCommands = ["help", "about", "experience", "techstack", "socials", "clear", "home"];
   const closest = allCommands
     .map((c) => ({ cmd: c, dist: levenshtein(command, c) }))
     .sort((a, b) => a.dist - b.dist)[0];
@@ -110,8 +110,6 @@ function levenshtein(a: string, b: string): number {
 
 export default function TerminalPage() {
   const [lines, setLines] = useState<Line[]>([
-    { type: "output", text: "Welcome to miguel's terminal." },
-    { type: "output", text: "" },
     ...getHelpOutput().map((text) => ({ type: "output" as const, text })),
     { type: "output", text: "" },
   ]);

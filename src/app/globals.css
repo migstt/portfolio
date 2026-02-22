@@ -132,6 +132,19 @@
   }
 }
 
+@keyframes pulseSubtle {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--primary);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px var(--primary);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2.5s ease-in-out infinite;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

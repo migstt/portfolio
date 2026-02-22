@@ -55,7 +55,7 @@ export function HeaderActions() {
       </a>
 
       <Link href="/terminal/" aria-label="Terminal" className="w-full sm:w-auto">
-        <Button variant="outline" className="cursor-pointer" size={"sm"}>
+        <Button variant="outline" className="cursor-pointer animate-pulse-subtle" size={"sm"}>
           <SquareTerminal className="w-4 h-4" />
           <span className="truncate">Terminal</span>
         </Button>
