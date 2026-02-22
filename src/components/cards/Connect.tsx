@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Globe } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Socials } from "@/components/general/Socials";
+import { toast } from "sonner";
 import { useState } from "react";
 
 export function Connect() {
@@ -13,6 +14,7 @@ export function Connect() {
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
     setCopied(true);
+    toast("Email copied to clipboard");
     setTimeout(() => setCopied(false), 1500);
   };
 

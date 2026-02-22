@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { toast } from "sonner";
 
 export interface PostDisplay {
   description?: string;
@@ -86,6 +87,7 @@ export default function Article({ post, repoName }: ArticleProps) {
 
       btn.onclick = async () => {
         await navigator.clipboard.writeText(code.innerText);
+        toast("Code copied to clipboard");
         const langText = btn.querySelector(".lang-text") as HTMLElement;
         const copyIcon = btn.querySelector(".copy-icon") as HTMLElement;
         if (langText && copyIcon) {

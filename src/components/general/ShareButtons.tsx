@@ -8,6 +8,7 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 import { useState } from "react";
+import { toast } from "sonner";
 
 // X (Twitter) icon - Lucide doesn't have the new X logo
 const XIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -53,6 +54,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(url);
     setCopied(true);
+    toast("Link copied to clipboard");
     setTimeout(() => setCopied(false), 2000);
   };
 
