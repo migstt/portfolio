@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { TerminalCard, TerminalCardContent } from "@/components/ui/terminal-card";
 import { Notebook } from "lucide-react";
 import { SeemoreButton } from "@/components/general/SeemoreButton";
 import { getAllPosts } from "@/lib/blog";
@@ -9,16 +9,15 @@ export function TechBlog() {
   const posts = getAllPosts().slice(0, 3); // Get latest 3
 
   return (
-    <Card className="h-full">
-      <CardHeader className="flex items-center justify-between">
-        <CardTitle className="flex items-center gap-2">
-          <Notebook className="w-4 h-4" />
-          Tech Blog
-        </CardTitle>
+    <TerminalCard
+      title="Tech Blog"
+      icon={<Notebook className="w-3.5 h-3.5" />}
+      headerRight={
         <SeemoreButton href="blog" label="Tech Blog" page="blog posts" />
-      </CardHeader>
-
-      <CardContent className="flex-1 mt-1 space-y-4">
+      }
+      className="h-full"
+    >
+      <TerminalCardContent className="space-y-4">
         {posts.map((post) => (
           <Link
             key={post.slug}
@@ -68,7 +67,7 @@ export function TechBlog() {
             </div>
           </Link>
         ))}
-      </CardContent>
-    </Card>
+      </TerminalCardContent>
+    </TerminalCard>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { TerminalCard, TerminalCardContent } from "@/components/ui/terminal-card";
 import { Globe } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Socials } from "@/components/general/Socials";
@@ -19,13 +19,10 @@ export function Connect() {
   };
 
   return (
-    <Card className="h-full flex flex-col">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="flex items-center gap-2">
-          <Globe className="w-4 h-4" />
-          Connect
-        </CardTitle>
-
+    <TerminalCard
+      title="Connect"
+      icon={<Globe className="w-3.5 h-3.5" />}
+      headerRight={
         <button
           type="button"
           onClick={handleCopy}
@@ -35,16 +32,17 @@ export function Connect() {
             {copied ? "Copied" : "Copy email"}
           </span>
         </button>
-      </CardHeader>
-
-      <CardContent className="space-y-4">
+      }
+      className="h-full flex flex-col"
+    >
+      <TerminalCardContent className="space-y-4">
         <Input
           value={email}
           readOnly
           className="bg-muted text-center cursor-text text-sm"
         />
         <Socials />
-      </CardContent>
-    </Card>
+      </TerminalCardContent>
+    </TerminalCard>
   );
 }

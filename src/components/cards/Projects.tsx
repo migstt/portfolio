@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { TerminalCard, TerminalCardContent } from "@/components/ui/terminal-card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Package } from "lucide-react";
@@ -19,20 +19,20 @@ export async function Projects() {
   }
 
   return (
-    <Card className="h-full flex flex-col">
-      <CardHeader className="flex items-center justify-between">
+    <TerminalCard
+      title="Projects"
+      icon={<Package className="w-3.5 h-3.5" />}
+      headerRight={
         <div className="flex items-center gap-2">
-          <CardTitle className="flex items-center gap-2">
-            <Package className="w-4 h-4" />
-            Projects
-          </CardTitle>
           <Badge className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200 text-xs font-bold">
             GitHub API
           </Badge>
+          <SeemoreButton href="projects" label="Projects" page="projects" />
         </div>
-        <SeemoreButton href="projects" label="Projects" page="projects" />
-      </CardHeader>
-      <CardContent className="flex-1 mt-1">
+      }
+      className="h-full flex flex-col"
+    >
+      <TerminalCardContent className="flex-1">
         <div className="grid grid-cols-1 gap-2">
           {featuredRepos.length === 0 && (
             <div className="p-4 text-center text-sm text-muted-foreground">No repositories found.</div>
@@ -55,7 +55,7 @@ export async function Projects() {
             </Link>
           ))}
         </div>
-      </CardContent>
-    </Card>
+      </TerminalCardContent>
+    </TerminalCard>
   );
 }

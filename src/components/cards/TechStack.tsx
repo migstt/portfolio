@@ -1,19 +1,16 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { TerminalCard, TerminalCardContent } from "@/components/ui/terminal-card";
 import { Badge } from "@/components/ui/badge";
 import { Layers } from "lucide-react";
 import { techCategories } from "@/data/portfolioData";
 
 export function TechStack() {
   return (
-    <Card className="h-full flex flex-col">
-      <CardHeader className="flex items-center justify-between">
-        <CardTitle className="flex items-center gap-2">
-          <Layers className="w-4 h-4" />
-          Tech Stack
-        </CardTitle>
-      </CardHeader>
-
-      <CardContent className="flex-1 overflow-auto">
+    <TerminalCard
+      title="Tech Stack"
+      icon={<Layers className="w-3.5 h-3.5" />}
+      className="h-full flex flex-col"
+    >
+      <TerminalCardContent className="flex-1 overflow-auto">
         <div className="grid grid-cols-1 gap-2">
           {techCategories.map(({ label, items }) => (
             <div key={label}>
@@ -26,7 +23,7 @@ export function TechStack() {
             </div>
           ))}
         </div>
-      </CardContent>
-    </Card>
+      </TerminalCardContent>
+    </TerminalCard>
   );
 }
