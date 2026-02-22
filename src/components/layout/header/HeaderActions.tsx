@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MailPlus, ChevronDown } from "lucide-react";
+import { MailPlus, ChevronDown, SquareTerminal } from "lucide-react";
 import { SocialLinks } from "@/components/general/SocialLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,6 +20,11 @@ export const pages = [
     name: "Tech Blog",
     href: "/blog/",
     description: "Read articles and guides",
+  },
+  {
+    name: "Terminal",
+    href: "/terminal/",
+    description: "Interactive terminal",
   },
 ];
 
@@ -48,6 +53,13 @@ export function HeaderActions() {
           <span className="truncate">Send email</span>
         </Button>
       </a>
+
+      <Link href="/terminal/" aria-label="Terminal" className="w-full sm:w-auto">
+        <Button variant="outline" className="cursor-pointer" size={"sm"}>
+          <SquareTerminal className="w-4 h-4" />
+          <span className="truncate">Terminal</span>
+        </Button>
+      </Link>
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

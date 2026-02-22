@@ -25,9 +25,8 @@ function TerminalCard({
     >
       <div className="bg-muted px-4 py-2 border-b border-border flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-primary" />
           {(icon || title) && (
-            <span className="flex items-center gap-1.5 text-xs text-muted-foreground ml-1">
+            <span className="flex items-center gap-1.5 text-[0.9rem] font-semibold text-muted-foreground">
               {icon}
               {title}
             </span>
