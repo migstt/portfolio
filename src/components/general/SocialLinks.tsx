@@ -31,20 +31,17 @@ export const SocialLinks: SocialLink[] = [
     href: "https://linkedin.com/in/mfttrinidad",
     Icon: Linkedin,
     ariaLabel: "LinkedIn profile",
-    className: "",
   },
   {
     name: "GitHub",
     href: "https://github.com/migstt",
     Icon: Github,
     ariaLabel: "GitHub profile",
-    className: "",
   },
   {
     name: "Strava",
     href: "https://www.strava.com/athletes/115133923",
     Icon: StravaIcon,
     ariaLabel: "Strava profile",
-    className: "",
   },
 ];

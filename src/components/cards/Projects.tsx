@@ -7,7 +7,7 @@ import { LanguageBadge } from "@/components/general/LanguageBadge";
 import { getFeaturedRepos } from "@/lib/github";
 import { ProcessedRepo } from "@/app/types";
 
-const FEATURED_REPO_NAMES = ["portfolio", "tech-feed", "inventory-system"];
+const FEATURED_REPO_NAMES = ["portfolio", "strava-webhook", "tech-feed", "inventory-system"];
 
 export async function Projects() {
   let featuredRepos: Array<ProcessedRepo>;
