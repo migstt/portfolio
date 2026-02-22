@@ -9,9 +9,10 @@ export interface PostDisplay {
 interface ArticleProps {
   post: PostDisplay;
   repoName?: string;
+  hideCodeLang?: boolean;
 }
 
-export default function Article({ post, repoName }: ArticleProps) {
+export default function Article({ post, repoName, hideCodeLang }: ArticleProps) {
   useEffect(() => {
     // Add IDs to headings for TOC navigation
     document.querySelectorAll("article h2, article h3, article h4").forEach((heading) => {
@@ -60,7 +61,8 @@ export default function Article({ post, repoName }: ArticleProps) {
       if (!code) return;
       if (pre.querySelector(".copy-btn")) return;
 
-      const lang = (code.className.match(/language-(\w+)/) || [])[1] || "text";
+      const detectedLang = (code.className.match(/language-(\w+)/) || [])[1] || "text";
+      const lang = hideCodeLang ? "copy" : detectedLang;
 
       const btn = document.createElement("button");
       btn.innerHTML = `

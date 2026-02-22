@@ -122,6 +122,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
                     contentHtml: repo.readme,
                   }}
                   repoName={repo.name}
+                  hideCodeLang
                 />
 
                 <PaginationNav
