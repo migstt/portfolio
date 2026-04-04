@@ -208,7 +208,7 @@ export default function TerminalPage() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-2 sm:p-4">
-      <div className="w-full max-w-4xl h-[95vh] sm:h-[85vh] flex flex-col rounded-xl border overflow-hidden shadow-sm">
+      <div className="w-full max-w-4xl h-[95vh] sm:h-[85vh] flex flex-col rounded-lg border overflow-hidden shadow-sm">
         {/* Title bar */}
         <div className="bg-muted px-4 py-2 border-b border-border flex items-center gap-2 flex-shrink-0">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
@@ -216,7 +216,7 @@ export default function TerminalPage() {
           <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
           <span className="flex items-center gap-1.5 text-xs text-muted-foreground ml-1">
             <SquareTerminal className="w-3.5 h-3.5" />
-            guest@miguel: ~
+            guest@migueltrinidad.com: ~
           </span>
         </div>
 
@@ -229,9 +229,9 @@ export default function TerminalPage() {
             <div key={i} className="whitespace-pre-wrap">
               {line.type === "input" ? (
                 <p>
-                  <span className="text-primary">guest@miguel</span>
+                  <span className="text-primary">guest</span><span className="text-muted-foreground">@</span><span className="text-primary">migueltrinidad.com</span>
                   <span className="text-muted-foreground">:</span>
-                  <span className="text-blue-400">~</span>
+                  <span className="text-primary">~</span>
                   <span className="text-muted-foreground">$ </span>
                   <span className="text-foreground">{line.text}</span>
                 </p>
@@ -243,17 +243,17 @@ export default function TerminalPage() {
 
           {/* Active prompt */}
           <div className="flex items-center">
-            <span className="text-primary">guest@miguel</span>
+            <span className="text-primary">guest</span><span className="text-muted-foreground">@</span><span className="text-primary">migueltrinidad.com</span>
             <span className="text-muted-foreground">:</span>
-            <span className="text-blue-400">~</span>
-            <span className="text-muted-foreground">$ </span>
+            <span className="text-primary">~</span>
+            <span className="text-muted-foreground">$</span>
             <input
               ref={inputRef}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleSubmit}
-              className="flex-1 bg-transparent outline-none text-foreground font-mono text-sm sm:text-base caret-primary"
+              className="flex-1 bg-transparent outline-none text-foreground font-mono text-sm sm:text-base caret-primary ml-2"
               spellCheck={false}
               autoComplete="off"
             />

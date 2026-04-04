@@ -27,7 +27,7 @@ export async function OffKeyboardTable() {
   }
 
   if (!data.length) {
-    return <div className="p-4 text-center text-sm">No activities found.</div>;
+    return <div className="p-4 text-center text-sm text-muted-foreground">No activities found.</div>;
   }
 
   return <StravaDataTable data={data} />;

@@ -17,6 +17,7 @@ export interface TechCategory {
 export interface Experience {
   title: string;
   company: string;
+  logo?: string;
   location: string;
   workType: string;
   start: string;
@@ -24,5 +25,5 @@ export interface Experience {
   startMonth: string;
   endMonth: string;
   description: string;
-  descriptionJSX?: React.ReactNode; 
+  descriptionJSX?: React.ReactNode;
 }

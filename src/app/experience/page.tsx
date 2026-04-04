@@ -9,7 +9,7 @@ export default function ExperiencePage() {
   return (
     <SubpageLayout pageTitle="Experience">
       <div className="animate-slide-up-1">
-        <ol className="relative border-s border-gray-200 dark:border-gray-700">
+        <ol className="relative border-s border-primary/30">
           {experiences.map((exp, index) => (
             <li
               key={index}
@@ -18,10 +18,10 @@ export default function ExperiencePage() {
               }`}
             >
               <div
-                className={`absolute w-3.5 h-3.5 rounded-full mt-4 -start-[7px] border-2 border-white dark:border-gray-900 ${
+                className={`absolute w-3 h-3 rounded-full mt-4 -start-[6px] border-2 border-background ${
                   index === 0
-                    ? "bg-blue-600 dark:bg-blue-500"
-                    : "bg-gray-200 dark:bg-gray-700"
+                    ? "bg-primary"
+                    : "bg-primary/30"
                 }`}
               ></div>
               <div className="flex flex-col lg:grid lg:grid-cols-2 gap-2 lg:gap-2 mb-3">

@@ -45,12 +45,12 @@ export function HeaderActions() {
         href={emailLink}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Send Email"
+        aria-label="Email Me"
         className="w-full sm:w-auto"
       >
         <Button className="cursor-pointer" size={"sm"}>
           <MailPlus className="w-4 h-4" />
-          <span className="truncate">Send email</span>
+          <span className="truncate">Email Me</span>
         </Button>
       </a>
 
@@ -72,7 +72,7 @@ export function HeaderActions() {
         <DropdownMenuContent
           align="end"
           sideOffset={6}
-          className="w-56 max-w-[85vw] sm:w-48 p-1"
+          className="w-72 max-w-[85vw] sm:w-64 p-1"
         >
           {pages.map((page) => (
             <DropdownMenuItem key={page.name} className="p-1">

@@ -39,7 +39,7 @@ export function Socials({
                 </a>
               </TooltipTrigger>
               <TooltipContent>
-                <p>{name === "Email" ? "Send Email" : name}</p>
+                <p>{name === "Email" ? "Email Me" : name}</p>
               </TooltipContent>
             </Tooltip>
           )
@@ -67,7 +67,7 @@ export function Socials({
           >
             <Icon className={`w-4 h-4 ${iconClass ?? ""}`} />
             <span className={`text-xs ${name === "LinkedIn" ? "mt-1" : "mt-0.5"}`}>
-              {name === "Email" ? "Send email" : name}
+              {name === "Email" ? "Email Me" : name}
             </span>
           </Button>
         </a>

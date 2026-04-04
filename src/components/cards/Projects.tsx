@@ -35,7 +35,7 @@ export async function Projects() {
       <TerminalCardContent className="flex-1">
         <div className="grid grid-cols-1 gap-2">
           {featuredRepos.length === 0 && (
-            <div className="p-4 text-center text-sm text-muted-foreground">No repositories found.</div>
+            <div className="p-4 text-center text-sm text-muted-foreground">No projects found.</div>
           )}
           {featuredRepos.slice(0, 4).map((repo) => (
             <Link
@@ -48,7 +48,7 @@ export async function Projects() {
                   <h3 className="text-sm font-semibold">{repo.displayName}</h3>
                   <LanguageBadge language={repo.language} />
                 </div>
-                <p className="text-xs text-muted-foreground line-clamp-2">
+                <p className="text-sm text-muted-foreground line-clamp-2">
                   {repo.description}
                 </p>
               </div>

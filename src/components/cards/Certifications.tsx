@@ -9,16 +9,7 @@ export function Certifications() {
       className="h-full flex flex-col"
     >
       <TerminalCardContent className="flex-1 flex items-center justify-center">
-        <div className="font-mono text-xs space-y-1 text-muted-foreground">
-          <p>
-            <span className="text-primary">guest@miguel</span>
-            <span>:</span>
-            <span className="text-blue-400">~</span>
-            <span>$ </span>
-            <span className="text-foreground">ls certifications/</span>
-          </p>
-          <p>No files found — check back soon.</p>
-        </div>
+        <p className="text-sm text-muted-foreground">No certifications found.</p>
       </TerminalCardContent>
     </TerminalCard>
   );

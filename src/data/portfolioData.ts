@@ -11,7 +11,7 @@ export const profile: Profile = {
 };
 
 export const aboutText: AboutText =
-  "Developer with experience building web applications using JavaScript, TypeScript, and PHP. I work on e-commerce platforms with MedusaJS and build marketing websites using Next.js, Sanity CMS, and Tailwind CSS. Previously, I maintained and developed internal business systems using Laravel and CodeIgniter. I enjoy exploring DevOps and finding ways to automate processes and improve development workflows.";
+  "Got started with Laravel and Next.js during my internship, then moved into my first job building and maintaining internal business systems in PHP, CodeIgniter, and Laravel. Now at my current role working on e-commerce platforms with MedusaJS and content sites with Next.js and Sanity CMS. Moving toward DevOps, particularly around automation and deployment workflows.";
 
 export const techCategories: TechCategory[] = [
   {
@@ -25,18 +25,24 @@ export const techCategories: TechCategory[] = [
       "CodeIgniter",
       "Next.js",
       "React",
+      "MedusaJS",
       "jQuery",
       "Bootstrap",
       "Tailwind CSS",
+      "Sanity CMS",
     ],
   },
   {
     label: "Databases & Storage",
-    items: ["SQL", "MySQL", "PostgreSQL", "Google Cloud Firestore", "AWS S3"],
+    items: ["MySQL", "PostgreSQL", "Google Cloud Firestore", "AWS S3", "Supabase", "Redis"],
+  },
+  {
+    label: "APIs & Services",
+    items: ["OpenAI API", "ZeptoMail", "Mollie"],
   },
   {
     label: "Infrastructure & Tools",
-    items: ["AWS EC2", "Linux (CLI)", "SSH", "Git", "GitHub Actions", "Bash"],
+    items: ["AWS EC2", "Vercel", "Netlify", "Linux (CLI)", "SSH", "Git", "GitHub Actions", "Bash"],
   },
 ];
 
@@ -44,6 +50,7 @@ export const experiences: Experience[] = [
   {
     title: "Full Stack Developer",
     company: "WebriQs Technologies Inc.",
+    logo: "/images/companies/webriq.png",
     location: "Cebu City, Philippines",
     workType: "Remote/On-site",
     start: "2025",
@@ -51,11 +58,12 @@ export const experiences: Experience[] = [
     startMonth: "September 2025",
     endMonth: "Present",
     description:
-      "Started by maintaining marketing and content websites for clients in the US and Netherlands using Next.js, TypeScript, Sanity CMS, and Tailwind CSS. After a couple of months, began working on a B2C e-commerce platform for a Dutch client, building features with MedusaJS, Supabase, Redis, and ZeptoMail for handling transactions and emails. Also worked with a teammate to create a MedusaJS storefront template for the team to use on future e-commerce projects.",
+      "Working on B2B and B2C e-commerce projects for US and Netherlands-based clients with MedusaJS, building out core storefront features including cart, checkout, order management, and transactional emails via ZeptoMail. Implemented a custom Mollie payment integration on MedusaJS v1, with Supabase and Redis handling data and caching. Also maintaining marketing and content websites using Next.js, TypeScript, Sanity CMS, and Tailwind CSS, with a focus on performance and Lighthouse score optimization.",
   },
   {
     title: "Full Stack Developer",
     company: "Web2 Inc.",
+    logo: "/images/companies/web2.jpg",
     location: "Cebu City, Philippines",
     workType: "On-site",
     start: "2024",
@@ -68,6 +76,7 @@ export const experiences: Experience[] = [
   {
     title: "Software Engineer Intern",
     company: "Fullspeed Technologies Inc.",
+    logo: "/images/companies/fullspeed.jpg",
     location: "Cebu City, Philippines",
     workType: "Remote/On-site",
     start: "2023",
@@ -86,7 +95,7 @@ export const experiences: Experience[] = [
           href: "https://ardiesan.github.io/engineers-log/author/mtrinidad/",
           target: "_blank",
           rel: "noopener noreferrer",
-          className: "text-blue-600 dark:text-blue-400 hover:underline",
+          className: "text-primary underline hover:opacity-75 transition-opacity",
         },
         "weekly articles"
       ),
@@ -97,7 +106,7 @@ export const experiences: Experience[] = [
           href: "/projects/boardgameplay/",
           target: "_blank",
           rel: "noopener noreferrer",
-          className: "text-blue-600 dark:text-blue-400 hover:underline",
+          className: "text-primary underline hover:opacity-75 transition-opacity",
         },
         "board game app"
       ),
@@ -108,7 +117,7 @@ export const experiences: Experience[] = [
           href: "https://techblog.fullspeedtechnologies.com/2024/03/27/internship-a-story-of-growth-and-gratitude.html",
           target: "_blank",
           rel: "noopener noreferrer",
-          className: "text-blue-600 dark:text-blue-400 hover:underline",
+          className: "text-primary underline hover:opacity-75 transition-opacity",
         },
         "blog post"
       ),

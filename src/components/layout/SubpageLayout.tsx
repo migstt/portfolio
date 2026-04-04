@@ -2,6 +2,7 @@ import { LayoutContainer } from "./LayoutContainer";
 import { SubpageHeader } from "./header/SubpageHeader";
 import { Footer } from "@/components/layout/footer/Footer";
 import { DynamicBreadcrumb } from "./DynamicBreadcrumb";
+import PerspectiveGrid from "@/components/general/PerspectiveGrid";
 import { ReactNode, CSSProperties } from "react";
 
 interface SubpageLayoutProps {
@@ -19,10 +20,10 @@ export function SubpageLayout({
 }: SubpageLayoutProps) {
   return (
     <div
-      className="min-h-screen bg-background text-foreground flex flex-col"
+      className="min-h-screen text-foreground flex flex-col"
       style={style}
     >
-      <LayoutContainer className={`flex flex-col flex-1 w-full ${className}`}>
+<LayoutContainer className={`flex flex-col flex-1 w-full ${className}`}>
         <SubpageHeader />
         <DynamicBreadcrumb pageTitle={pageTitle} />
         <main className="px-4 py-2 mt-3 flex-1">{children}</main>

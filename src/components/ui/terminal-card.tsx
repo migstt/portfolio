@@ -18,7 +18,7 @@ function TerminalCard({
   return (
     <div
       className={cn(
-        "bg-card text-card-foreground flex flex-col rounded-xl border shadow-sm hover:shadow-md transition-shadow overflow-hidden",
+        "bg-card text-card-foreground flex flex-col rounded-lg border shadow-sm hover:shadow-md transition-shadow overflow-hidden",
         className
       )}
       {...props}
