@@ -1,4 +1,11 @@
-import { StravaActivity, ProcessedActivity, StravaTokens } from "@/app/types";
+import {
+  StravaActivity,
+  ProcessedActivity,
+  StravaTokens,
+  StravaAthleteStats,
+} from "@/app/types";
+
+const STRAVA_ATHLETE_ID = "115133923";
 
 // refreshes the strava access token using the refresh token
 async function refreshStravaToken(): Promise<StravaTokens> {
@@ -103,4 +110,39 @@ export async function getFeaturedStravaActivities(): Promise<
 > {
   const activities = await fetchStravaActivities(10);
   return activities;
+}
+
+export async function fetchStravaAthleteStats(): Promise<StravaAthleteStats | null> {
+  if (process.env.MOCK_API === "true") {
+    console.log("MOCK_API enabled, skipping Strava stats fetch");
+    return null;
+  }
+
+  console.log("fetching strava athlete stats...");
+
+  try {
+    const accessToken = await getValidAccessToken();
+
+    const response = await fetch(
+      `https://www.strava.com/api/v3/athletes/${STRAVA_ATHLETE_ID}/stats`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          Accept: "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`strava stats API error: ${response.status} - ${errorText}`);
+      throw new Error(`strava stats API error: ${response.status}`);
+    }
+
+    const stats: StravaAthleteStats = await response.json();
+    return stats;
+  } catch (error) {
+    console.error("error fetching strava athlete stats:", error);
+    throw error;
+  }
 }

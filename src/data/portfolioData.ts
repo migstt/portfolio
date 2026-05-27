@@ -11,7 +11,7 @@ export const profile: Profile = {
 };
 
 export const aboutText: AboutText =
-  "Got started with Laravel and Next.js during my internship, then moved into my first job building and maintaining internal business systems in PHP, CodeIgniter, and Laravel. Now at my current role working on e-commerce platforms with MedusaJS and content sites with Next.js and Sanity CMS. Moving toward DevOps, particularly around automation and deployment workflows.";
+  "Started with Laravel and Next.js as an intern, then moved to Web2 building internal HR, sales, and inventory systems in CodeIgniter and Laravel — also automated their AWS EC2 deployments with Git hooks and Bash scripts. Now at Webriqs shipping multi-role portals with HubSpot CRM integration, B2C e-commerce on MedusaJS, and content sites with Next.js and Sanity. Heading toward DevOps — automation and deployment workflows.";
 
 export const techCategories: TechCategory[] = [
   {
@@ -38,7 +38,7 @@ export const techCategories: TechCategory[] = [
   },
   {
     label: "APIs & Services",
-    items: ["OpenAI API", "ZeptoMail", "Mollie"],
+    items: ["OpenAI API", "HubSpot API", "Mollie", "ZeptoMail"],
   },
   {
     label: "Infrastructure & Tools",
@@ -49,7 +49,7 @@ export const techCategories: TechCategory[] = [
 export const experiences: Experience[] = [
   {
     title: "Full Stack Developer",
-    company: "WebriQs Technologies Inc.",
+    company: "Webriqs Technologies Inc.",
     logo: "/images/companies/webriq.png",
     location: "Cebu City, Philippines",
     workType: "Remote/On-site",
@@ -58,7 +58,7 @@ export const experiences: Experience[] = [
     startMonth: "September 2025",
     endMonth: "Present",
     description:
-      "Working on B2B and B2C e-commerce projects for US and Netherlands-based clients with MedusaJS, building out core storefront features including cart, checkout, order management, and transactional emails via ZeptoMail. Implemented a custom Mollie payment integration on MedusaJS v1, with Supabase and Redis handling data and caching. Also maintaining marketing and content websites using Next.js, TypeScript, Sanity CMS, and Tailwind CSS, with a focus on performance and Lighthouse score optimization.",
+      "Built a multi-role portal for a US building products manufacturer where contractors manage homeowner leads and submit quotes, and distributors get scoped access. Integrated HubSpot CRM via API workflows for lead assignment automation, deal stage updates, and portal-to-CRM activity sync, with role-based access control across all three user types. Also shipped a B2C e-commerce platform on MedusaJS with Supabase, Redis, Mollie for payments, and ZeptoMail for transactional emails, plus marketing and content sites using Next.js, TypeScript, Sanity CMS, and Tailwind CSS deployed via Vercel and Netlify.",
   },
   {
     title: "Full Stack Developer",
@@ -71,7 +71,7 @@ export const experiences: Experience[] = [
     startMonth: "June 2024",
     endMonth: "July 2025",
     description:
-      "Joined the internal systems team to help build and maintain business applications. Created an SSL certificate tracking module that automated manual work for over 500 client websites, making it easier for the client care team to manage renewals. Worked with a teammate to build a content generation tool using Laravel, React, DynamoDB, and OpenAI API to help teams draft emails, social media posts, and assist with code generation and debugging. Also maintained HR, Sales, and Inventory systems by fixing bugs and adding new features using CodeIgniter, jQuery, Bootstrap, and MySQL.",
+      "Maintained internal HR, sales, and inventory systems built on CodeIgniter, jQuery, Bootstrap, and MySQL. Built an SSL certificate monitoring tool that tracked expiration across 500+ client sites with automated renewal reminders and task assignments. Co-developed an AI content and code assistant using Laravel, React, DynamoDB, and OpenAI API for writing, proofreading, email drafting, and debugging. Also automated deployment of two Laravel apps to AWS EC2 via Git hooks and Bash scripts on a self-hosted Git server.",
   },
   {
     title: "Software Engineer Intern",
@@ -84,22 +84,11 @@ export const experiences: Experience[] = [
     startMonth: "July 2023",
     endMonth: "March 2024",
     description:
-      "Started as one of three interns working with Laravel framework, maintaining an internal ticketing system previously developed by former interns. Contributed weekly blog posts and reflections as part of the learning process. After completing academic requirements in December 2023, expressed interest to my manager to extend my internship duration. Joined a different team where I completed training by building a board game application using Next.js with TypeScript. Subsequently worked on implementing CRUD functionalities in a Next.js TypeScript project. Before concluding my internship, contributed a final blog post that was published on the company's official website.",
+      "Built a real-time multiplayer board game using Next.js, TypeScript, and Cloud Firestore. Built admin features for an artist-fan platform (Next.js, TypeScript, Firebase) for managing social links and subscription cancellation in the mobile app. Contributed technical blog posts during the internship; final article published on the company blog.",
     descriptionJSX: React.createElement(
       React.Fragment,
       null,
-      "Started as one of three interns working with Laravel framework, maintaining an internal ticketing system previously developed by former interns. Contributed ",
-      React.createElement(
-        "a",
-        {
-          href: "https://ardiesan.github.io/engineers-log/author/mtrinidad/",
-          target: "_blank",
-          rel: "noopener noreferrer",
-          className: "text-primary underline hover:opacity-75 transition-opacity",
-        },
-        "weekly articles"
-      ),
-      " as part of the learning process. After completing academic requirements in December 2023, expressed interest to my manager to extend my internship duration. Joined a different team where I completed training by building a ",
+      "Built a real-time multiplayer ",
       React.createElement(
         "a",
         {
@@ -108,9 +97,20 @@ export const experiences: Experience[] = [
           rel: "noopener noreferrer",
           className: "text-primary underline hover:opacity-75 transition-opacity",
         },
-        "board game app"
+        "board game"
       ),
-      " using Next.js with TypeScript. Subsequently worked on implementing CRUD functionalities in a Next.js TypeScript project. Before concluding my internship, contributed a ",
+      " using Next.js, TypeScript, and Cloud Firestore. Built admin features for an artist-fan platform (Next.js, TypeScript, Firebase) for managing social links and subscription cancellation in the mobile app. Contributed ",
+      React.createElement(
+        "a",
+        {
+          href: "https://ardiesan.github.io/engineers-log/author/mtrinidad/",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          className: "text-primary underline hover:opacity-75 transition-opacity",
+        },
+        "technical blog posts"
+      ),
+      " during the internship; final article ",
       React.createElement(
         "a",
         {
@@ -119,9 +119,9 @@ export const experiences: Experience[] = [
           rel: "noopener noreferrer",
           className: "text-primary underline hover:opacity-75 transition-opacity",
         },
-        "blog post"
+        "published on the company blog"
       ),
-      " that was published on the company's official website."
+      "."
     ),
   },
 ];

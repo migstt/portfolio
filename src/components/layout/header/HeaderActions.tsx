@@ -11,22 +11,9 @@ import { MailPlus, ChevronDown, SquareTerminal } from "lucide-react";
 import { SocialLinks } from "@/components/general/SocialLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { pages } from "./pages";
 
-export const pages = [
-  { name: "Home", href: "/", description: "Main page" },
-  { name: "Experience", href: "/experience/", description: "Career timeline" },
-  { name: "Projects", href: "/projects/", description: "Browse projects" },
-  {
-    name: "Tech Blog",
-    href: "/blog/",
-    description: "Read articles and guides",
-  },
-  {
-    name: "Terminal",
-    href: "/terminal/",
-    description: "Interactive terminal",
-  },
-];
+export { pages };
 
 export function HeaderActions() {
   const emailLink = SocialLinks[0]?.href || "#";

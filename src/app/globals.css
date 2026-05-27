@@ -145,6 +145,10 @@
   animation: pulseSubtle 2.5s ease-in-out infinite;
 }
 
+.font-display {
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

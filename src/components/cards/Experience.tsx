@@ -47,7 +47,7 @@ export function Experience() {
                 </div>
                 {isCurrent ? (
                   <Badge className="text-xs bg-primary text-primary-foreground hover:bg-primary/90">
-                    Present
+                    {exp.start} - Present
                   </Badge>
                 ) : (
                   <Badge variant="outline" className="text-xs">

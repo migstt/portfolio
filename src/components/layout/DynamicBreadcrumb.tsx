@@ -22,6 +22,9 @@ export function DynamicBreadcrumb({ pageTitle }: DynamicBreadcrumbProps) {
   const labelMap: Record<string, string> = {
     blog: "Blog",
     projects: "Projects",
+    profile: "Profile",
+    experience: "Experience",
+    terminal: "Terminal",
     "scaling-with-docker": "Scaling with Docker",
     "ci-cd-best-practices": "CI/CD Best Practices",
     "nextjs-performance-tips": "Next.js Performance Tips",
