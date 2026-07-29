@@ -42,3 +42,6 @@ stravareuth.js
 
 # markdown docs
 *.md
+
+# ...except blog content, which is the site itself, not docs
+!src/content/blog/*.md
