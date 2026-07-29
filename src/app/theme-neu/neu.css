@@ -1,0 +1,445 @@
+/*
+ * Neumorphism preview — "soft terminal".
+ *
+ * Scoped entirely under .neu. Nothing here touches globals.css.
+ *
+ * Three departures from stock neumorphism, which is what stops it looking like
+ * every other soft-UI demo:
+ *
+ *   1. Shadows are HALF the usual strength. Textbook neumorphism uses ~8px
+ *      offsets with 16px blur, which is where the puffy, bloated look comes
+ *      from. These sit at 3-4px. Form is recovered with a faint surface
+ *      gradient instead of shadow spread — light falls on the surface rather
+ *      than pooling around it.
+ *   2. One sharp corner per surface. Every card is soft on three corners and
+ *      cut square on the bottom-left, echoing the site's existing 0.25rem
+ *      radius. It gives the theme a signature without extra ornament.
+ *   3. Paper grain over everything, plus a mono type scale. Neumorphism
+ *      normally implies plastic; grain plus monospace makes it read as
+ *      letterpress, which fits a terminal-flavoured site.
+ *
+ * Light mode is deliberately warm and contrast-checked: body text 10.9:1,
+ * muted 5.1:1, accent 4.9:1 — all above the WCAG AA 4.5:1 floor.
+ */
+
+.neu {
+  --neu-bg: #ece4d9;
+  --neu-fg: #332c25;
+  --neu-muted: #695d51;
+  --neu-accent: #ad3a17;
+  --neu-accent-soft: rgba(173, 58, 23, 0.1);
+
+  /* Softer than stock: these are much closer to --neu-bg, so edges whisper
+     instead of shouting. */
+  --neu-dark: #d7cdc0;
+  --neu-light: #fbf7f1;
+
+  /* Faint convex sheen — this, not shadow spread, is what makes a surface
+     read as raised now that the shadows are dialled back. */
+  --neu-sheen: linear-gradient(145deg, #f1eae1 0%, #e7ded2 100%);
+  --neu-sheen-inset: linear-gradient(145deg, #e5dcd0 0%, #efe8de 100%);
+
+  --neu-radius: 14px;
+  --neu-radius-sm: 10px;
+  /* The signature: soft, soft, soft, square. */
+  --neu-corner: var(--neu-radius) var(--neu-radius) var(--neu-radius) 2px;
+  --neu-corner-sm: var(--neu-radius-sm) var(--neu-radius-sm) var(--neu-radius-sm) 2px;
+
+  position: relative;
+  background: var(--neu-bg);
+  color: var(--neu-fg);
+  min-height: 100vh;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+.neu.neu-dark {
+  --neu-bg: #2b2724;
+  --neu-fg: #efe8df;
+  --neu-muted: #ab9f93;
+  --neu-accent: #ff8354;
+  --neu-accent-soft: rgba(255, 131, 84, 0.14);
+
+  --neu-dark: #232020;
+  --neu-light: #332e2a;
+
+  --neu-sheen: linear-gradient(145deg, #302b28 0%, #272321 100%);
+  --neu-sheen-inset: linear-gradient(145deg, #262220 0%, #2e2a26 100%);
+}
+
+/* Paper grain. A fixed overlay so the texture stays put while the page
+   scrolls, which reads as material rather than as a pattern painted on the
+   content. pointer-events: none keeps it out of the way of clicks. */
+.neu::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.neu.neu-dark::before {
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+}
+
+.neu > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Raised surface. Note the third shadow: a 1px inner highlight along the top
+   edge. It costs nothing and does more for the "physical object" impression
+   than another 8px of blur would. */
+.neu-raised {
+  border-radius: var(--neu-corner);
+  background: var(--neu-sheen);
+  box-shadow:
+    4px 4px 10px var(--neu-dark),
+    -3px -3px 8px var(--neu-light),
+    inset 0 1px 0 var(--neu-light);
+}
+
+/* Lift on hover — subtle, and only where it signals interactivity. */
+.neu-hover {
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.neu-hover:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    5px 7px 14px var(--neu-dark),
+    -3px -3px 8px var(--neu-light),
+    inset 0 1px 0 var(--neu-light);
+}
+
+/* Pressed well, for content inside a raised card. */
+.neu-inset {
+  border-radius: var(--neu-corner-sm);
+  background: var(--neu-sheen-inset);
+  box-shadow:
+    inset 3px 3px 6px var(--neu-dark),
+    inset -2px -2px 5px var(--neu-light);
+}
+
+.neu-raised-sm {
+  border-radius: var(--neu-corner-sm);
+  background: var(--neu-sheen);
+  box-shadow:
+    2px 2px 5px var(--neu-dark),
+    -2px -2px 4px var(--neu-light),
+    inset 0 1px 0 var(--neu-light);
+}
+
+/* Keycap chip. The 2px bottom shadow with no blur is the keycap edge — it
+   makes tech tags read as physical keys, which suits a mono type scale. */
+.neu-chip {
+  display: inline-block;
+  border-radius: 5px;
+  background: var(--neu-sheen);
+  box-shadow:
+    0 2px 0 var(--neu-dark),
+    1px 3px 5px var(--neu-dark),
+    inset 0 1px 0 var(--neu-light);
+  padding: 0.28rem 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  color: var(--neu-fg);
+  white-space: nowrap;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, color 0.12s ease;
+}
+
+.neu-chip-interactive:hover {
+  color: var(--neu-accent);
+  transform: translateY(-1px);
+}
+
+.neu-chip-interactive:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 0 0 var(--neu-dark),
+    inset 1px 1px 3px var(--neu-dark);
+}
+
+.neu-btn {
+  border-radius: var(--neu-corner-sm);
+  background: var(--neu-sheen);
+  color: var(--neu-fg);
+  box-shadow:
+    3px 3px 7px var(--neu-dark),
+    -2px -2px 6px var(--neu-light),
+    inset 0 1px 0 var(--neu-light);
+  transition: box-shadow 0.18s ease, transform 0.18s ease, color 0.18s ease;
+  cursor: pointer;
+}
+
+.neu-btn:hover {
+  color: var(--neu-accent);
+  transform: translateY(-1px);
+}
+
+.neu-btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 3px 3px 6px var(--neu-dark),
+    inset -2px -2px 5px var(--neu-light);
+}
+
+.neu-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: inset 2px 2px 4px var(--neu-dark);
+}
+
+.neu-btn:disabled:hover {
+  color: var(--neu-fg);
+  transform: none;
+}
+
+/* Shadows mean nothing to a screen reader, and at this reduced strength they
+   mean little to a low-vision user either. Real focus rings are mandatory. */
+.neu-btn:focus-visible,
+.neu-link:focus-visible,
+.neu-icon-btn:focus-visible,
+.neu-sort:focus-visible,
+.neu-chip-interactive:focus-visible {
+  outline: 2px solid var(--neu-accent);
+  outline-offset: 3px;
+}
+
+.neu-icon-btn {
+  border-radius: 8px 8px 8px 2px;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  background: var(--neu-sheen);
+  color: var(--neu-muted);
+  box-shadow:
+    2px 2px 6px var(--neu-dark),
+    -2px -2px 5px var(--neu-light),
+    inset 0 1px 0 var(--neu-light);
+  transition: box-shadow 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  cursor: pointer;
+}
+
+.neu-icon-btn:hover {
+  color: var(--neu-accent);
+  transform: translateY(-1px);
+}
+
+.neu-icon-btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 2px 2px 5px var(--neu-dark);
+}
+
+/* ---------------------------------------------------------------------------
+ * Section header: mono index + rule. Replaces the generic accent bar with
+ * something that belongs to a terminal aesthetic.
+ * ------------------------------------------------------------------------ */
+
+.neu-section-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.1rem;
+}
+
+.neu-index {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--neu-accent);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px 4px 4px 1px;
+  background: var(--neu-accent-soft);
+}
+
+.neu-section-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Engraved hairline that fills the remaining width. */
+.neu-rule {
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--neu-bg);
+  box-shadow:
+    inset 1px 1px 2px var(--neu-dark),
+    inset -1px -1px 2px var(--neu-light);
+}
+
+.neu-muted {
+  color: var(--neu-muted);
+}
+
+.neu-accent-text {
+  color: var(--neu-accent);
+}
+
+.neu-divider {
+  height: 2px;
+  border-radius: 2px;
+  background: var(--neu-bg);
+  box-shadow:
+    inset 1px 1px 2px var(--neu-dark),
+    inset -1px -1px 2px var(--neu-light);
+}
+
+.neu-link {
+  color: var(--neu-fg);
+  text-decoration: none;
+  border-radius: 3px;
+  transition: color 0.15s ease;
+}
+
+.neu-link:hover {
+  color: var(--neu-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.neu-meter {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--neu-bg);
+  box-shadow: inset 2px 2px 4px var(--neu-dark), inset -1px -1px 3px var(--neu-light);
+  overflow: hidden;
+}
+
+.neu-meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--neu-accent);
+}
+
+/* Big stat readout — mono, tabular figures so columns of numbers line up. */
+.neu-stat {
+  font-size: 1.45rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--neu-accent);
+  line-height: 1.1;
+}
+
+.neu-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neu-muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * Table. Per-row shadows would corrugate, so the body is one inset well with
+ * engraved hairlines between rows.
+ * ------------------------------------------------------------------------ */
+
+.neu-table-wrap {
+  border-radius: var(--neu-corner-sm);
+  background: var(--neu-sheen-inset);
+  box-shadow:
+    inset 3px 3px 6px var(--neu-dark),
+    inset -2px -2px 5px var(--neu-light);
+  padding: 0.4rem 0.5rem;
+  overflow-x: auto;
+}
+
+.neu-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.neu-table th {
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--neu-muted);
+  white-space: nowrap;
+}
+
+.neu-table td {
+  padding: 0.6rem 0.7rem;
+  color: var(--neu-fg);
+  white-space: nowrap;
+}
+
+.neu-table tbody tr + tr td {
+  border-top: 1px solid var(--neu-dark);
+}
+
+.neu-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.neu-table tbody tr:hover {
+  background: var(--neu-accent-soft);
+}
+
+.neu-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.neu-sort:hover,
+.neu-sort[data-active="true"] {
+  color: var(--neu-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neu-btn,
+  .neu-icon-btn,
+  .neu-chip,
+  .neu-hover,
+  .neu-table tbody tr {
+    transition: none;
+  }
+  .neu-btn:hover,
+  .neu-btn:active,
+  .neu-icon-btn:hover,
+  .neu-icon-btn:active,
+  .neu-hover:hover,
+  .neu-chip-interactive:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .neu {
+    --neu-radius: 11px;
+    --neu-radius-sm: 8px;
+  }
+
+  .neu-raised {
+    box-shadow:
+      3px 3px 7px var(--neu-dark),
+      -2px -2px 5px var(--neu-light),
+      inset 0 1px 0 var(--neu-light);
+  }
+
+  .neu-stat {
+    font-size: 1.25rem;
+  }
+}
