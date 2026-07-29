@@ -5,6 +5,18 @@ description: "Use a Cloudflare Worker to listen for Strava webhook events and tr
 image: "/images/blog/strava-webhook-vercel-auto-deploy.jpg"
 ---
 
+> **Update (July 2026) — this pipeline now requires a paid Strava subscription.**
+>
+> Strava has moved API access behind its subscription. If the account that owns the API application isn't subscribed, the app goes `Inactive` and the whole `/api/v3/*` surface returns `403`:
+>
+> ```json
+> { "message": "Forbidden", "errors": [{ "resource": "Application", "field": "Status", "code": "Inactive" }] }
+> ```
+>
+> That affects this setup in two places: the `push_subscriptions` calls in Steps 6–7 (registering the webhook), and the build-time activity fetch that the rebuild exists to refresh. The Cloudflare Worker itself is unaffected — it's just an HTTP relay — so if you already have a working subscription, existing webhook deliveries and the worker keep functioning. It's registering or re-registering that needs an active app.
+>
+> Worth noting the failure mode is quiet: a deploy still gets triggered, the build still succeeds, and the site just rebuilds with no new Strava data. See the **Notes** section for how to catch that.
+
 ## The Problem
 
 My portfolio site fetches Strava activities at build time. The data is baked into the static export, so the site needs to rebuild whenever I log a new activity. I used to run a daily cron job with GitHub Actions, but that's unnecessary overhead for something that should be event-driven.
@@ -34,7 +46,7 @@ You should have:
 
 - A **Vercel project** with your site deployed
 - A **Cloudflare account** (free tier works)
-- A **Strava API application** ([create one here](https://www.strava.com/settings/api))
+- A **Strava API application** ([create one here](https://www.strava.com/settings/api)) in **Active** status — as of 2026 this requires an active Strava subscription on the owning account
 - **Wrangler CLI** available (`npx wrangler --version` to check)
 
 ## 1. Create a Vercel Deploy Hook
@@ -197,6 +209,8 @@ curl -X DELETE "https://www.strava.com/api/v3/push_subscriptions/SUBSCRIPTION_ID
 - Strava retries failed webhook deliveries up to 3 times
 - Cloudflare Workers free tier allows 100,000 requests per day — more than enough
 - The Vercel deploy hook URL should be kept secret since anyone with it can trigger a build
+- **Make the build fail loudly if the fetch dies.** Because the rebuild is triggered by a webhook rather than by you, a `403` from Strava produces a green deploy with stale data and nothing in your inbox. If your fetch helpers swallow errors and return an empty array, the site will quietly render "No activities found" indefinitely. Either let the build fail on an API error, or fall back to a committed snapshot so the page still shows real data
+- If you stop subscribing, delete the push subscription (Step 7) rather than leaving it registered — otherwise Strava keeps attempting deliveries against an app that can no longer serve the data those deploys are fetching
 
 ## Resources
 
