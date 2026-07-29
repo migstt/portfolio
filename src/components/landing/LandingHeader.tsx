@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MailPlus } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/general/ThemeToggle";
 import { HeaderActions } from "@/components/layout/header/HeaderActions";
@@ -42,8 +42,8 @@ export function LandingHeader() {
         <ThemeToggle />
         <a href={emailHref} target="_blank" rel="noopener noreferrer">
           <Button size="sm" className="cursor-pointer">
-            <MailPlus className="w-4 h-4" />
-            Email me
+            <Mail className="w-4 h-4" />
+            Contact
           </Button>
         </a>
       </div>

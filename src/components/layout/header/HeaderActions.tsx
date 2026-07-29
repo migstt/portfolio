@@ -32,12 +32,12 @@ export function HeaderActions() {
         href={emailLink}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Email Me"
+        aria-label="Contact"
         className="w-full sm:w-auto"
       >
         <Button className="cursor-pointer" size={"sm"}>
           <MailPlus className="w-4 h-4" />
-          <span className="truncate">Email Me</span>
+          <span className="truncate">Contact</span>
         </Button>
       </a>
 
