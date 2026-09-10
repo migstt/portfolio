@@ -31,6 +31,7 @@ export function getAllPosts(): Post[] {
       readingTime: readingTime(content).text,
       content,
       image: frontmatter.image,
+      tags: frontmatter.tags ?? [],
     };
   });
 
@@ -83,8 +84,8 @@ export async function getPostBySlug(slug: string) {
     readingTime: readingTime(content).text,
     contentHtml: processedContent.toString(),
     plainmd: content,
-    tags: [],
-    image: "",
+    tags: frontmatter.tags ?? [],
+    image: frontmatter.image ?? "",
     headings,
   };
 }

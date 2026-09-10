@@ -1,8 +1,9 @@
 ---
 title: "Auto-Deploy to Vercel When a New Strava Activity Is Logged"
 date: "2026-02-22"
-description: "Use a Cloudflare Worker to listen for Strava webhook events and trigger a Vercel deployment whenever you log a new activity."
+description: "A Cloudflare Worker sits between Strava and Vercel: log a run, the webhook fires, the site rebuilds itself."
 image: "/images/blog/strava-webhook-vercel-auto-deploy.jpg"
+tags: ["Automation", "Deployment", "APIs"]
 ---
 
 > **Update (July 2026) — this pipeline now requires a paid Strava subscription.**

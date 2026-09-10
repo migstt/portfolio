@@ -3,6 +3,7 @@ export type FrontMatter = {
   date: string;
   description: string;
   image?: string;
+  tags?: string[];
 };
 
 export type Post = {
@@ -13,4 +14,5 @@ export type Post = {
   readingTime: string;
   content: string;
   image?: string;
+  tags: string[];
 };

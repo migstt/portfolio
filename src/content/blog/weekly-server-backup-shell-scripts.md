@@ -1,8 +1,9 @@
 ---
 title: "A Weekly Server Backup Pipeline in Three Shell Scripts"
 date: "2026-07-29"
-description: "Dump a MySQL database, archive the app directory, and pull both down to your machine with rsync — plus the silent failure modes that make backups useless."
+description: "Dump a MySQL database, archive the app directory, and pull both down with rsync. Plus the silent failure modes that make backups useless."
 image: "/images/blog/weekly-server-backup-shell-scripts.jpg"
+tags: ["Bash", "Servers"]
 ---
 
 I run a small site on a single server. Nothing about it justifies a backup service, but losing the database would still ruin a weekend. What it needed was the boring version: cron dumps the database and tars the app directory, then my laptop pulls both down.
