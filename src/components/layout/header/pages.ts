@@ -4,9 +4,10 @@ export interface NavPage {
   description: string;
 }
 
+// "/" is the developer profile while the client landing page is parked at
+// /landing, so there is no separate Profile entry here.
 export const pages: NavPage[] = [
-  { name: "Home", href: "/", description: "Landing page" },
-  { name: "Profile", href: "/profile/", description: "Full developer profile" },
+  { name: "Home", href: "/", description: "Developer profile" },
   { name: "Experience", href: "/experience/", description: "Career timeline" },
   { name: "Projects", href: "/projects/", description: "Browse projects" },
   { name: "Tech Blog", href: "/blog/", description: "Read articles and guides" },
