@@ -14,6 +14,13 @@ export interface TechCategory {
   items: string[];
 }
 
+export interface ExperienceHighlight {
+  title: string;
+  detail: string;
+  detailJSX?: React.ReactNode;
+  tech?: string[];
+}
+
 export interface Experience {
   title: string;
   company: string;
@@ -26,4 +33,5 @@ export interface Experience {
   endMonth: string;
   description: string;
   descriptionJSX?: React.ReactNode;
+  highlights?: ExperienceHighlight[];
 }

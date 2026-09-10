@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { createPageMetadata } from "@/lib/metadata";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
+import { Badge } from "@/components/ui/badge";
 import { experiences } from "@/data/portfolioData";
 
 export const metadata: Metadata = createPageMetadata.experience();
@@ -13,7 +14,7 @@ export default function ExperiencePage() {
           {experiences.map((exp, index) => (
             <li
               key={index}
-              className={`mb-8 ms-6 ${
+              className={`mb-10 ms-6 ${
                 index === experiences.length - 1 ? "mb-0" : ""
               }`}
             >
@@ -38,9 +39,40 @@ export default function ExperiencePage() {
                   </p>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {exp.descriptionJSX || exp.description}
-              </p>
+              {!exp.highlights && (
+                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
+                  {exp.descriptionJSX || exp.description}
+                </p>
+              )}
+
+              {exp.highlights && (
+                <ul className="mt-5 space-y-4">
+                  {exp.highlights.map((highlight) => (
+                    <li
+                      key={highlight.title}
+                      className="border-s border-border ps-4"
+                    >
+                      <h5 className="text-sm font-semibold">{highlight.title}</h5>
+                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mt-1">
+                        {highlight.detailJSX || highlight.detail}
+                      </p>
+                      {highlight.tech && (
+                        <div className="flex flex-wrap gap-1.5 mt-2">
+                          {highlight.tech.map((tech) => (
+                            <Badge
+                              key={tech}
+                              variant="secondary"
+                              className="font-normal"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ol>
