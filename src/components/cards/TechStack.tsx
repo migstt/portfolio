@@ -17,7 +17,9 @@ export function TechStack() {
               <h3 className="text-sm font-semibold mb-2">{label}</h3>
               <div className="flex flex-wrap gap-2">
                 {items.map((tech) => (
-                  <Badge key={tech}>{tech}</Badge>
+                  <Badge key={tech} variant="secondary" className="font-normal">
+                    {tech}
+                  </Badge>
                 ))}
               </div>
             </div>

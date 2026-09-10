@@ -10,10 +10,10 @@ export function TechBlog() {
 
   return (
     <TerminalCard
-      title="Tech Blog"
+      title="Blog"
       icon={<Notebook className="w-3.5 h-3.5" />}
       headerRight={
-        <SeemoreButton href="blog" label="Tech Blog" page="blog posts" />
+        <SeemoreButton href="blog" label="Blog" page="blog posts" />
       }
       className="h-full"
     >
@@ -40,11 +40,11 @@ export function TechBlog() {
 
               {/* Content - Right Side */}
               <div className="flex-1 min-w-0 flex flex-col justify-center">
-                <h3 className="text-sm font-semibold truncate group-hover:text-primary transition-colors">
+                <h3 className="font-sans text-sm font-semibold leading-snug line-clamp-2 group-hover:text-primary transition-colors">
                   {post.title}
                 </h3>
 
-                <p className="text-xs text-muted-foreground line-clamp-2 mt-0.5">
+                <p className="font-sans text-xs text-muted-foreground line-clamp-2 mt-1">
                   {post.description}
                 </p>
 

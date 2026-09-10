@@ -2,11 +2,6 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Eyebrow } from "./Eyebrow";
 
-/*
- * Section heading. `description` is optional and gives sections a plain-language
- * line under the title without each one inventing its own paragraph styling.
- */
-
 interface SectionHeaderProps {
   eyebrow: string;
   title: ReactNode;
@@ -31,7 +26,7 @@ export function SectionHeader({
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+        <p className="font-sans mt-4 text-base text-muted-foreground leading-relaxed">
           {description}
         </p>
       )}

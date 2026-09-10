@@ -6,7 +6,7 @@ export function About() {
   return (
     <TerminalCard title="About" icon={<CircleUserRound className="w-3.5 h-3.5" />} className="h-full">
       <TerminalCardContent>
-        <p className="text-sm leading-relaxed">{aboutText}</p>
+        <p className="font-sans text-sm leading-relaxed">{aboutText}</p>
       </TerminalCardContent>
     </TerminalCard>
   );
