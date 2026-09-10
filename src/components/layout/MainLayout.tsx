@@ -1,7 +1,6 @@
 import { LayoutContainer } from "./LayoutContainer";
 import { MainHeader } from "@/components/layout/header/MainHeader";
 import { Footer } from "@/components/layout/footer/Footer";
-import PerspectiveGrid from "@/components/general/PerspectiveGrid";
 import { ReactNode, CSSProperties } from "react";
 
 interface LayoutProps {
