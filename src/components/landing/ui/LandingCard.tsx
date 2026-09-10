@@ -2,20 +2,6 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-/*
- * The single card surface for the landing page.
- *
- * Deliberately matches the profile page's TerminalCard treatment — same
- * rounded-lg radius, same border token, same shadow-sm to shadow-md lift — so
- * the two pages read as one site. Before this, the landing page mixed three
- * different box idioms: bordered rows, a `gap-px bg-border` hairline grid, and
- * an unbordered gradient band.
- *
- * Pass `href` to make it a link. Interactive cards also warm their border on
- * hover and carry a visible focus ring, which a plain shadow change does not
- * give keyboard users.
- */
-
 interface LandingCardProps {
   children: ReactNode;
   className?: string;

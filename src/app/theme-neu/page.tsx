@@ -1,23 +1,6 @@
-/*
- * Neumorphism theme preview — /theme-neu
- *
- * Standalone on purpose: it does not use <Layout>, so the neumorphic surface
- * covers the whole viewport instead of fighting the current header and footer.
- *
- * Strava activities are fetched for real, with a static fallback so the page
- * still renders if the API is unavailable (the subscriber-only gate means a
- * 403 is a realistic outcome once the trial lapses).
- *
- * Nothing outside this folder is modified.
- */
-
 import { fetchStravaActivities } from "@/lib/strava";
 import { ProcessedActivity } from "@/app/types";
 import { NeuPreview } from "./NeuPreview";
-
-// No route segment config here: next.config.ts sets output: "export", so every
-// page must be statically renderable. The Strava fetch runs at build time, the
-// same as the rest of the site.
 
 const fallbackActivities: ProcessedActivity[] = [
   { id: 1, activityId: 1, start_date_local: "2026-07-27T06:12:00Z", type: "Run", distance: 5054, moving_time: 2633 },
@@ -37,7 +20,6 @@ export default async function ThemeNeuPage() {
     activities = await fetchStravaActivities(60);
     isLiveData = activities.length > 0;
   } catch {
-    // Swallow deliberately: a broken API should not block a theme preview.
     isLiveData = false;
   }
 

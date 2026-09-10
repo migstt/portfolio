@@ -3,12 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-/*
- * "See all projects →" style link. This exact markup — inline-flex, arrow, and
- * the nudge-on-hover transform — was repeated in four sections with slightly
- * different sizes and easing. One component keeps them identical.
- */
-
 interface ArrowLinkProps {
   href: string;
   children: ReactNode;

@@ -11,11 +11,6 @@ interface SubpageLayoutProps {
   pageTitle?: string;
 }
 
-/*
- * One value for both gaps around the breadcrumb, so the space above it matches
- * the space below it. SubpageHeader deliberately carries no bottom padding —
- * the gap under it is owned here, otherwise the two sides drift apart.
- */
 const BREADCRUMB_GAP = "mt-8";
 
 export function SubpageLayout({

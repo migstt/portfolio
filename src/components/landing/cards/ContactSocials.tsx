@@ -7,11 +7,6 @@ interface Social {
   icon: LucideIcon;
 }
 
-/*
- * Secondary social row under the contact CTA. Driven by an array so adding a
- * link is one entry rather than another copy-pasted anchor.
- */
-
 export function ContactSocials({ socials }: { socials: Social[] }) {
   return (
     <div className="mt-10 pt-10 border-t border-border/60 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">

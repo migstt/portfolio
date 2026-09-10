@@ -1,12 +1,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-/*
- * Section wrapper. Vertical rhythm lives here rather than in every section, so
- * spacing stays consistent — previously each section repeated `py-24` and any
- * change meant editing six files.
- */
-
 interface SectionProps {
   children: ReactNode;
   id?: string;

@@ -1,11 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { LandingCard } from "../ui/LandingCard";
 
-/*
- * Card linking somewhere else. Takes plain props rather than a NavPage so the
- * same card works for internal routes and for off-site links.
- */
-
 export interface Destination {
   name: string;
   href: string;

@@ -1,10 +1,5 @@
 import { StravaAthleteStats } from "@/app/types";
 
-/*
- * Formatters and mock fixture for the Strava strip. Extracted so the section
- * component stays presentational — 60 of its 132 lines were this data.
- */
-
 export function formatDuration(seconds: number) {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);

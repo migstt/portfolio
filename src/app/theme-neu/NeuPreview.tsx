@@ -100,8 +100,6 @@ function StravaTable({ activities }: { activities: ProcessedActivity[] }) {
 
   const sorted = useMemo(() => {
     if (!sortKey) return activities;
-    // Copy before sorting — Array.prototype.sort mutates, and mutating a prop
-    // would desync React's view of the data.
     return [...activities].sort((a, b) =>
       asc ? a[sortKey] - b[sortKey] : b[sortKey] - a[sortKey]
     );
@@ -226,8 +224,6 @@ interface NeuPreviewProps {
 }
 
 export function NeuPreview({ activities, isLiveData }: NeuPreviewProps) {
-  // Dark by default — neumorphism holds up better on a dark surface, and the
-  // warm light mode is the variant worth checking deliberately.
   const [dark, setDark] = useState(true);
 
   const totals = useMemo(() => {
