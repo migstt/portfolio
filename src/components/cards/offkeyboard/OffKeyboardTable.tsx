@@ -30,21 +30,5 @@ export async function OffKeyboardTable() {
     return <div className="p-4 text-center text-sm text-muted-foreground">No activities found.</div>;
   }
 
-  return (
-    <>
-      <p className="font-sans text-sm text-muted-foreground mb-3">{summarize(data)}</p>
-      <StravaDataTable data={data} />
-    </>
-  );
-}
-
-function summarize(activities: ProcessedActivity[]) {
-  const totalKm = activities.reduce((sum, a) => sum + a.distance, 0) / 1000;
-  const runs = activities.filter((a) => a.type === "Run").length;
-  const avgKm = totalKm / activities.length;
-
-  const noun = activities.length === 1 ? "activity" : "activities";
-  const runNote = runs === activities.length ? "all runs" : `${runs} of them runs`;
-
-  return `Last ${activities.length} ${noun}: ${totalKm.toFixed(0)} km logged, ${runNote}, averaging ${avgKm.toFixed(1)} km a session.`;
+  return <StravaDataTable data={data} />;
 }
