@@ -13,9 +13,10 @@ import {
 
 interface DynamicBreadcrumbProps {
   pageTitle?: string;
+  className?: string;
 }
 
-export function DynamicBreadcrumb({ pageTitle }: DynamicBreadcrumbProps) {
+export function DynamicBreadcrumb({ pageTitle, className = "" }: DynamicBreadcrumbProps) {
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
 
@@ -31,7 +32,7 @@ export function DynamicBreadcrumb({ pageTitle }: DynamicBreadcrumbProps) {
   };
 
   return (
-    <Breadcrumb className="px-4">
+    <Breadcrumb className={`px-4 ${className}`}>
       <BreadcrumbList className="flex items-center">
         <BreadcrumbItem>
           <BreadcrumbLink asChild>

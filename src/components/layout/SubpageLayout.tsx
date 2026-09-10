@@ -2,7 +2,6 @@ import { LayoutContainer } from "./LayoutContainer";
 import { SubpageHeader } from "./header/SubpageHeader";
 import { Footer } from "@/components/layout/footer/Footer";
 import { DynamicBreadcrumb } from "./DynamicBreadcrumb";
-import PerspectiveGrid from "@/components/general/PerspectiveGrid";
 import { ReactNode, CSSProperties } from "react";
 
 interface SubpageLayoutProps {
@@ -11,6 +10,13 @@ interface SubpageLayoutProps {
   style?: CSSProperties;
   pageTitle?: string;
 }
+
+/*
+ * One value for both gaps around the breadcrumb, so the space above it matches
+ * the space below it. SubpageHeader deliberately carries no bottom padding —
+ * the gap under it is owned here, otherwise the two sides drift apart.
+ */
+const BREADCRUMB_GAP = "mt-8";
 
 export function SubpageLayout({
   children,
@@ -23,10 +29,10 @@ export function SubpageLayout({
       className="min-h-screen text-foreground flex flex-col"
       style={style}
     >
-<LayoutContainer className={`flex flex-col flex-1 w-full ${className}`}>
+      <LayoutContainer className={`flex flex-col flex-1 w-full ${className}`}>
         <SubpageHeader />
-        <DynamicBreadcrumb pageTitle={pageTitle} />
-        <main className="px-4 py-2 mt-3 flex-1">{children}</main>
+        <DynamicBreadcrumb pageTitle={pageTitle} className={BREADCRUMB_GAP} />
+        <main className={`px-4 pb-2 flex-1 ${BREADCRUMB_GAP}`}>{children}</main>
         <Footer />
       </LayoutContainer>
     </div>

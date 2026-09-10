@@ -8,7 +8,7 @@ export function SubpageHeader() {
   const { name } = profile;
 
   return (
-    <header className="w-full py-4 px-4">
+    <header className="w-full px-4 pt-4">
       <div className="flex items-center justify-between gap-3">
         <Link href="/" className="flex items-center gap-2">
           <Image
