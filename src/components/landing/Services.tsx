@@ -9,12 +9,8 @@ export function Services() {
     <Section>
       <SectionHeader
         eyebrow="What I build"
-        title={
-          <>
-            Three kinds of <span className="text-primary">work.</span>
-          </>
-        }
-        description="Most of what I do falls into one of these."
+        title="Three kinds of work"
+        description="Storefronts, content sites, internal tools. Almost everything I take on is one of these."
         center
       />
 

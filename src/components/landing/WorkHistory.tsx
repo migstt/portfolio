@@ -4,16 +4,12 @@ import { SectionHeader } from "./ui/SectionHeader";
 import { CardGrid } from "./ui/CardGrid";
 import { CompanyCard } from "./cards/CompanyCard";
 
-export function TrustStrip() {
+export function WorkHistory() {
   return (
     <Section>
       <SectionHeader
-        eyebrow="Worked with"
-        title={
-          <>
-            Where I&apos;ve <span className="text-primary">worked.</span>
-          </>
-        }
+        eyebrow="Where I've worked"
+        title="Three companies since 2023"
         center
       />
 

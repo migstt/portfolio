@@ -12,10 +12,11 @@ export function SelectedWork() {
         eyebrow="Recent work"
         title={
           <>
-            Things I&apos;ve <span className="text-primary">shipped.</span>
+            A portal, an SSL tracker, and an{" "}
+            <span className="text-primary">AI assistant</span>
           </>
         }
-        description="A few projects from the last couple of years."
+        description="Three from the last two years, and what each one actually changed."
         center
       />
 

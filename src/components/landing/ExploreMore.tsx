@@ -5,16 +5,6 @@ import { SectionHeader } from "./ui/SectionHeader";
 import { CardGrid } from "./ui/CardGrid";
 import { NavCard, Destination } from "./cards/NavCard";
 
-/*
- * Cross-links to the rest of the site. Built from the header's `pages` array
- * (minus Home) so adding a route updates the nav and this section together,
- * plus GitHub as an off-site destination.
- *
- * The GitHub card also rounds the count from 5 to 6, which fills two rows of
- * three exactly. CardGrid centres a short final row anyway, so this is for
- * tidiness rather than to avoid a hole.
- */
-
 const githubHref =
   SocialLinks.find((link) => link.name === "GitHub")?.href ||
   "https://github.com/migstt";
@@ -36,12 +26,8 @@ export function ExploreMore() {
     <Section>
       <SectionHeader
         eyebrow="More"
-        title={
-          <>
-            Have a look <span className="text-primary">around.</span>
-          </>
-        }
-        description="The rest of the site, if you want more detail."
+        title="The rest of the site"
+        description="Longer versions of everything above."
         center
       />
 

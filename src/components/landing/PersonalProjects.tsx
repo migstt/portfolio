@@ -10,12 +10,8 @@ export function PersonalProjects() {
     <Section>
       <SectionHeader
         eyebrow="Side projects"
-        title={
-          <>
-            Things I built for <span className="text-primary">myself.</span>
-          </>
-        }
-        description="Usually to solve my own problem, sometimes just to try something."
+        title="Built to scratch my own itch"
+        description="Small things I wanted to exist. Two of them ended up running this site."
         center
       />
 

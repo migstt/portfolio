@@ -33,15 +33,15 @@ export const services: Service[] = [
     number: "01",
     title: "E-commerce storefronts",
     description:
-      "B2C storefronts on MedusaJS with custom checkout flows, Mollie payments, and ZeptoMail for transactional emails, with Supabase and Redis powering data and caching.",
-    tech: ["MedusaJS", "Mollie", "Supabase", "Redis"],
+      "B2C storefronts on Medusa: custom checkout, Mollie for payments, ZeptoMail for order emails, Postgres on Supabase with Redis in front of it.",
+    tech: ["Medusa", "Mollie", "Supabase", "Redis"],
   },
   {
     number: "02",
     title: "Content & marketing sites",
     description:
-      "Performance-tuned Next.js sites with Sanity CMS. Lighthouse-optimized, accessible, and easy to update without breaking things.",
-    tech: ["Next.js", "Sanity", "TypeScript", "Tailwind"],
+      "Next.js front ends with Sanity behind them, so whoever owns the copy can change it without a deploy or a developer.",
+    tech: ["Next.js", "Sanity", "TypeScript", "Tailwind CSS"],
   },
   {
     number: "03",
@@ -80,15 +80,15 @@ export const personalProjects: PersonalProject[] = [
   {
     title: "Strava Webhook",
     description:
-      "Cloudflare Worker that listens for new Strava activities and triggers a deploy to AWS EC2 via GitHub Actions, keeping this portfolio's activity data fresh.",
-    tech: ["Cloudflare Workers", "JavaScript", "AWS EC2"],
+      "Cloudflare Worker that catches Strava's webhook when I log a run and fires a Vercel deploy hook, so this site rebuilds with the new activity on its own.",
+    tech: ["Cloudflare Workers", "JavaScript", "Vercel"],
     href: "/projects/strava-webhook/",
   },
   {
     title: "This portfolio",
     description:
       "Statically exported Next.js site with GitHub and Strava API integrations. Blog posts are markdown with custom syntax highlighting.",
-    tech: ["Next.js", "TypeScript", "Tailwind"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     href: "/projects/portfolio/",
   },
   {
@@ -102,7 +102,7 @@ export const personalProjects: PersonalProject[] = [
     title: "Tech Feed",
     description:
       "Article-sharing platform with auth and news aggregation via NewsData.io. Deployed through GitHub Actions CI/CD.",
-    tech: ["Laravel", "Firebase", "Tailwind"],
+    tech: ["Laravel", "Firebase", "Tailwind CSS"],
     href: "/projects/tech-feed/",
   },
 ];
