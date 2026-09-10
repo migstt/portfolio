@@ -48,6 +48,7 @@ export function processRepo(repo: GitHubRepo): ProcessedRepo {
     displayName: formatRepoName(repo.name),
     description: repo.description || "No description available",
     url: repo.html_url,
+    liveUrl: repo.homepage ? repo.homepage.trim() || null : null,
     language: repo.language,
     stars: repo.stargazers_count,
     forks: repo.forks_count,

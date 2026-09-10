@@ -1,20 +1,26 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { createPageMetadata } from "@/lib/metadata";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
-import { LanguageBadge } from "@/components/general/LanguageBadge";
+import { ProjectCard } from "@/components/projects/ProjectCard";
 import { fetchGitHubRepos } from "@/lib/github";
 import { ProcessedRepo } from "@/app/types";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
-import Link from "next/link";
-import { format } from "date-fns";
+import { SocialLinks } from "@/components/general/SocialLinks";
 
 export const metadata: Metadata = createPageMetadata.projectListing();
+
+const FEATURED = [
+  "portfolio",
+  "shell-scripts",
+  "strava-webhook",
+  "github-actions-workflows",
+  "boardgameplay",
+  "tech-feed",
+];
+
+const githubHref =
+  SocialLinks.find((link) => link.name === "GitHub")?.href ||
+  "https://github.com/migstt";
 
 export default async function ProjectsPage() {
   let repos: Array<ProcessedRepo>;
@@ -26,49 +32,71 @@ export default async function ProjectsPage() {
     repos = [];
   }
 
+  const featured = FEATURED.map((name) =>
+    repos.find((repo) => repo.name === name)
+  ).filter((repo): repo is ProcessedRepo => Boolean(repo));
+
+  const rest = repos.filter((repo) => !FEATURED.includes(repo.name));
+
+  if (repos.length === 0) {
+    return (
+      <SubpageLayout pageTitle="Projects">
+        <div className="text-center py-16 animate-slide-up-1">
+          <p className="font-sans text-muted-foreground">
+            Could not load repositories from GitHub right now.
+          </p>
+          <a
+            href={githubHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-sm text-primary underline underline-offset-4 hover:opacity-75 transition-opacity"
+          >
+            Browse them on GitHub instead
+          </a>
+        </div>
+      </SubpageLayout>
+    );
+  }
+
   return (
-    <SubpageLayout>
-      {repos.length === 0 ? (
-        <div className="text-center py-12 animate-slide-up-1 pt-[-4]">
-          <p className="text-muted-foreground">No repositories found.</p>
-        </div>
-      ) : (
-        <div className="grid gap-2 sm:grid-cols-2 animate-slide-up-1 pt-[-4]">
-          {repos.map((repo) => (
-            <Link
-              key={repo.id}
-              href={`/projects/${repo.name}/`}
-              className="block"
-            >
-              <Card className="p-4 hover:border-muted h-full flex flex-col">
-                <CardHeader className="p-0 flex flex-row items-start justify-between">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-base truncate">
-                        {repo.displayName}
-                      </CardTitle>
-                      <LanguageBadge language={repo.language} />
-                    </div>
-                    <CardDescription>
-                      <span className="text-xs text-muted-foreground">
-                        Updated{" "}
-                        {format(new Date(repo.updatedAt), "MMM d, yyyy")}
-                      </span>
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-                {repo.description && (
-                  <CardContent className="p-0">
-                    <p className="text-sm/5 text-muted-foreground">
+    <SubpageLayout pageTitle="Projects">
+      <div className="flex flex-col gap-10 animate-slide-up-1">
+        <section>
+          <h2 className="text-sm font-semibold text-muted-foreground mb-3">
+            Featured
+          </h2>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {featured.map((repo) => (
+              <ProjectCard key={repo.id} repo={repo} />
+            ))}
+          </div>
+        </section>
+
+        {rest.length > 0 && (
+          <section>
+            <h2 className="text-sm font-semibold text-muted-foreground mb-3">
+              Everything else
+            </h2>
+            <ul className="divide-y divide-border border-t border-b border-border">
+              {rest.map((repo) => (
+                <li key={repo.id}>
+                  <Link
+                    href={`/projects/${repo.name}/`}
+                    className="flex items-baseline justify-between gap-4 py-2.5 group"
+                  >
+                    <span className="text-sm group-hover:text-primary transition-colors">
+                      {repo.displayName}
+                    </span>
+                    <span className="font-sans text-xs text-muted-foreground truncate hidden sm:block flex-1 text-right">
                       {repo.description}
-                    </p>
-                  </CardContent>
-                )}
-              </Card>
-            </Link>
-          ))}
-        </div>
-      )}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
     </SubpageLayout>
   );
 }

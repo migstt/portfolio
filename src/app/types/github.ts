@@ -4,6 +4,7 @@ export type GitHubRepo = {
   description: string | null;
   html_url: string;
   language: string | null;
+  homepage: string | null;
   stargazers_count: number;
   forks_count: number;
   updated_at: string;
@@ -16,6 +17,7 @@ export type ProcessedRepo = {
   displayName: string;
   description: string;
   url: string;
+  liveUrl: string | null;
   language: string | null;
   stars: number;
   forks: number;

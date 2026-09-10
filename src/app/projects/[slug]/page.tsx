@@ -81,30 +81,53 @@ export default async function ProjectPage({ params }: { params: Params }) {
               <h1 className="text-2xl sm:text-3xl lg:text-3xl font-bold leading-tight text-foreground">
                 {repo.displayName}
               </h1>
-              <Button asChild size="sm" className="flex-shrink-0">
-                <Link
-                  href={repo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span className="hidden sm:inline">View on GitHub</span>
-                  <span className="sm:hidden">GitHub</span>
-                </Link>
-              </Button>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                {repo.liveUrl && (
+                  <Button asChild size="sm" variant="outline">
+                    <Link
+                      href={repo.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span>Live</span>
+                    </Link>
+                  </Button>
+                )}
+                <Button asChild size="sm">
+                  <Link
+                    href={repo.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span className="hidden sm:inline">View on GitHub</span>
+                    <span className="sm:hidden">GitHub</span>
+                  </Link>
+                </Button>
+              </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
               {repo.language && <LanguageBadge language={repo.language} />}
-              <div className="flex items-center gap-2">
-                <Star className="h-4 w-4" />
-                <span>{repo.stars} stars</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <GitFork className="h-4 w-4" />
-                <span>{repo.forks} forks</span>
-              </div>
+              {repo.stars > 0 && (
+                <div className="flex items-center gap-2">
+                  <Star className="h-4 w-4" />
+                  <span>
+                    {repo.stars} {repo.stars === 1 ? "star" : "stars"}
+                  </span>
+                </div>
+              )}
+              {repo.forks > 0 && (
+                <div className="flex items-center gap-2">
+                  <GitFork className="h-4 w-4" />
+                  <span>
+                    {repo.forks} {repo.forks === 1 ? "fork" : "forks"}
+                  </span>
+                </div>
+              )}
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
                 <span>
