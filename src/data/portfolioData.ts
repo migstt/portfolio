@@ -66,18 +66,18 @@ export const experiences: Experience[] = [
     startMonth: "September 2025",
     endMonth: "September 2026",
     description:
-      "Built a multi-role portal for a US building products manufacturer where contractors manage homeowner leads and submit quotes, and distributors get scoped access. Integrated HubSpot CRM via API workflows for lead assignment automation, deal stage updates, and portal-to-CRM activity sync, with role-based access control across all three user types. Also shipped a B2C e-commerce platform on Medusa with Supabase, Redis, Mollie for payments, and ZeptoMail for transactional emails, plus marketing and content sites using Next.js, TypeScript, Sanity, and Tailwind CSS deployed via Vercel and Netlify.",
+      "Built a multi-role portal for a US building products manufacturer where contractors manage homeowner leads, send quotes, and track deals. Integrated HubSpot CRM through its API and webhooks for lead assignment automation, deal stage updates, two-way lead status sync, and portal-to-CRM activity sync, with role-based access control across four user types: admin, staff, contractor, and distributor. Also shipped a B2C e-commerce platform on Medusa with Supabase, Redis, Mollie for payments, and ZeptoMail for transactional emails, plus marketing and content sites using Next.js, TypeScript, Sanity, and Tailwind CSS deployed via Vercel and Netlify.",
     highlights: [
       {
         title: "Multi-role portal for a US building products manufacturer",
         detail:
-          "Three user types in one app: contractors work their homeowner leads and submit quotes, distributors see only their own accounts, and staff see everything. Access is enforced per role rather than hidden in the UI, so a contractor cannot reach another contractor's leads by guessing a URL.",
+          "Four user types in one app: admin, staff, contractor, and distributor, each with its own dashboard. Contractors work their homeowner leads, send quotes, and track deals, and distributors see only their own accounts. Access is enforced on the server per role rather than hidden in the UI, so a contractor cannot reach another contractor's leads by guessing a URL.",
         tech: ["Next.js", "TypeScript", "PostgreSQL"],
       },
       {
         title: "HubSpot CRM integration",
         detail:
-          "Lead assignment, deal stage updates, and portal activity all sync back into HubSpot through API workflows. Sales stopped keeping a second copy of the pipeline: what happens in the portal is what the CRM shows.",
+          "Lead assignment, deal stage updates, and portal activity all sync into HubSpot through its API. Lead status syncs both ways: a HubSpot webhook updates the portal when a status changes in the CRM, and the portal updates HubSpot when it changes in the portal. Each update first checks that the status is valid and not already the same, so nothing is sent twice. Sales stopped keeping a second copy of the pipeline: what happens in the portal is what the CRM shows.",
         tech: ["HubSpot API", "Webhooks"],
       },
       {
@@ -144,7 +144,7 @@ export const experiences: Experience[] = [
     startMonth: "July 2023",
     endMonth: "March 2024",
     description:
-      "Built a real-time multiplayer board game using Next.js, TypeScript, and Cloud Firestore. Built admin features for an artist-fan platform (Next.js, TypeScript, Firebase) for managing social links and subscription cancellation in the mobile app. Contributed technical blog posts during the internship; final article published on the company blog.",
+      "Built a tech article site with Laravel and Firebase Authentication, and a real-time multiplayer board game using Next.js, TypeScript, and Cloud Firestore. Built admin features for an artist-fan platform (Next.js, TypeScript, Firebase) for managing social links and subscription cancellation in the mobile app. Contributed technical blog posts during the internship; final article published on the company blog.",
     highlights: [
       {
         title: "Real-time multiplayer board game",
@@ -165,6 +165,26 @@ export const experiences: Experience[] = [
           "."
         ),
         tech: ["Next.js", "TypeScript", "Cloud Firestore"],
+      },
+      {
+        title: "Tech article site",
+        detail:
+          "The project my manager gave me before I joined client work. Users sign in with Google through Firebase Authentication and post articles. A scheduled Artisan command pulls tech news from the NewsData.io API, and GitHub Actions checks each push and deploys over SSH on each release.",
+        detailJSX: React.createElement(
+          React.Fragment,
+          null,
+          "The project my manager gave me before I joined client work. Users sign in with Google through Firebase Authentication and post articles. A scheduled Artisan command pulls tech news from the NewsData.io API, and GitHub Actions checks each push and deploys over SSH on each release. ",
+          React.createElement(
+            "a",
+            {
+              href: "/projects/tech-feed/",
+              className: "text-primary underline hover:opacity-75 transition-opacity",
+            },
+            "See the project"
+          ),
+          "."
+        ),
+        tech: ["Laravel", "Firebase Authentication", "Tailwind CSS", "GitHub Actions"],
       },
       {
         title: "Admin features for an artist-fan platform",
@@ -208,7 +228,18 @@ export const experiences: Experience[] = [
     descriptionJSX: React.createElement(
       React.Fragment,
       null,
-      "Built a real-time multiplayer ",
+      "Built a ",
+      React.createElement(
+        "a",
+        {
+          href: "/projects/tech-feed/",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          className: "text-primary underline hover:opacity-75 transition-opacity",
+        },
+        "tech article site"
+      ),
+      " with Laravel and Firebase Authentication, and a real-time multiplayer ",
       React.createElement(
         "a",
         {

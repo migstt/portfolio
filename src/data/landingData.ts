@@ -56,7 +56,7 @@ export const selectedWork: WorkItem[] = [
   {
     title: "Multi-role portal with HubSpot CRM integration",
     description:
-      "Built for a US building products manufacturer: contractors manage homeowner leads and submit quotes, distributors get scoped access, and HubSpot stays in sync with portal activity via API workflows for lead assignment and deal updates.",
+      "Built for a US building products manufacturer: contractors manage homeowner leads, send quotes, and track deals, distributors get scoped access, and HubSpot stays in sync through its API and webhooks: lead assignment, deal updates, and a two-way lead status sync.",
     company: "Webriqs Technologies Inc.",
     tech: ["Next.js", "TypeScript", "HubSpot", "PostgreSQL"],
   },
