@@ -19,9 +19,9 @@ export function SubpageHeader() {
             priority
             className="rounded-md"
           />
-          <h1 className="hidden sm:block text-sm md:text-xl font-bold truncate">
+          <span className="hidden sm:block text-sm md:text-xl font-bold truncate">
             {name}
-          </h1>
+          </span>
         </Link>
         <div className="flex items-center gap-3">
           <HeaderActions />

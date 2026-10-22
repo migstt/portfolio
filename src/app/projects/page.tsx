@@ -40,7 +40,7 @@ export default async function ProjectsPage() {
 
   if (repos.length === 0) {
     return (
-      <SubpageLayout pageTitle="Projects">
+      <SubpageLayout pageTitle="Projects" heading="Projects">
         <div className="text-center py-16 animate-slide-up-1">
           <p className="font-sans text-muted-foreground">
             Could not load repositories from GitHub right now.
@@ -59,7 +59,7 @@ export default async function ProjectsPage() {
   }
 
   return (
-    <SubpageLayout pageTitle="Projects">
+    <SubpageLayout pageTitle="Projects" heading="Projects">
       <div className="flex flex-col gap-10 animate-slide-up-1">
         <section>
           <h2 className="text-sm font-semibold text-muted-foreground mb-3">

@@ -8,7 +8,7 @@ export const metadata: Metadata = createPageMetadata.experience();
 
 export default function ExperiencePage() {
   return (
-    <SubpageLayout pageTitle="Experience">
+    <SubpageLayout pageTitle="Experience" heading="Experience">
       <div className="animate-slide-up-1">
         <ol className="relative border-s border-primary/30">
           {experiences.map((exp, index) => (

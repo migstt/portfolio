@@ -10,7 +10,7 @@ export default function BlogPostsPage() {
   const posts = getAllPosts();
 
   return (
-    <SubpageLayout pageTitle="Blog">
+    <SubpageLayout pageTitle="Blog" heading="Blog">
       <PostList posts={posts} />
     </SubpageLayout>
   );
