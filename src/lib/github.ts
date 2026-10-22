@@ -3,6 +3,22 @@ import { GitHubRepo, ProcessedRepo, DetailedRepo } from "@/app/types";
 
 const USERNAME = "migstt";
 
+// README images with relative paths break on this site, so point them at the
+// raw file on GitHub instead.
+function resolveReadmeImages(markdown: string, repoName: string) {
+  const base = `https://raw.githubusercontent.com/${USERNAME}/${repoName}/HEAD/`;
+  const isRelative = (src: string) => !/^([a-z]+:|\/\/|#)/i.test(src);
+  const toAbsolute = (src: string) => base + src.replace(/^\.?\//, "");
+
+  return markdown
+    .replace(/(!\[[^\]]*\]\()([^)\s]+)/g, (match, prefix, src) =>
+      isRelative(src) ? prefix + toAbsolute(src) : match
+    )
+    .replace(/(<img[^>]*\ssrc=["'])([^"']+)/gi, (match, prefix, src) =>
+      isRelative(src) ? prefix + toAbsolute(src) : match
+    );
+}
+
 export const languageColors: Record<string, string> = {
   JavaScript: "#b7920a",
   TypeScript: "#2b7489",
@@ -192,7 +208,9 @@ export async function getRepositoryWithReadme(
       if (readmeResponse.ok) {
         const readmeText = await readmeResponse.text();
         readmeRaw = readmeText;
-        const processedReadme = await processMarkdown(readmeText);
+        const processedReadme = await processMarkdown(
+          resolveReadmeImages(readmeText, repoName)
+        );
         readme = processedReadme.toString();
         hasReadme = true;
         console.log(
