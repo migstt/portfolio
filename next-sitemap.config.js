@@ -4,7 +4,7 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   outDir: "./out",
-  // Parked/preview routes and the /profile redirect stub: reachable by URL but
-  // deliberately kept out of the sitemap.
-  exclude: ["/landing", "/profile", "/theme-neu"],
+  // Parked/preview routes, the /profile redirect stub and the fun /terminal
+  // page: reachable by URL but deliberately kept out of the sitemap.
+  exclude: ["/landing", "/profile", "/theme-neu", "/terminal"],
 };
