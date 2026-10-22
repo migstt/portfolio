@@ -37,9 +37,16 @@ const BASE_METADATA: Metadata = {
   manifest: "/site.webmanifest",
 };
 
+// Google cuts meta descriptions off at about 155 characters, so trim long ones
+// (like GitHub repo descriptions) at a word break.
+function trimDescription(text: string, max = 155) {
+  if (text.length <= max) return text;
+  return text.slice(0, max - 3).replace(/[\s,.;:]+\S*$/, "") + "...";
+}
+
 export function createMetadata({
   title,
-  description = SITE_CONFIG.description,
+  description: rawDescription = SITE_CONFIG.description,
   path = "",
   image = SITE_CONFIG.ogImage,
   publishedTime,
@@ -57,6 +64,7 @@ export function createMetadata({
   type?: "website" | "article";
 }): Metadata {
   const url = `${SITE_CONFIG.url}${path}`;
+  const description = trimDescription(rawDescription);
   // Google cuts titles off at about 60 characters, so drop the site name
   // suffix when it would push the title past that.
   const withSuffix = `${title} | ${SITE_CONFIG.name}`;
@@ -152,7 +160,8 @@ export const createPageMetadata = {
   blogListing: () =>
     createMetadata({
       title: "Blog",
-      description: "Articles on web development, DevOps, and tech insights.",
+      description:
+        "Articles on web development and DevOps: Next.js, Laravel, GitHub Actions, SSH, server backups, and the Strava API.",
       path: "/blog",
     }),
 

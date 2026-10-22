@@ -1,7 +1,7 @@
 ---
 title: "Fetching GitHub Repos and READMEs at Build Time in Next.js"
 date: "2026-07-29"
-description: "Pull your public repositories and their READMEs from the GitHub API during a static build. Rate limits, the raw-README trick, and keeping your token server-side."
+description: "Pull your public repos and their READMEs from the GitHub API during a static build. Rate limits, the raw-README trick, and keeping your token server-side."
 image: "/images/blog/fetch-github-repos-nextjs-build-time.jpg"
 tags: ["Next.js", "APIs"]
 ---
