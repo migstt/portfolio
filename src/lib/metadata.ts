@@ -57,8 +57,11 @@ export function createMetadata({
   type?: "website" | "article";
 }): Metadata {
   const url = `${SITE_CONFIG.url}${path}`;
+  // Google cuts titles off at about 60 characters, so drop the site name
+  // suffix when it would push the title past that.
+  const withSuffix = `${title} | ${SITE_CONFIG.name}`;
   const pageTitle =
-    title === SITE_CONFIG.name ? title : `${title} | ${SITE_CONFIG.name}`;
+    title === SITE_CONFIG.name || withSuffix.length > 60 ? title : withSuffix;
 
   return {
     ...BASE_METADATA,
